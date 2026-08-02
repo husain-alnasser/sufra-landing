@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>سُفرة — نظام الطلب والخدمة الذكي للمطاعم الراقية</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <meta name="description" content="سُفرة نظام طلبٍ وخدمةٍ ذكي عبر رمز QR يربط ضيفك بالنادل والنادل بالمطبخ: طلب جماعي، دفع ذكي للفاتورة، تخصيص دقيق، ومناداة النادل بلمسة.">
 <!--
   ══════════════════════════════════════════════════════════════
@@ -14,6 +13,7 @@
   الصفحة ملف واحد مستقل — ارفعها على أي استضافة.
   ══════════════════════════════════════════════════════════════
 -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 
 
@@ -249,6 +249,25 @@ details.q[open] summary .qi{transform:rotate(135deg)}
 details.q .a{padding:0 22px 21px;font-size:15px;color:var(--muted);line-height:1.95}
 details.q .a b{color:var(--ink)}
 
+/* PRICING */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:900px;margin-inline:auto;align-items:stretch}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px 28px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;position:relative}
+.plan.feat{border:1.6px solid var(--amber);box-shadow:0 18px 46px rgba(217,138,36,.20);background:linear-gradient(180deg,#FFFDF6,#FFF6E4)}
+.plan-badge{position:absolute;top:-14px;inset-inline-start:28px;background:linear-gradient(135deg,var(--amber-lt),var(--amber));color:#3A2607;font-family:'Cairo';font-weight:700;font-size:12.5px;padding:6px 15px;border-radius:100px;box-shadow:var(--shadow-sm)}
+.plan-name{font-family:'Cairo';font-weight:700;font-size:19px;color:var(--brass);margin-bottom:12px}
+.plan-price{display:flex;align-items:flex-end;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.plan-price .amt{font-family:'Cairo';font-weight:900;font-size:clamp(38px,6vw,54px);color:var(--ink);line-height:1}
+.plan-price .cur{font-family:'Cairo';font-weight:700;font-size:19px;color:var(--ink);padding-bottom:7px}
+.plan-price .per{font-size:15px;color:var(--muted);padding-bottom:9px}
+.plan-note{font-size:13.5px;color:var(--pist);font-weight:600;margin-bottom:20px}
+.plan.feat .plan-note{color:var(--brass)}
+.plan-list{list-style:none;display:grid;gap:12px;margin-bottom:24px}
+.plan-list li{display:flex;gap:11px;align-items:flex-start;font-size:15px;color:var(--ink);font-weight:500}
+.plan-list li svg{width:20px;height:20px;color:var(--pist);flex:0 0 auto;margin-top:3px}
+.plan-btn{width:100%;margin-top:auto}
+.pricing-foot{text-align:center;font-size:13px;color:var(--muted);margin-top:24px}
+.pricing-foot b{color:var(--brass)}
+
 /* FOOTER */
 footer{background:var(--oud);color:#C7B79A;padding:48px 0 30px;position:relative;overflow:hidden}
 .foot-lat{position:absolute;inset:0;background-image:var(--lattice);background-size:46px 46px;opacity:.05}
@@ -267,7 +286,7 @@ footer .wrap{position:relative;z-index:1}
 .reveal.in{opacity:1;transform:none}
 
 @media(max-width:960px){
-  .flex .wrap,.final-card,.pos{grid-template-columns:1fr}
+  .flex .wrap,.final-card,.pos,.plans{grid-template-columns:1fr}
   .pains{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr}.bens{grid-template-columns:1fr 1fr}
   .feat{grid-template-columns:1fr;gap:24px}.feat.rev .feat-body{order:0}.feat-media{min-height:190px}
 }
@@ -300,7 +319,7 @@ footer .wrap{position:relative;z-index:1}
   <rect x="30" y="63" width="7" height="7" fill="#241610"/>
 </svg><span class="brandname disp">سُفرة</span></a>
     <nav class="nav-links" aria-label="روابط">
-      <a href="#how">كيف تعمل</a><a href="#features">المميزات</a><a href="#why">لماذا سُفرة</a><a href="#faq">الأسئلة</a>
+      <a href="#how">كيف تعمل</a><a href="#features">المميزات</a><a href="#pricing">الباقات</a><a href="#why">لماذا سُفرة</a><a href="#faq">الأسئلة</a>
     </nav>
     <a href="#join" class="btn btn-gold deskcta">انضم كمطعم مؤسِّس</a>
     <a href="#join" class="btn btn-gold only-mob">احجز عرضًا</a>
@@ -543,6 +562,45 @@ footer .wrap{position:relative;z-index:1}
   </div>
 </section>
 
+<!-- PRICING -->
+<section class="sec pricing" id="pricing">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">الباقات والأسعار</span>
+      <h2 class="title">اختر باقة مطعمك</h2>
+      <p class="sub">كل الباقات تشمل مميزات سُفرة كاملة — والفرق في مدة الاشتراك ومقدار التوفير.</p>
+    </div>
+    <div class="plans">
+      <div class="plan reveal">
+        <div class="plan-name">الباقة الشهرية</div>
+        <div class="plan-price"><span class="amt">٢٠٠</span><span class="cur">ريال</span><span class="per">/ شهريًا</span></div>
+        <div class="plan-note">تُدفع شهريًا · تجديد كل شهر</div>
+        <ul class="plan-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>كل مميزات سُفرة: الطلب الجماعي، الدفع الذكي، التخصيص، ومناداة النادل.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>تجهيز قائمة مطعمك ورموز QR للطاولات.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>تفعيل/إيقاف المميزات حسب سير عملك.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>تحديثاتٌ ودعمٌ مستمر.</span></li>
+        </ul>
+        <a href="#join" class="btn btn-line plan-btn plan-monthly">اشترك شهريًا</a>
+      </div>
+      <div class="plan feat reveal">
+        <div class="plan-badge">الأفضل قيمة · خصم ٣٠٪</div>
+        <div class="plan-name">الباقة السنوية</div>
+        <div class="plan-price"><span class="amt">١٬٦٨٠</span><span class="cur">ريال</span><span class="per">/ سنويًا</span></div>
+        <div class="plan-note">يعادل ١٤٠ ريال/شهر · توفّر ٧٢٠ ريال · تُدفع دفعةً واحدة</div>
+        <ul class="plan-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>كل مميزات سُفرة: الطلب الجماعي، الدفع الذكي، التخصيص، ومناداة النادل.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>تجهيز قائمة مطعمك ورموز QR للطاولات.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>تفعيل/إيقاف المميزات حسب سير عملك.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>أولويةٌ في الدعم والتطوير.</span></li>
+        </ul>
+        <a href="#join" class="btn btn-gold plan-btn plan-yearly">اشترك سنويًا · وفّر ٣٠٪</a>
+      </div>
+    </div>
+    <p class="pricing-foot reveal">الأسعار بالريال السعودي. الدفع الآمن عبر <b>ميسّر</b> — مدى، فيزا، ماستركارد، و Apple Pay.</p>
+  </div>
+</section>
+
 <!-- FINAL CTA -->
 <section class="sec final" id="join">
   <div class="final-bg"></div>
@@ -620,6 +678,12 @@ var FORMSPREE_ID    = "mojggvkq";       // ← معرّف Formspree
 document.getElementById('yr').textContent = new Date().getFullYear();
 (function(){var base="https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent("السلام عليكم، مهتم بخدمة سُفرة لمطعمي وأرغب بحجز عرض تجريبي.");
   document.querySelectorAll('.wa-link').forEach(function(a){a.href=base;});})();
+// روابط دفع ميسّر — تُملأ بعد تفعيل الحساب (فارغة الآن، فتوجّه أزرار الاشتراك مؤقتًا لنموذج التواصل)
+var MOYASAR_MONTHLY_URL = "";
+var MOYASAR_YEARLY_URL  = "";
+(function(){var m=document.querySelector('.plan-monthly'),y=document.querySelector('.plan-yearly');
+  if(m&&MOYASAR_MONTHLY_URL)m.href=MOYASAR_MONTHLY_URL;
+  if(y&&MOYASAR_YEARLY_URL)y.href=MOYASAR_YEARLY_URL;})();
 document.querySelectorAll('.lead-form').forEach(function(form){
   var box=form.closest('.fbox');
   form.addEventListener('submit',function(e){
