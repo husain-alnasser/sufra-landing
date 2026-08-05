@@ -252,20 +252,30 @@ details.q .a b{color:var(--ink)}
 
 /* PRICING */
 .plans{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:900px;margin-inline:auto;align-items:stretch}
-.plan{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px 28px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;position:relative}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px 28px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;position:relative;text-align:center}
 .plan.feat{border:1.6px solid var(--amber);box-shadow:0 18px 46px rgba(168,71,31,.20);background:linear-gradient(180deg,#fdfbf7,#f8f4ec)}
-.plan-badge{position:absolute;top:-14px;inset-inline-start:28px;background:linear-gradient(135deg,var(--amber-lt),var(--amber));color:#fdfbf7;font-family:'Cairo';font-weight:700;font-size:12.5px;padding:6px 15px;border-radius:100px;box-shadow:var(--shadow-sm)}
-.plan-name{font-family:'Cairo';font-weight:700;font-size:19px;color:var(--brass);margin-bottom:12px}
-.plan-price{display:flex;align-items:flex-end;gap:8px;flex-wrap:wrap;margin-bottom:6px}
-.plan-price .amt{font-family:'Cairo';font-weight:900;font-size:clamp(38px,6vw,54px);color:var(--ink);line-height:1}
-.plan-price .cur{font-family:'Cairo';font-weight:700;font-size:19px;color:var(--ink);padding-bottom:7px}
-.plan-price .per{font-size:15px;color:var(--muted);padding-bottom:9px}
-.plan-note{font-size:13.5px;color:var(--pist);font-weight:600;margin-bottom:20px}
-.plan.feat .plan-note{color:var(--brass)}
-.plan-list{list-style:none;display:grid;gap:12px;margin-bottom:24px}
+.plan-badge{position:absolute;top:-14px;inset-inline-start:50%;transform:translateX(50%);background:linear-gradient(135deg,var(--amber-lt),var(--amber));color:#fdfbf7;font-family:'Cairo';font-weight:700;font-size:12.5px;padding:6px 15px;border-radius:100px;box-shadow:var(--shadow-sm);white-space:nowrap}
+.plan-name{font-family:'Cairo';font-weight:900;font-size:24px;color:var(--ink);margin-bottom:8px}
+.plan-name b{color:var(--amber)}
+.plan-tag{font-size:14px;color:var(--muted);line-height:1.8;min-height:44px;margin-bottom:14px}
+.plan-sep{border:0;border-top:1px solid var(--line);opacity:.7;margin:0 0 18px}
+.plan-price{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:6px}
+.plan-price .amt{font-family:'Cairo';font-weight:900;font-size:clamp(40px,6vw,56px);color:var(--amber);line-height:1}
+.plan-price .unit{display:flex;flex-direction:column;align-items:flex-start;line-height:1.5}
+.plan-price .cur{font-family:'Cairo';font-weight:700;font-size:16px;color:var(--ink)}
+.plan-price .per{font-size:13px;color:var(--muted)}
+.plan-note{font-size:13.5px;color:var(--muted);font-weight:600;margin-bottom:18px;min-height:20px}
+.plan-incl{font-family:'Cairo';font-weight:700;font-size:15.5px;color:var(--ink);text-align:start;margin-bottom:14px}
+.plan-list{list-style:none;display:grid;gap:12px;margin-bottom:24px;text-align:start}
 .plan-list li{display:flex;gap:11px;align-items:flex-start;font-size:15px;color:var(--ink);font-weight:500}
-.plan-list li svg{width:20px;height:20px;color:var(--pist);flex:0 0 auto;margin-top:3px}
+.plan-list li svg{width:21px;height:21px;flex:0 0 auto;margin-top:2px;color:#fff;background:var(--pist);border-radius:50%;padding:4px}
+.plan-list li b{color:var(--amber)}
 .plan-btn{width:100%;margin-top:auto}
+/* مفتاح المدّة — سنويّ افتراضاً، والخصم معلَن على الزرّ نفسه */
+.billing-toggle{display:flex;justify-content:center;gap:0;margin:0 auto 30px;background:var(--card);border:1px solid var(--line);border-radius:100px;padding:5px;width:fit-content;box-shadow:var(--shadow-sm)}
+.billing-toggle button{font-family:'IBM Plex Sans Arabic';font-weight:600;font-size:14.5px;border:0;background:transparent;color:var(--muted);padding:10px 22px;border-radius:100px;cursor:pointer;transition:background .18s,color .18s;min-height:44px}
+.billing-toggle button.on{background:linear-gradient(135deg,var(--amber-lt),var(--amber));color:#fdfbf7;box-shadow:0 6px 16px rgba(168,71,31,.28)}
+.billing-toggle .save{font-size:12px;opacity:.9}
 .pricing-foot{text-align:center;font-size:13px;color:var(--muted);margin-top:24px}
 .pricing-foot b{color:var(--brass)}
 
@@ -581,37 +591,52 @@ footer .wrap{position:relative;z-index:1}
     <div class="sec-head center reveal">
       <span class="eyebrow">الباقات والأسعار</span>
       <h2 class="title">اختر باقة مطعمك</h2>
-      <p class="sub">باقتان على قدر تشغيلك — وفي كلتيهما قائمتك كاملة وتجهيزها مجانًا. والاشتراك السنوي بخصم ٣٠٪.</p>
+      <p class="sub">باقتان على قدر تشغيلك — وفي كلتيهما قائمتك كاملة وتجهيزها مجانًا.</p>
     </div>
+
+    <!-- مفتاح المدّة: سنويّ افتراضاً — والسعر يُعرض شهريّاً في الحالتين،
+         وسطر ما تحت السعر يقول صراحةً أن السنويّ يُدفع دفعةً واحدة. -->
+    <div class="billing-toggle reveal" role="group" aria-label="مدة الاشتراك">
+      <button type="button" class="on" data-period="y">سنوي <span class="save">· خصم ٣٠٪</span></button>
+      <button type="button" data-period="m">شهري</button>
+    </div>
+
     <div class="plans">
       <div class="plan reveal">
-        <div class="plan-name">سُفرة QR</div>
-        <div class="plan-price"><span class="amt">١٠٠</span><span class="cur">ريال</span><span class="per">/ شهريًا</span></div>
-        <div class="plan-note">أو ٨٤٠ ريال سنويًا · يعادل ٧٠ ريال/شهر · توفّر ٣٦٠ ريال</div>
+        <div class="plan-name">سُفرة <b>QR</b></div>
+        <div class="plan-tag">قائمةٌ رقمية وسلة طاولة وحسابٌ واضح — والنادل يأخذ الطلب بنفسه كما اعتدت، بلا شاشات طاقم.</div>
+        <hr class="plan-sep">
+        <div class="plan-price"><span class="amt" data-y="٧٠" data-m="١٠٠">٧٠</span><span class="unit"><span class="cur">ريال</span><span class="per">/ شهريًا</span></span></div>
+        <div class="plan-note" data-y="تُدفع دفعةً واحدة: ٨٤٠ ريال سنويًا · وفّرت ٣٦٠ ريال" data-m="تجديدٌ شهريّ · بلا التزام">تُدفع دفعةً واحدة: ٨٤٠ ريال سنويًا · وفّرت ٣٦٠ ريال</div>
+        <hr class="plan-sep">
+        <div class="plan-incl">تشمل الباقة:</div>
         <ul class="plan-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>قائمة رقمية كاملة: صور وأوصاف وخيارات — بالعربية والإنجليزية.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>سلة طاولة مشتركة وحسابٌ واضح على جوال الضيف.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>تجهيز قائمة مطعمك كاملة — مجانًا.</b></span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>رموز QR للطاولات، جاهزة للطباعة.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>تحديثاتٌ ودعمٌ مستمر.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>قائمة رقمية كاملة: صور وأوصاف وخيارات — بالعربية والإنجليزية.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>سلة طاولة مشتركة وحسابٌ واضح على جوال الضيف.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>تجهيز قائمة مطعمك كاملة — مجانًا.</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>رموز QR للطاولات، جاهزة للطباعة.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>تحديثاتٌ ودعمٌ مستمر.</span></li>
         </ul>
-        <div class="plan-note">النادل يأخذ الطلب بنفسه كما اعتدت — هذه الباقة قائمةٌ وحساب، بلا شاشات طاقم.</div>
-        <a href="#join" class="btn btn-line plan-btn plan-qr">ابدأ بسُفرة QR</a>
+        <a href="#join" class="btn btn-line plan-btn plan-qr">اختر باقة سُفرة QR</a>
       </div>
       <div class="plan feat reveal">
         <div class="plan-badge">الأكثر اختيارًا</div>
-        <div class="plan-name">سُفرة برو</div>
-        <div class="plan-price"><span class="amt">٢٠٠</span><span class="cur">ريال</span><span class="per">/ شهريًا</span></div>
-        <div class="plan-note">أو ١٬٦٨٠ ريال سنويًا · يعادل ١٤٠ ريال/شهر · توفّر ٧٢٠ ريال</div>
+        <div class="plan-name">سُفرة <b>برو</b></div>
+        <div class="plan-tag">مطعمُك كاملاً في النظام: الطلب يصل المطبخ، والنادل يُنادى من الطاولة، والحساب يُقسم بلا لبس.</div>
+        <hr class="plan-sep">
+        <div class="plan-price"><span class="amt" data-y="١٤٠" data-m="٢٠٠">١٤٠</span><span class="unit"><span class="cur">ريال</span><span class="per">/ شهريًا</span></span></div>
+        <div class="plan-note" data-y="تُدفع دفعةً واحدة: ١٬٦٨٠ ريال سنويًا · وفّرت ٧٢٠ ريال" data-m="تجديدٌ شهريّ · بلا التزام">تُدفع دفعةً واحدة: ١٬٦٨٠ ريال سنويًا · وفّرت ٧٢٠ ريال</div>
+        <hr class="plan-sep">
+        <div class="plan-incl">تشمل الباقة:</div>
         <ul class="plan-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>كل ما في سُفرة QR</b>، وفوقه:</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>الطلب يصل المطبخ مباشرةً، والنادل يستلم الجاهز — تذاكر حيّة.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>نداء النادل من الطاولة — بأنواعٍ يحدّدها مطعمك.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>حسابات طاقم بصلاحيات: مطبخ، نادل، تحصيل.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>تقسيم الفاتورة: واحدٌ يدفع، أو كلٌّ يدفع طلبه، أو مشترك.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>أولويةٌ في الدعم والتطوير.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>كل ما في سُفرة QR</b>، وفوقه:</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>الطلب يصل المطبخ مباشرةً، والنادل يستلم الجاهز — تذاكر حيّة.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>نداء النادل من الطاولة — بأنواعٍ يحدّدها مطعمك.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>حسابات طاقم بصلاحيات: مطبخ، نادل، تحصيل.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>تقسيم الفاتورة: واحدٌ يدفع، أو كلٌّ يدفع طلبه، أو مشترك.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>أولويةٌ في الدعم والتطوير.</span></li>
         </ul>
-        <a href="#join" class="btn btn-gold plan-btn plan-pro">اشترك في سُفرة برو</a>
+        <a href="#join" class="btn btn-gold plan-btn plan-pro">اختر باقة سُفرة برو</a>
       </div>
     </div>
 
@@ -723,12 +748,29 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 (function(){var base="https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent("السلام عليكم، مهتم بخدمة سُفرة لمطعمي وأرغب بحجز عرض تجريبي.");
   document.querySelectorAll('.wa-link').forEach(function(a){a.href=base;});})();
 // روابط دفع ميسّر — تُملأ بعد تفعيل الحساب (فارغة الآن، فتوجّه أزرار الاشتراك مؤقتًا لنموذج التواصل)
-// روابط دفع ميسّر لكل باقة — تُملأ بعد تفعيل الحساب (فارغةً توجّه الأزرار لنموذج التواصل)
-var MOYASAR_QR_URL  = "";
-var MOYASAR_PRO_URL = "";
-(function(){var q=document.querySelector('.plan-qr'),p=document.querySelector('.plan-pro');
-  if(q&&MOYASAR_QR_URL)q.href=MOYASAR_QR_URL;
-  if(p&&MOYASAR_PRO_URL)p.href=MOYASAR_PRO_URL;})();
+// روابط دفع ميسّر — باقتان × مدّتان. تُملأ بعد تفعيل الحساب،
+// وفارغةً تبقى الأزرار على نموذج التواصل (#join).
+var MOYASAR = { qr:{ y:"", m:"" }, pro:{ y:"", m:"" } };
+
+// مفتاح المدّة: سنويّ افتراضاً — والقيم في سمات data لا في نسختين من الشيفرة.
+(function(){
+  var period = 'y';
+  var qBtn = document.querySelector('.plan-qr'), pBtn = document.querySelector('.plan-pro');
+  function apply(){
+    document.querySelectorAll('#pricing [data-y]').forEach(function(el){
+      el.textContent = el.getAttribute(period === 'y' ? 'data-y' : 'data-m');
+    });
+    document.querySelectorAll('.billing-toggle button').forEach(function(b){
+      b.classList.toggle('on', b.getAttribute('data-period') === period);
+    });
+    if(qBtn) qBtn.href = MOYASAR.qr[period]  || '#join';
+    if(pBtn) pBtn.href = MOYASAR.pro[period] || '#join';
+  }
+  document.querySelectorAll('.billing-toggle button').forEach(function(b){
+    b.addEventListener('click', function(){ period = b.getAttribute('data-period'); apply(); });
+  });
+  apply();
+})();
 document.querySelectorAll('.lead-form').forEach(function(form){
   var box=form.closest('.fbox');
   form.addEventListener('submit',function(e){
