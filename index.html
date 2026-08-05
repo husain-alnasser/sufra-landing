@@ -253,18 +253,20 @@ details.q .a b{color:var(--ink)}
 /* PRICING */
 .plans{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:900px;margin-inline:auto;align-items:stretch}
 .plan{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px 28px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;position:relative;text-align:center}
-.plan.feat{border:1.6px solid var(--amber);box-shadow:0 18px 46px rgba(168,71,31,.20);background:linear-gradient(180deg,#fdfbf7,#f8f4ec)}
+.plan.top{border:1.6px solid var(--amber);box-shadow:0 18px 46px rgba(168,71,31,.20);background:linear-gradient(180deg,#fdfbf7,#f8f4ec)}
 .plan-badge{position:absolute;top:-14px;inset-inline-start:50%;transform:translateX(50%);background:linear-gradient(135deg,var(--amber-lt),var(--amber));color:#fdfbf7;font-family:'Cairo';font-weight:700;font-size:12.5px;padding:6px 15px;border-radius:100px;box-shadow:var(--shadow-sm);white-space:nowrap}
+/* صفوف البطاقتين تتوازى: لكل صفٍّ ارتفاعٌ ثابت لا يتبع طول نصّه،
+   فالسعر يحاذي السعر و«تشمل الباقة» تحاذي أختها مهما اختلف الوصف. */
 .plan-name{font-family:'Cairo';font-weight:900;font-size:24px;color:var(--ink);margin-bottom:8px}
 .plan-name b{color:var(--amber)}
-.plan-tag{font-size:14px;color:var(--muted);line-height:1.8;min-height:44px;margin-bottom:14px}
-.plan-sep{border:0;border-top:1px solid var(--line);opacity:.7;margin:0 0 18px}
-.plan-price{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:6px}
-.plan-price .amt{font-family:'Cairo';font-weight:900;font-size:clamp(40px,6vw,56px);color:var(--amber);line-height:1}
+.plan-tag{font-size:14px;color:var(--muted);line-height:1.8;min-height:54px;margin-bottom:12px;display:flex;align-items:flex-start;justify-content:center}
+.plan-sep{border:0;border-top:1px solid var(--line);opacity:.7;margin:0 0 16px}
+.plan-price{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:6px;min-height:58px}
+.plan-price .amt{font-family:'Cairo';font-weight:900;font-size:clamp(38px,5.5vw,52px);color:var(--amber);line-height:1}
 .plan-price .unit{display:flex;flex-direction:column;align-items:flex-start;line-height:1.5}
 .plan-price .cur{font-family:'Cairo';font-weight:700;font-size:16px;color:var(--ink)}
 .plan-price .per{font-size:13px;color:var(--muted)}
-.plan-note{font-size:13.5px;color:var(--muted);font-weight:600;margin-bottom:18px;min-height:20px}
+.plan-note{font-size:13.5px;color:var(--muted);font-weight:600;margin-bottom:16px;min-height:22px}
 .plan-incl{font-family:'Cairo';font-weight:700;font-size:15.5px;color:var(--ink);text-align:start;margin-bottom:14px}
 .plan-list{list-style:none;display:grid;gap:12px;margin-bottom:24px;text-align:start}
 .plan-list li{display:flex;gap:11px;align-items:flex-start;font-size:15px;color:var(--ink);font-weight:500}
@@ -604,10 +606,10 @@ footer .wrap{position:relative;z-index:1}
     <div class="plans">
       <div class="plan reveal">
         <div class="plan-name">سُفرة <b>QR</b></div>
-        <div class="plan-tag">قائمةٌ رقمية وسلة طاولة وحسابٌ واضح — والنادل يأخذ الطلب بنفسه كما اعتدت، بلا شاشات طاقم.</div>
+        <div class="plan-tag">للمطعم الذي يريد قائمةً رقمية أنيقة — بلا أيّ تغيير في تشغيله اليوميّ.</div>
         <hr class="plan-sep">
-        <div class="plan-price"><span class="amt" data-y="٧٠" data-m="١٠٠">٧٠</span><span class="unit"><span class="cur">ريال</span><span class="per">/ شهريًا</span></span></div>
-        <div class="plan-note" data-y="تُدفع دفعةً واحدة: ٨٤٠ ريال سنويًا · وفّرت ٣٦٠ ريال" data-m="تجديدٌ شهريّ · بلا التزام">تُدفع دفعةً واحدة: ٨٤٠ ريال سنويًا · وفّرت ٣٦٠ ريال</div>
+        <div class="plan-price"><span class="amt" data-y="٨٤٠" data-m="١٠٠">٨٤٠</span><span class="unit"><span class="cur">ريال</span><span class="per" data-y="/ سنويًا" data-m="/ شهريًا">/ سنويًا</span></span></div>
+        <div class="plan-note" data-y="تُدفع دفعةً واحدة · يعادل ٧٠ ريال في الشهر" data-m="تجديدٌ شهريّ · بلا التزام">تُدفع دفعةً واحدة · يعادل ٧٠ ريال في الشهر</div>
         <hr class="plan-sep">
         <div class="plan-incl">تشمل الباقة:</div>
         <ul class="plan-list">
@@ -615,17 +617,18 @@ footer .wrap{position:relative;z-index:1}
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>سلة طاولة مشتركة وحسابٌ واضح على جوال الضيف.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>تجهيز قائمة مطعمك كاملة — مجانًا.</b></span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>رموز QR للطاولات، جاهزة للطباعة.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>النادل يأخذ الطلب بنفسه كما اعتدت — بلا شاشات طاقم.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>تحديثاتٌ ودعمٌ مستمر.</span></li>
         </ul>
         <a href="#join" class="btn btn-line plan-btn plan-qr">اختر باقة سُفرة QR</a>
       </div>
-      <div class="plan feat reveal">
+      <div class="plan top reveal">
         <div class="plan-badge">الأكثر اختيارًا</div>
         <div class="plan-name">سُفرة <b>برو</b></div>
-        <div class="plan-tag">مطعمُك كاملاً في النظام: الطلب يصل المطبخ، والنادل يُنادى من الطاولة، والحساب يُقسم بلا لبس.</div>
+        <div class="plan-tag">للمطعم الذي يريد التشغيل كاملاً — من الطاولة إلى المطبخ إلى الحساب.</div>
         <hr class="plan-sep">
-        <div class="plan-price"><span class="amt" data-y="١٤٠" data-m="٢٠٠">١٤٠</span><span class="unit"><span class="cur">ريال</span><span class="per">/ شهريًا</span></span></div>
-        <div class="plan-note" data-y="تُدفع دفعةً واحدة: ١٬٦٨٠ ريال سنويًا · وفّرت ٧٢٠ ريال" data-m="تجديدٌ شهريّ · بلا التزام">تُدفع دفعةً واحدة: ١٬٦٨٠ ريال سنويًا · وفّرت ٧٢٠ ريال</div>
+        <div class="plan-price"><span class="amt" data-y="١٬٦٨٠" data-m="٢٠٠">١٬٦٨٠</span><span class="unit"><span class="cur">ريال</span><span class="per" data-y="/ سنويًا" data-m="/ شهريًا">/ سنويًا</span></span></div>
+        <div class="plan-note" data-y="تُدفع دفعةً واحدة · يعادل ١٤٠ ريال في الشهر" data-m="تجديدٌ شهريّ · بلا التزام">تُدفع دفعةً واحدة · يعادل ١٤٠ ريال في الشهر</div>
         <hr class="plan-sep">
         <div class="plan-incl">تشمل الباقة:</div>
         <ul class="plan-list">
