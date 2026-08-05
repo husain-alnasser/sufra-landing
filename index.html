@@ -291,6 +291,14 @@ footer .wrap{position:relative;z-index:1}
 .foot-brand .bn{font-family:'Cairo';font-weight:900;font-size:24px;color:#fff}
 .foot-brand p{font-size:13px;color:#8b7f72;margin-top:3px}
 .foot-links{display:flex;gap:24px;flex-wrap:wrap}
+.foot-contact{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;
+  margin-top:26px;padding:22px 0 4px;border-top:1px solid rgba(207,124,80,.22)}
+.fc-title{font-family:'Cairo';font-weight:700;font-size:17px;color:#f3ede1}
+.fc-sub{font-size:14px;color:#cfc2b0;margin-top:4px}
+.fc-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.fc-num{font-family:'Cairo';font-weight:700;font-size:17px;color:var(--amber-lt);
+  letter-spacing:.5px;white-space:nowrap}
+.fc-num:hover{text-decoration:underline}
 .foot-links a{font-size:14.5px;color:#cfc2b0;transition:color .15s}.foot-links a:hover{color:var(--amber-lt)}
 .copy{text-align:center;font-size:12.5px;color:#6f6055;padding-top:22px}
 .copy .disp{color:var(--amber-lt);font-size:15px}
@@ -740,6 +748,28 @@ footer .wrap{position:relative;z-index:1}
         <a href="#how">كيف تعمل</a><a href="#features">المميزات</a><a href="#why">لماذا سُفرة</a><a href="#faq">الأسئلة</a><a href="#join">انضم كمطعم مؤسِّس</a><a href="https://app.alsufr.com/manager/login">دخول المطاعم</a>
       </nav>
     </div>
+    <!--
+      قسم التواصل — رقمٌ ظاهر لا نموذجٌ وحده.
+
+      كل مسارات الصفحة كانت تقود إلى «اترك رقمك ونتواصل معك»، وهي تطلب من
+      الزائر أن يثق قبل أن يعرف. ومن يريد سؤالاً واحداً قبل أن يترك بياناته
+      لم يكن يجد باباً — فيغلق الصفحة. والرقم الظاهر يقلب الاتجاه: يتّصل هو.
+    -->
+    <div class="foot-contact">
+      <div>
+        <span class="fc-title">تواصل معنا مباشرة</span>
+        <p class="fc-sub">سؤالٌ قبل أن تقرّر؟ اسأل — بلا نموذج وبلا انتظار.</p>
+      </div>
+      <div class="fc-actions">
+        <a class="btn btn-wa wa-link" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.33 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm5.8 14.06c-.24.68-1.42 1.32-1.95 1.36-.5.05-.98.23-3.3-.69-2.78-1.1-4.55-3.95-4.69-4.13-.14-.18-1.13-1.5-1.13-2.86s.71-2.03.96-2.31c.25-.28.55-.35.73-.35.18 0 .37 0 .53.01.17.01.4-.06.62.48.24.57.81 1.96.88 2.1.07.14.12.31.02.49-.09.18-.14.29-.28.45-.14.16-.29.36-.42.48-.14.14-.28.29-.12.57.16.28.72 1.18 1.54 1.91 1.06.95 1.96 1.24 2.24 1.38.28.14.44.12.6-.07.18-.21.69-.8.87-1.08.18-.28.37-.23.62-.14.25.09 1.6.75 1.87.89.28.14.46.21.53.32.07.12.07.66-.17 1.34z"/></svg>
+          واتساب
+        </a>
+        <!-- الرقم نصٌّ يُنسخ ويُتّصل به — لا صورةً ولا داخل زرّ فقط. -->
+        <a class="fc-num" id="phoneLink" href="#" dir="ltr">+966 55 788 4367</a>
+      </div>
+    </div>
+
     <p class="copy">© <span id="yr">2026</span> <span class="disp">سُفرة</span> · طلبٌ أسرع، وحسابٌ أوضح، وتجربةٌ أرقى.</p>
   </div>
 </footer>
@@ -749,7 +779,13 @@ var WHATSAPP_NUMBER = "966557884367";   // ← رقم واتساب دولي بد
 var FORMSPREE_ID    = "mojggvkq";       // ← معرّف Formspree
 document.getElementById('yr').textContent = new Date().getFullYear();
 (function(){var base="https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent("السلام عليكم، مهتم بخدمة سُفرة لمطعمي وأرغب بحجز عرض تجريبي.");
-  document.querySelectorAll('.wa-link').forEach(function(a){a.href=base;});})();
+  document.querySelectorAll('.wa-link').forEach(function(a){a.href=base;});
+  /* الرقم المعروض والمتّصل به يُشتقّان من WHATSAPP_NUMBER نفسه: رقمان
+     مكتوبان بيدين يفترقان يوم يتغيّر أحدهما. */
+  var el=document.getElementById('phoneLink');
+  if(el){var n=WHATSAPP_NUMBER;el.href='tel:+'+n;
+    el.textContent='+'+n.slice(0,3)+' '+n.slice(3,5)+' '+n.slice(5,8)+' '+n.slice(8);}
+})();
 // روابط دفع ميسّر — تُملأ بعد تفعيل الحساب (فارغة الآن، فتوجّه أزرار الاشتراك مؤقتًا لنموذج التواصل)
 // روابط دفع ميسّر — باقتان × مدّتان. تُملأ بعد تفعيل الحساب،
 // وفارغةً تبقى الأزرار على نموذج التواصل (#join).
