@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>سُفرة — نظام الطلب والخدمة الذكي للمطاعم الراقية</title>
-<meta name="description" content="سُفرة نظام طلبٍ وخدمةٍ ذكي عبر رمز QR يربط ضيفك بالنادل والنادل بالمطبخ — يعمل بجانب نظام الكاشير عندك: طلب جماعي، تقسيم ذكي للفاتورة، تخصيص دقيق، ومناداة النادل بلمسة.">
+<meta name="description" content="سُفرة نظام متكامل لإدارة خدمة الطاولات في المطاعم: يطلب الضيف بنفسه عبر QR أو يسجّل النادل الطلب مباشرةً، وتصل الطلبات إلى المطبخ مع متابعة حالتها لحظة بلحظة — يعمل بجانب نظام الكاشير عندك.">
 <!--
   ══════════════════════════════════════════════════════════════
   إعدادات قبل النشر:
@@ -153,17 +153,16 @@ header{position:sticky;top:0;z-index:60;background:rgba(248,244,236,.85);
 .pullquote p{font-family:'Cairo';font-weight:900;font-size:clamp(20px,3.1vw,29px);
   color:var(--amber-lt);line-height:1.75;max-width:760px;margin:0 auto}
 
-/* ORDERING WAYS — طريقتان للطلب */
-.ways{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px}
-@media(max-width:720px){.ways{grid-template-columns:1fr}}
-.way{background:var(--card);border:1px solid var(--line);border-radius:16px;
-  padding:26px 24px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:11px}
-.way-tag{align-self:flex-start;font-family:'Cairo';font-weight:600;font-size:12.5px;letter-spacing:1px;
-  color:var(--brass);background:#f7e6dd;padding:6px 14px;border-radius:999px}
-.way h3{font-size:clamp(21px,2.6vw,25px);font-weight:700;line-height:1.3}
-.way p{font-size:15.5px;color:var(--muted);line-height:1.9}
-.way-for{margin-top:auto;display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:14px;color:var(--ink)}
-.way-for svg{width:19px;height:19px;color:var(--pist);flex:0 0 auto}
+/* HOW — مراحل الخدمة، والخياران داخل المرحلة الأولى (على الخلفية الداكنة) */
+.stages{display:grid;gap:20px}
+.steps.duo{grid-template-columns:repeat(2,1fr)}
+.ways{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.way{background:rgba(255,255,255,.05);border:1px solid rgba(207,124,80,.30);border-radius:13px;
+  padding:18px;display:flex;flex-direction:column;gap:8px}
+.way-tag{align-self:flex-start;font-family:'Cairo';font-weight:600;font-size:12px;letter-spacing:1px;
+  color:var(--amber-lt);background:rgba(207,124,80,.16);padding:5px 12px;border-radius:999px}
+.way h4{font-size:16.5px;font-weight:700;color:#fff;line-height:1.3}
+.way p{font-size:14px;color:#e0d5c2;line-height:1.8}
 
 /* FEATURES */
 .feat{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4.5vw,60px);align-items:center;padding:clamp(30px,4vw,46px) 0}
@@ -320,12 +319,12 @@ footer .wrap{position:relative;z-index:1}
 
 @media(max-width:960px){
   .flex .wrap,.final-card,.pos,.plans{grid-template-columns:1fr}
-  .pains{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr}.bens{grid-template-columns:1fr 1fr}
+  .pains{grid-template-columns:1fr 1fr}.steps,.steps.duo{grid-template-columns:1fr}.bens{grid-template-columns:1fr 1fr}
   .feat{grid-template-columns:1fr;gap:24px}.feat.rev .feat-body{order:0}.feat-media{min-height:190px}
 }
 @media(max-width:640px){
   .nav-links,.nav .btn.deskcta{display:none}.only-mob{display:inline-flex}
-  .pains,.bens{grid-template-columns:1fr}.loop .node{width:118px}.trust .wrap{justify-content:flex-start}
+  .pains,.bens,.ways{grid-template-columns:1fr}.loop .node{width:118px}.trust .wrap{justify-content:flex-start}
   .brandname{font-size:26px}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.reveal{opacity:1;transform:none;transition:none}.btn:hover{transform:none}}
@@ -346,7 +345,7 @@ footer .wrap{position:relative;z-index:1}
   <circle cx="50" cy="50" r="44" fill="#fdfbf7" stroke="#e0d5c2" stroke-width="3.5"/><circle cx="50" cy="50" r="30" fill="none" stroke="#efe8db" stroke-width="2.5"/><circle cx="50" cy="50" r="18" fill="#a8471f"/>
 </svg><span class="brandname disp">سُفرة</span></a>
     <nav class="nav-links" aria-label="روابط">
-      <a href="#how">كيف تعمل</a><a href="#ordering">طريقتان للطلب</a><a href="#features">المميزات</a><a href="#pricing">الباقات</a><a href="#why">لماذا سُفرة</a><a href="#faq">الأسئلة</a><a href="https://app.alsufr.com/manager/login">دخول المطاعم</a>
+      <a href="#how">كيف تعمل</a><a href="#features">المميزات</a><a href="#pricing">الباقات</a><a href="#faq">الأسئلة</a><a href="https://app.alsufr.com/manager/login">دخول المطاعم</a>
     </nav>
     <a href="#join" class="btn btn-gold deskcta">انضم كمطعم مؤسِّس</a>
     <a href="#join" class="btn btn-gold only-mob">احجز عرضًا</a>
@@ -368,12 +367,12 @@ footer .wrap{position:relative;z-index:1}
   <circle cx="100" cy="100" r="26" fill="#a8471f"/>
   <g fill="#cf7c50" opacity=".9"><circle cx="100" cy="26" r="2.4"/><circle cx="174" cy="100" r="2.4"/><circle cx="100" cy="174" r="2.4"/><circle cx="26" cy="100" r="2.4"/></g>
 </svg></div>
-    <div class="eyebrow solo" style="justify-content:center">لمطاعم الجلسات الراقية</div>
-    <h1>نظام <span class="hl">QR</span> ذكي يربط ضيفك بالنادل،<br>والنادل <span class="hl">بالمطبخ</span>.</h1>
-    <p class="lead"><b>سُفرة</b> نظام طلبٍ وخدمةٍ ذكي عبر رمز <b>QR</b> — يعمل <b>بجانب</b> نظام الكاشير عندك لا بديلًا عنه.<br>
-      خدمةٌ أسرع وأدقّ لمطعمك، وتجربةٌ أرقى لضيوفك — بلا تطبيق وبلا انتظار.</p>
+    <div class="eyebrow solo" style="justify-content:center">نظام متكامل لخدمة الطاولات</div>
+    <h1>خدمة طاولة <span class="hl">أذكى</span>،<br>من أول طلب إلى <span class="hl">وصول الطبق</span>.</h1>
+    <p class="lead"><b>سُفرة</b> تربط الضيف والنادل والمطبخ في نظام واحد. يطلب الضيف بنفسه عبر <b>QR</b>، أو يسجّل النادل الطلب له مباشرةً — وتصل الطلبات إلى المطبخ بوضوح، مع متابعة حالتها لحظة بلحظة.<br>
+      <b>خدمة أسرع، أخطاء أقل، وتجربة أريح لفريقك وضيوفك.</b></p>
     <div class="cta-row">
-      <a href="#join" class="btn btn-gold">احجز عرض سُفرة لمطعمك</a>
+      <a href="#join" class="btn btn-gold">احجز عرضًا لسُفرة</a>
       <a href="#how" class="btn btn-line">شاهد كيف تعمل</a>
     </div>
     <div class="mini-note">
@@ -418,7 +417,7 @@ footer .wrap{position:relative;z-index:1}
     <div class="sec-head center reveal">
       <span class="eyebrow on-dark">طريقة الخدمة</span>
       <h2 class="title">كيف تعمل سُفرة؟</h2>
-      <p class="sub">حلقة ربطٍ واحدة تدور بسلاسة بين ثلاثة أطراف — من مسح الرمز إلى وصول الطبق.</p>
+      <p class="sub">تبدأ الخدمة بالطريقة التي تناسب ضيفك، ثم يتابع النادل والمطبخ الطلب من خلال مسار واحد واضح.</p>
     </div>
     <div class="loop reveal" aria-hidden="true">
       <div class="node"><span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10.5 18.5h3" stroke-linecap="round"/></svg></span><span>الضيف</span></div>
@@ -427,38 +426,22 @@ footer .wrap{position:relative;z-index:1}
       <span class="arw"><svg viewBox="0 0 36 22" fill="none" stroke="currentColor" stroke-width="2"><path d="M34 11H2M9 4 2 11l7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       <div class="node"><span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M6 20V10M18 20V10M4 10h16l-2-4H6z" stroke-linejoin="round"/><path d="M12 6V3" stroke-linecap="round"/></svg></span><span>المطبخ</span></div>
     </div>
-    <div class="steps">
-      <div class="step reveal"><div class="sn"><b>١</b><span>الخطوة الأولى</span></div><h3>الضيف يمسح ويطلب</h3><p>يمسح رمز QR على الطاولة من كاميرا جواله، يتصفّح القائمة، ويرفع طلبه بتفاصيله الدقيقة.</p></div>
-      <div class="step reveal"><div class="sn"><b>٢</b><span>الخطوة الثانية</span></div><h3>النادل يستلم ويُنسّق</h3><p>تصل الطلبات والنداءات إلى النادل فورًا ومرتّبة، فيخدم بأولويةٍ ووضوح دون ذهابٍ وإياب.</p></div>
-      <div class="step reveal"><div class="sn"><b>٣</b><span>الخطوة الثالثة</span></div><h3>المطبخ ينفّذ ويُشير</h3><p>يستلم المطبخ الطلب كما اختاره الضيف، وحين يجهز الطبق يُنادي النادل لاستلامه فورًا.</p></div>
-    </div>
-    <div class="pullquote reveal"><p>«المطبخُ يُنادي النادل، والنادلُ يخدم الضيف — بلا صياحٍ وبلا لغط.»</p></div>
-  </div>
-</section>
-
-<!-- ORDERING WAYS — طريقتان للطلب: QR أو النادل -->
-<section class="sec" id="ordering">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow">طريقتان للطلب · نظامٌ واحد</span>
-      <h2 class="title">ضيفك يختار كيف يطلب</h2>
-      <p class="sub">ليس كلُّ ضيفٍ يحبّ أن يطلب من جواله — ومع سُفرة لا تُجبره. مَن يفضّل يطلب بنفسه عبر الـ QR، ومَن يفضّل الخدمة المباشرة يأخذ النادل طلبه على جهازه ويُرسله للمطبخ. والطريقان يصلان المطبخ من نظامٍ واحد.</p>
-    </div>
-    <div class="ways">
-      <div class="way reveal">
-        <span class="way-tag">الطلب بالـ QR</span>
-        <h3>الضيف يطلب بنفسه</h3>
-        <p>يمسح رمز الطاولة من كاميرا جواله، يتصفّح القائمة، ويرفع طلبه بتفاصيله الدقيقة — بلا تطبيقٍ وبلا انتظار.</p>
-        <div class="way-for"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> لمن يفضّل أن يطلب بنفسه</div>
+    <div class="stages">
+      <div class="step reveal">
+        <div class="sn"><b>١</b><span>المرحلة الأولى</span></div>
+        <h3>يبدأ الطلب بالطريقة المناسبة</h3>
+        <p>يطلب الضيف بنفسه عبر QR، أو يطلب بالطريقة المعتادة ويسجّل النادل طلبه مباشرةً في النظام. وفي الحالتين يصل الطلب إلى المسار نفسه.</p>
+        <div class="ways">
+          <div class="way"><span class="way-tag">الضيف · QR</span><h4>الضيف يطلب بنفسه</h4><p>يمسح رمز الطاولة، يتصفّح القائمة ويرسل طلبه دون تحميل تطبيق.</p></div>
+          <div class="way"><span class="way-tag">النادل</span><h4>النادل يسجّل الطلب</h4><p>يستقبل النادل الطلب بالطريقة المعتادة ويسجّله من جهازه، حتى لمن لا يرغب في استخدام QR.</p></div>
+        </div>
       </div>
-      <div class="way reveal">
-        <span class="way-tag">الطلب على الطاولة</span>
-        <h3>النادل يأخذ الطلب</h3>
-        <p>النادل يسجّل طلب الضيف على جهازه ويُرسله إلى المطبخ مباشرةً — دون أن يستعمل الضيف رمزًا أو تطبيقًا.</p>
-        <div class="way-for"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> لمن يفضّل الخدمة المباشرة</div>
+      <div class="steps duo">
+        <div class="step reveal"><div class="sn"><b>٢</b><span>المرحلة الثانية</span></div><h3>النادل يتابع وينسّق</h3><p>تظهر الطلبات وحالتها ونداءات الطاولات أمام النادل بوضوح، ليعرف ما يحتاج إلى متابعة وما أصبح جاهزًا للتقديم.</p></div>
+        <div class="step reveal"><div class="sn"><b>٣</b><span>المرحلة الثالثة</span></div><h3>المطبخ يستلم ويُجهّز</h3><p>تصل تفاصيل الطلب إلى المطبخ مباشرةً، ويحدّث الفريق حالة الأصناف عند تجهيزها ليعرف النادل متى يقدمها.</p></div>
       </div>
     </div>
-    <div class="pullquote reveal"><p>طريقتان للطلب. نظامٌ واحد.</p></div>
+    <div class="pullquote reveal"><p>طريقتان للطلب، ومسار خدمة واحد منظم.</p></div>
   </div>
 </section>
 
@@ -587,35 +570,6 @@ footer .wrap{position:relative;z-index:1}
 </section>
 
 <div class="wrap"><div class="divider reveal"><svg width="26" height="26"><use href="#star"/></svg></div></div>
-
-<!-- WHY -->
-<section class="sec" id="why">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow">التموضع</span>
-      <h2 class="title">سُفرة ليس نظام كاشير</h2>
-      <p class="sub">سُفرة لا يحاسب ولا يحلّل أنماط الطلبات. مهمّته الوحيدة أن يربط ضيفك بالنادل، والنادل بالمطبخ، في شبكةٍ واحدة تختصر الاحتكاك وترفع مستوى الخدمة.</p>
-    </div>
-    <div class="pos reveal">
-      <div class="pcol p-no">
-        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 8l8 8M16 8l-8 8" stroke-linecap="round"/></svg> سُفرة ليس…</h3>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg>نظام محاسبة أو كاشير.</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg>نظام تحليل أنماط الطلبات وأوقاتها.</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg>بديلًا عن النادل أو اللمسة الإنسانية.</li>
-        </ul>
-      </div>
-      <div class="pcol p-is">
-        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6" stroke-linecap="round" stroke-linejoin="round"/></svg> سُفرة هو…</h3>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>جسرٌ يربط الضيف بالنادل بالمطبخ.</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>أداة تشغيلٍ ترفع دقّة الخدمة وسرعتها.</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>مساعدٌ يجعل فريقك أكفأ وأكثر حضورًا.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- FLEX -->
 <section class="sec flex" id="flexibility">
@@ -758,6 +712,7 @@ footer .wrap{position:relative;z-index:1}
       <details class="q reveal"><summary>هل هو نظام محاسبة أو كاشير؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">لا، وليس بديلًا عنه. سُفرة أداة تشغيلٍ تربط الضيف بالنادل بالمطبخ، وتعمل <b>بجانب</b> نظامك الحالي مهما كان. لا تغيّر شيئًا في محاسبتك ولا في فواتيرك الضريبية.</div></details>
       <details class="q reveal"><summary>هل يستقبل سُفرة مدفوعات الضيوف؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">لا. الدفع يتم عبر نظام الكاشير عندك كالمعتاد. ما يفعله سُفرة هو أنه يعرف مَن طلب ماذا، فيصل الحساب إلى الكاشير <b>مقسّمًا وجاهزًا</b> — فينتهي الجدل حول تقسيم الفاتورة دون أن نلمس أموالك.</div></details>
       <details class="q reveal"><summary>هل أحتاج تغيير نظام الكاشير عندي؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">لا. سُفرة يعمل مع أي نظام كاشير لأنه لا يتداخل معه — طلبات ضيوفك تصل إلى فريقك ومطبخك عبر سُفرة، والحساب يُغلق عندك كالمعتاد.</div></details>
+      <details class="q reveal"><summary>هل سُفرة بديل لنظام الكاشير؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">سُفرة نظام لإدارة خدمة الطاولات والطلبات داخل المطعم، ويمكنه العمل إلى جانب نظام الكاشير المستخدم لديك.</div></details>
       <details class="q reveal"><summary>من يُدخل الطلب في الكاشير؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">فريقك، كما يفعل اليوم. الفرق أن الطلب يصل إليه <b>مكتوبًا ودقيقًا</b> من الضيف مباشرة — بلا سماعٍ خاطئ ولا تفاصيل ضائعة. (الربط الآلي مع أنظمة الكاشير ضمن خطتنا القادمة.)</div></details>
       <details class="q reveal"><summary>كم يستغرق التجهيز والانطلاق؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">نستقبل منيوك (صورة أو ملف)، ونجهّزه لك خلال ٢٤ ساعة، ثم نراجعه معك ونضبط النظام على سير عملك. التجهيز مجاني في كل الباقات.</div></details>
       <details class="q reveal"><summary>هل بياناتي وقائمتي ملك لي؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">نعم. قائمتك وبيانات طلباتك ملكك، وتستطيع تصديرها في أي وقت من لوحة المدير.</div></details>
@@ -788,7 +743,7 @@ footer .wrap{position:relative;z-index:1}
   <circle cx="50" cy="50" r="44" fill="#fdfbf7" stroke="#e0d5c2" stroke-width="3.5"/><circle cx="50" cy="50" r="30" fill="none" stroke="#efe8db" stroke-width="2.5"/><circle cx="50" cy="50" r="18" fill="#a8471f"/>
 </svg><div><span class="bn disp">سُفرة</span><p>نظام الطلب والخدمة الذكي</p></div></div>
       <nav class="foot-links" aria-label="روابط التذييل">
-        <a href="#how">كيف تعمل</a><a href="#ordering">طريقتان للطلب</a><a href="#features">المميزات</a><a href="#why">لماذا سُفرة</a><a href="#faq">الأسئلة</a><a href="#join">انضم كمطعم مؤسِّس</a><a href="https://app.alsufr.com/manager/login">دخول المطاعم</a>
+        <a href="#how">كيف تعمل</a><a href="#features">المميزات</a><a href="#faq">الأسئلة</a><a href="#join">انضم كمطعم مؤسِّس</a><a href="https://app.alsufr.com/manager/login">دخول المطاعم</a>
       </nav>
     </div>
     <!--
