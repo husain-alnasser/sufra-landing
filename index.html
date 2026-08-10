@@ -153,6 +153,18 @@ header{position:sticky;top:0;z-index:60;background:rgba(248,244,236,.85);
 .pullquote p{font-family:'Cairo';font-weight:900;font-size:clamp(20px,3.1vw,29px);
   color:var(--amber-lt);line-height:1.75;max-width:760px;margin:0 auto}
 
+/* ORDERING WAYS — طريقتان للطلب */
+.ways{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px}
+@media(max-width:720px){.ways{grid-template-columns:1fr}}
+.way{background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:26px 24px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:11px}
+.way-tag{align-self:flex-start;font-family:'Cairo';font-weight:600;font-size:12.5px;letter-spacing:1px;
+  color:var(--brass);background:#f7e6dd;padding:6px 14px;border-radius:999px}
+.way h3{font-size:clamp(21px,2.6vw,25px);font-weight:700;line-height:1.3}
+.way p{font-size:15.5px;color:var(--muted);line-height:1.9}
+.way-for{margin-top:auto;display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:14px;color:var(--ink)}
+.way-for svg{width:19px;height:19px;color:var(--pist);flex:0 0 auto}
+
 /* FEATURES */
 .feat{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4.5vw,60px);align-items:center;padding:clamp(30px,4vw,46px) 0}
 .feat + .feat{border-top:1px solid var(--line)}
@@ -334,7 +346,7 @@ footer .wrap{position:relative;z-index:1}
   <circle cx="50" cy="50" r="44" fill="#fdfbf7" stroke="#e0d5c2" stroke-width="3.5"/><circle cx="50" cy="50" r="30" fill="none" stroke="#efe8db" stroke-width="2.5"/><circle cx="50" cy="50" r="18" fill="#a8471f"/>
 </svg><span class="brandname disp">سُفرة</span></a>
     <nav class="nav-links" aria-label="روابط">
-      <a href="#how">كيف تعمل</a><a href="#features">المميزات</a><a href="#pricing">الباقات</a><a href="#why">لماذا سُفرة</a><a href="#faq">الأسئلة</a><a href="https://app.alsufr.com/manager/login">دخول المطاعم</a>
+      <a href="#how">كيف تعمل</a><a href="#ordering">طريقتان للطلب</a><a href="#features">المميزات</a><a href="#pricing">الباقات</a><a href="#why">لماذا سُفرة</a><a href="#faq">الأسئلة</a><a href="https://app.alsufr.com/manager/login">دخول المطاعم</a>
     </nav>
     <a href="#join" class="btn btn-gold deskcta">انضم كمطعم مؤسِّس</a>
     <a href="#join" class="btn btn-gold only-mob">احجز عرضًا</a>
@@ -424,6 +436,32 @@ footer .wrap{position:relative;z-index:1}
   </div>
 </section>
 
+<!-- ORDERING WAYS — طريقتان للطلب: QR أو النادل -->
+<section class="sec" id="ordering">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">طريقتان للطلب · نظامٌ واحد</span>
+      <h2 class="title">ضيفك يختار كيف يطلب</h2>
+      <p class="sub">ليس كلُّ ضيفٍ يحبّ أن يطلب من جواله — ومع سُفرة لا تُجبره. مَن يفضّل يطلب بنفسه عبر الـ QR، ومَن يفضّل الخدمة المباشرة يأخذ النادل طلبه على جهازه ويُرسله للمطبخ. والطريقان يصلان المطبخ من نظامٍ واحد.</p>
+    </div>
+    <div class="ways">
+      <div class="way reveal">
+        <span class="way-tag">الطلب بالـ QR</span>
+        <h3>الضيف يطلب بنفسه</h3>
+        <p>يمسح رمز الطاولة من كاميرا جواله، يتصفّح القائمة، ويرفع طلبه بتفاصيله الدقيقة — بلا تطبيقٍ وبلا انتظار.</p>
+        <div class="way-for"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> لمن يفضّل أن يطلب بنفسه</div>
+      </div>
+      <div class="way reveal">
+        <span class="way-tag">الطلب على الطاولة</span>
+        <h3>النادل يأخذ الطلب</h3>
+        <p>النادل يسجّل طلب الضيف على جهازه ويُرسله إلى المطبخ مباشرةً — دون أن يستعمل الضيف رمزًا أو تطبيقًا.</p>
+        <div class="way-for"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> لمن يفضّل الخدمة المباشرة</div>
+      </div>
+    </div>
+    <div class="pullquote reveal"><p>طريقتان للطلب. نظامٌ واحد.</p></div>
+  </div>
+</section>
+
 <!-- FEATURES -->
 <section class="sec" id="features">
   <div class="wrap">
@@ -492,13 +530,13 @@ footer .wrap{position:relative;z-index:1}
 
     <div class="feat reveal">
       <div class="feat-body">
-        <div class="fmark"><svg width="26" height="26"><use href="#star"/></svg><span>ربط المطبخ</span></div>
-        <h3>ربط المطبخ بالنادل</h3>
-        <p>عندما يجهز الطبق، يُشير المطبخ إلى النادل لاستلامه فورًا — فلا يبرد الطعام على ممرّ التقديم، ولا يُنسى طبقٌ في الزحام. تنسيقٌ خلف الكواليس، وانسيابٌ أمام الضيف.</p>
+        <div class="fmark"><svg width="26" height="26"><use href="#star"/></svg><span>شاشة المطبخ</span></div>
+        <h3>المطبخ يتابع التجهيز صنفًا صنفًا</h3>
+        <p>لم يعد الطلب كتلةً واحدة: يشطب المطبخ كلّ صنفٍ حين يجهز، فيعرف <b>ما تمّ وما تبقّى</b> — ولا يخرج الطلب للتقديم إلا مكتملًا. وحين يكتمل، يُشير المطبخ إلى النادل لاستلامه فورًا فلا يبرد الطعام على الممرّ.</p>
         <ul class="flist">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>تنبيهٌ فوري عند جهوزية الطبق.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>طعامٌ يصل ساخنًا وفي وقته.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>لا أطباق منسيّة ولا تشويش في الذروة.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>متابعةٌ <b>صنفًا صنفًا</b> — يعرف المطبخ ما جهز وما بقي.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>الطلب لا يخرج للتقديم إلا <b>مكتملًا</b> — لا طبقٌ ناقص ولا بارد.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>تنبيهٌ فوري للنادل عند الجهوزية — <b>لا أطباق منسيّة</b> في الذروة.</span></li>
         </ul>
       </div>
       <div class="feat-media"><div class="fig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 20h16M6 20V10M18 20V10M3.5 10h17l-2.5-5H6z" stroke-linejoin="round"/><path d="M12 5V2.5" stroke-linecap="round"/></svg></div></div>
@@ -646,6 +684,7 @@ footer .wrap{position:relative;z-index:1}
         <div class="plan-incl">تشمل كل ما في سُفرة QR، وتزيد:</div>
         <ul class="plan-list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>الطلب يصل المطبخ مباشرةً، والنادل يستلم الجاهز — تذاكر حيّة.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>النادل يأخذ الطلب <b>على الطاولة</b> ويُرسله للمطبخ من داخل سُفرة — لمن لا يستخدم QR.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>نداء النادل من الطاولة — بأنواعٍ يحدّدها مطعمك.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>حسابات طاقم بصلاحيات: مطبخ، نادل، تحصيل.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>تقسيم الفاتورة: واحدٌ يدفع، أو كلٌّ يدفع طلبه، أو مشترك.</span></li>
@@ -749,7 +788,7 @@ footer .wrap{position:relative;z-index:1}
   <circle cx="50" cy="50" r="44" fill="#fdfbf7" stroke="#e0d5c2" stroke-width="3.5"/><circle cx="50" cy="50" r="30" fill="none" stroke="#efe8db" stroke-width="2.5"/><circle cx="50" cy="50" r="18" fill="#a8471f"/>
 </svg><div><span class="bn disp">سُفرة</span><p>نظام الطلب والخدمة الذكي</p></div></div>
       <nav class="foot-links" aria-label="روابط التذييل">
-        <a href="#how">كيف تعمل</a><a href="#features">المميزات</a><a href="#why">لماذا سُفرة</a><a href="#faq">الأسئلة</a><a href="#join">انضم كمطعم مؤسِّس</a><a href="https://app.alsufr.com/manager/login">دخول المطاعم</a>
+        <a href="#how">كيف تعمل</a><a href="#ordering">طريقتان للطلب</a><a href="#features">المميزات</a><a href="#why">لماذا سُفرة</a><a href="#faq">الأسئلة</a><a href="#join">انضم كمطعم مؤسِّس</a><a href="https://app.alsufr.com/manager/login">دخول المطاعم</a>
       </nav>
     </div>
     <!--
