@@ -372,7 +372,7 @@ footer .wrap{position:relative;z-index:1}
       <b>خدمة أسرع، أخطاء أقل، وتجربة أريح لفريقك وضيوفك.</b></p>
     <div class="cta-row">
       <a href="https://app.alsufr.com/signup" class="btn btn-gold">ابدأ تجربتك المجّانية</a>
-      <a href="#how" class="btn btn-line">شاهد كيف تعمل</a>
+      <a href="https://app.alsufr.com/subscribe" class="btn btn-line">اشترك الآن</a>
     </div>
     <div class="mini-note">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -624,7 +624,10 @@ footer .wrap{position:relative;z-index:1}
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>حسابات طاقم بصلاحيات: مطبخ، نادل، تحصيل · وتقسيم الفاتورة.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>حتى <b>50 طاولة</b> و<b>300 طبق</b> — و<b>تجهيز قائمتك كاملةً مجانًا</b>، وأولويةٌ في الدعم.</span></li>
         </ul>
-        <a href="https://app.alsufr.com/signup" class="btn btn-gold plan-btn plan-pro">جرّب سُفرة مجّانًا</a>
+        <div class="plan-cta" style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
+          <a href="https://app.alsufr.com/subscribe" class="btn btn-gold plan-btn plan-subscribe" style="margin-top:0">اشترك الآن</a>
+          <a href="https://app.alsufr.com/signup" class="btn btn-line plan-btn" style="margin-top:0">جرّب سُفرة مجّانًا</a>
+        </div>
       </div>
     </div>
 
@@ -722,14 +725,11 @@ document.getElementById('yr').textContent = new Date().getFullYear();
   if(el){var n=WHATSAPP_NUMBER;el.href='tel:+'+n;
     el.textContent='+'+n.slice(0,3)+' '+n.slice(3,5)+' '+n.slice(5,8)+' '+n.slice(8);}
 })();
-// روابط دفع ميسّر — باقةٌ واحدة × مدّتان. تُملأ بعد تكامل الدفع،
-// وفارغةً يوجّه الزرّ إلى التسجيل الذاتيّ (التجربة المجّانية) مؤقّتًا.
-var MOYASAR = { pro:{ y:"", m:"" } };
-
 // مفتاح المدّة: سنويّ افتراضاً — والقيم في سمات data لا في نسختين من الشيفرة.
+// وزرّ «اشترك الآن» يحمل المدّة المختارة إلى صفحة الاشتراك فتُهيّأ مسبقًا.
 (function(){
   var period = 'y';
-  var pBtn = document.querySelector('.plan-pro');
+  var sBtn = document.querySelector('.plan-subscribe');
   function apply(){
     document.querySelectorAll('#pricing [data-y]').forEach(function(el){
       el.textContent = el.getAttribute(period === 'y' ? 'data-y' : 'data-m');
@@ -737,7 +737,8 @@ var MOYASAR = { pro:{ y:"", m:"" } };
     document.querySelectorAll('.billing-toggle button').forEach(function(b){
       b.classList.toggle('on', b.getAttribute('data-period') === period);
     });
-    if(pBtn) pBtn.href = MOYASAR.pro[period] || 'https://app.alsufr.com/signup';
+    if(sBtn) sBtn.href = 'https://app.alsufr.com/subscribe?period=' +
+      (period === 'y' ? 'annual' : 'monthly');
   }
   document.querySelectorAll('.billing-toggle button').forEach(function(b){
     b.addEventListener('click', function(){ period = b.getAttribute('data-period'); apply(); });
