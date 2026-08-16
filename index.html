@@ -2,7 +2,27 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
+<!--
+  ══════════════════════════════════════════════════════════════
+   التقاط رمز الإحالة — **أوّل ما يُنفَّذ في الصفحة**
+  ══════════════════════════════════════════════════════════════
+   رابط الحملة يصل هكذا:  alsufr.com/?utm_source=...#sv=TOKEN
+
+   والرمز في الـfragment لا في الاستعلام عمداً: ما بعد `#` لا يُرسل إلى أيّ
+   خادم ولا يدخل ترويسة Referer ولا سجلّات الاستضافة. وهو رمز حامل — من
+   ملكه سجّل أحداثاً على جلسة ليست له — فلا يوضع حيث يُقرأ.
+
+   ويُنفَّذ **قبل** الأيقونة والخطوط أدناه: تلك موارد خارجية، وتحميلها قبل
+   تنظيف العنوان يُطيل عمر الرمز في شريط العنوان بلا داعٍ. وأي خطأ هنا
+   يُبتلع — الصفحة تعمل بلا قياس، ولا تعمل بلا هذه الأسطر إن سقطت.
+-->
+<script>
+try{var _h=new URLSearchParams(location.hash.replace(/^#/,''));var _v=_h.get('sv');
+if(_v){sessionStorage.setItem('sufra_sv',_v);_h.delete('sv');var _r=_h.toString();
+history.replaceState(null,'',location.pathname+location.search+(_r?'#'+_r:''));}}catch(e){}
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>سُفرة — نظام الطلب والخدمة الذكي للمطاعم الراقية</title>
 <meta name="description" content="سُفرة نظام متكامل لإدارة خدمة الطاولات في المطاعم: يطلب الضيف بنفسه عبر QR أو يسجّل النادل الطلب مباشرةً، وتصل الطلبات إلى المطبخ مع متابعة حالتها لحظة بلحظة — يعمل بجانب نظام الكاشير عندك.">
 <!--
@@ -344,10 +364,10 @@ footer .wrap{position:relative;z-index:1}
   <circle cx="50" cy="50" r="44" fill="#fdfbf7" stroke="#e0d5c2" stroke-width="3.5"/><circle cx="50" cy="50" r="30" fill="none" stroke="#efe8db" stroke-width="2.5"/><circle cx="50" cy="50" r="18" fill="#a8471f"/>
 </svg><span class="brandname disp">سُفرة</span></a>
     <nav class="nav-links" aria-label="روابط">
-      <a href="#how">كيف تعمل</a><a href="#features">المميزات</a><a href="#pricing">الأسعار</a><a href="#faq">الأسئلة</a><a href="https://app.alsufr.com/manager/login">دخول المطاعم</a>
+      <a href="#how">كيف تعمل</a><a href="#features">المميزات</a><a href="#pricing">الأسعار</a><a href="#faq">الأسئلة</a><a href="https://app.alsufr.com/manager/login" data-ad-events="login_click">دخول المطاعم</a>
     </nav>
-    <a href="https://app.alsufr.com/signup" class="btn btn-gold deskcta">ابدأ تجربتك المجّانية</a>
-    <a href="https://app.alsufr.com/signup" class="btn btn-gold only-mob">جرّب مجّانًا</a>
+    <a href="https://app.alsufr.com/signup" class="btn btn-gold deskcta" data-ad-events="free_trial_click landing_to_app">ابدأ تجربتك المجّانية</a>
+    <a href="https://app.alsufr.com/signup" class="btn btn-gold only-mob" data-ad-events="free_trial_click landing_to_app">جرّب مجّانًا</a>
   </div>
 </header>
 <span id="top"></span>
@@ -371,8 +391,8 @@ footer .wrap{position:relative;z-index:1}
     <p class="lead"><b>سُفرة</b> تربط الضيف والنادل والمطبخ في نظام واحد. يطلب الضيف بنفسه عبر <b>QR</b>، أو يسجّل النادل الطلب له مباشرةً — وتصل الطلبات إلى المطبخ بوضوح، مع متابعة حالتها لحظة بلحظة.<br>
       <b>خدمة أسرع، أخطاء أقل، وتجربة أريح لفريقك وضيوفك.</b></p>
     <div class="cta-row">
-      <a href="https://app.alsufr.com/signup" class="btn btn-gold">ابدأ تجربتك المجّانية</a>
-      <a href="https://app.alsufr.com/subscribe" class="btn btn-line">اشترك الآن</a>
+      <a href="https://app.alsufr.com/signup" class="btn btn-gold" data-ad-events="free_trial_click landing_to_app">ابدأ تجربتك المجّانية</a>
+      <a href="https://app.alsufr.com/subscribe" class="btn btn-line" data-ad-events="landing_to_app">اشترك الآن</a>
     </div>
     <div class="mini-note">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -625,8 +645,8 @@ footer .wrap{position:relative;z-index:1}
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>حتى <b>50 طاولة</b> و<b>300 طبق</b> — و<b>تجهيز قائمتك كاملةً مجانًا</b>، وأولويةٌ في الدعم.</span></li>
         </ul>
         <div class="plan-cta" style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
-          <a href="https://app.alsufr.com/subscribe" class="btn btn-gold plan-btn plan-subscribe" style="margin-top:0">اشترك الآن</a>
-          <a href="https://app.alsufr.com/signup" class="btn btn-line plan-btn" style="margin-top:0">جرّب سُفرة مجّانًا</a>
+          <a href="https://app.alsufr.com/subscribe" class="btn btn-gold plan-btn plan-subscribe" style="margin-top:0" data-ad-events="landing_to_app">اشترك الآن</a>
+          <a href="https://app.alsufr.com/signup" class="btn btn-line plan-btn" style="margin-top:0" data-ad-events="free_trial_click landing_to_app">جرّب سُفرة مجّانًا</a>
         </div>
       </div>
     </div>
@@ -685,7 +705,7 @@ footer .wrap{position:relative;z-index:1}
   <circle cx="50" cy="50" r="44" fill="#fdfbf7" stroke="#e0d5c2" stroke-width="3.5"/><circle cx="50" cy="50" r="30" fill="none" stroke="#efe8db" stroke-width="2.5"/><circle cx="50" cy="50" r="18" fill="#a8471f"/>
 </svg><div><span class="bn disp">سُفرة</span><p>نظام الطلب والخدمة الذكي</p></div></div>
       <nav class="foot-links" aria-label="روابط التذييل">
-        <a href="#how">كيف تعمل</a><a href="#features">المميزات</a><a href="#faq">الأسئلة</a><a href="https://app.alsufr.com/signup">ابدأ تجربتك المجّانية</a><a href="https://app.alsufr.com/manager/login">دخول المطاعم</a>
+        <a href="#how">كيف تعمل</a><a href="#features">المميزات</a><a href="#faq">الأسئلة</a><a href="https://app.alsufr.com/signup" data-ad-events="free_trial_click landing_to_app">ابدأ تجربتك المجّانية</a><a href="https://app.alsufr.com/manager/login" data-ad-events="login_click">دخول المطاعم</a>
       </nav>
     </div>
     <!--
@@ -748,6 +768,124 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 (function(){if(!('IntersectionObserver'in window)){document.querySelectorAll('.reveal').forEach(function(e){e.classList.add('in');});return;}
   var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.12,rootMargin:"0px 0px -40px 0px"});
   document.querySelectorAll('.reveal').forEach(function(e){io.observe(e);});})();
+
+/* ══════════════════════════════════════════════════════════════════════
+   قياس زيارة جاءت من حملة تسويق — يرسل إلى app.alsufr.com/api/track
+   ══════════════════════════════════════════════════════════════════════
+
+   **بلا رمز إحالة لا يفعل شيئًا.** الزائر العادي — من بحث أو من رابط
+   مشارَك — لا يُقاس ولا يُنشأ له صف. والرمز يصل في الـfragment (يلتقطه
+   سكربت <head>) أو في كوكي sufra_adv الذي يضعه مسار /r/CODE على النطاق
+   الأم فيصل الصفحتين معًا.
+
+   **وكل شيء هنا داخل try:** فشل القياس — شبكة مقطوعة، مانع إعلانات،
+   متصفح قديم — لا يعطل زرًا ولا يوقف انتقالًا. الصفحة صفحة بيع أولًا.
+
+   والوقت **النشط** لا الفرق بين الفتح والإغلاق: يقف حين يُخفى التبويب أو
+   يُدفع إلى الخلفية أو يخمل الزائر دقيقتين، ويستأنف حين يعود. وإلا لبدا
+   من ترك الصفحة مفتوحة ليلة كاملة أشد المهتمين.
+   ══════════════════════════════════════════════════════════════════════ */
+(function(){
+try{
+  var API='https://app.alsufr.com/api/track';
+  var sv='';
+  try{sv=sessionStorage.getItem('sufra_sv')||'';}catch(e){}
+  if(!sv){var m=document.cookie.match(/(?:^|;\s*)sufra_adv=([^;]+)/);if(m&&m[1])sv=decodeURIComponent(m[1]);}
+  if(!sv)return;
+
+  var active=0,scroll=0,running=false,since=0,lastAct=Date.now(),sent={};
+
+  /* sendBeacon بجسم text/plain: طلب «بسيط» في عرف CORS فيمضي عبر النطاقين
+     بلا OPTIONS تمهيدي. والبديل fetch يرسل النوع نفسه لئلا ينقلب بسيطًا
+     إلى تمهيدي فيُحجب بصمت. */
+  function send(o){
+    try{
+      o.sv=sv;o.surface='landing';
+      var b=new Blob([JSON.stringify(o)],{type:'text/plain'});
+      if(!(navigator.sendBeacon&&navigator.sendBeacon(API,b))){
+        fetch(API,{method:'POST',body:b,keepalive:true}).catch(function(){});
+      }
+    }catch(e){}
+  }
+
+  function mark(k){if(sent[k])return;sent[k]=1;send({op:'event',kind:k,activeSeconds:active,scroll:scroll});}
+
+  function tick(){
+    if(!running)return;
+    var n=Date.now();active+=Math.round((n-since)/1000);since=n;
+    if(active>=10)mark('engaged_10s');
+    if(active>=30)mark('engaged_30s');
+    if(active>=60)mark('engaged_60s');
+    if(active>=120)mark('engaged_120s');
+  }
+  function resume(){if(running)return;running=true;since=Date.now();}
+  function pause(){if(!running)return;tick();running=false;}
+
+  function onScroll(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    if(h<=0)return;
+    var p=Math.min(100,Math.round((window.scrollY/h)*100));
+    if(p>scroll)scroll=p;
+    if(scroll>=25)mark('scroll_25');
+    if(scroll>=50)mark('scroll_50');
+    if(scroll>=75)mark('scroll_75');
+    if(scroll>=90)mark('scroll_90');
+  }
+  var raf=0;
+  function onScrollThrottled(){
+    if(raf)return;
+    raf=requestAnimationFrame(function(){raf=0;onScroll();});
+  }
+
+  document.addEventListener('visibilitychange',function(){
+    if(document.visibilityState==='visible')resume();
+    else{pause();send({op:'activity',activeSeconds:active,scroll:scroll});}
+  });
+  window.addEventListener('focus',resume);
+  window.addEventListener('blur',pause);
+  window.addEventListener('scroll',onScrollThrottled,{passive:true});
+  ['mousemove','keydown','touchstart','click'].forEach(function(e){
+    window.addEventListener(e,function(){lastAct=Date.now();resume();},{passive:true});
+  });
+  setInterval(function(){if(running&&Date.now()-lastAct>120000)pause();},5000);
+  setInterval(function(){tick();if(active>0)send({op:'activity',activeSeconds:active,scroll:scroll});},30000);
+  window.addEventListener('pagehide',function(){pause();send({op:'activity',activeSeconds:active,scroll:scroll});});
+
+  /* ═══ الأزرار: نوع الحدث من data-ad-events لا من الصنف البصري ═══
+
+     الصنف يتغير لأسباب تصميمية — يُبدَّل btn-gold بـbtn-line في تجربة
+     شكل، فينقلب «ضغط التجربة» إلى «انتقال» بلا أن ينتبه أحد، وتنهار مقارنة
+     الحملات على شيء لا علاقة له بها. والسمة تقول ما تعنيه.
+
+     ويمرّ sv إلى **كل** رابط يخرج إلى app.alsufr.com حتى ما لا يحمل سمة —
+     استمرار الإحالة شيء، وتسجيل الحدث شيء آخر.
+
+     ولا preventDefault ولا await: sendBeacon يضع الطلب في طابور المتصفح
+     ويعود فورًا، والانتقال يمضي. زر يتأخر ثلث ثانية لأجل قياس هو زر معطوب. */
+  document.addEventListener('click',function(ev){
+    try{
+      var a=ev.target&&ev.target.closest?ev.target.closest('a[href]'):null;
+      if(!a)return;
+      var href=a.getAttribute('href')||'';
+      if(href.indexOf('app.alsufr.com')<0)return;
+
+      var kinds=(a.getAttribute('data-ad-events')||'').split(/\s+/);
+      for(var i=0;i<kinds.length;i++){
+        if(kinds[i])send({op:'event',kind:kinds[i],activeSeconds:active,scroll:scroll});
+      }
+
+      /* يُبنى بـURL لا بسلسلة: الوجهة قد تحمل ?period= (يضعه زر التسعير
+         أدناه) أو fragment، وإلحاق '#sv=' نصًا يدهسهما بصمت. */
+      var u=new URL(href,location.href);
+      var hs=new URLSearchParams(u.hash.replace(/^#/,''));
+      hs.set('sv',sv);u.hash=hs.toString();
+      a.setAttribute('href',u.toString());
+    }catch(e){}
+  },true);
+
+  resume();onScroll();
+}catch(e){}
+})();
 </script>
 </body>
 </html>
