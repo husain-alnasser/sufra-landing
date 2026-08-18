@@ -69,7 +69,7 @@ svg{display:block}
 .eyebrow.on-dark{color:var(--amber-lt)}
 .eyebrow.on-dark::before,.eyebrow.on-dark::after{background:var(--amber-lt);opacity:.55}
 
-.sec{padding:clamp(56px,7.5vw,96px) 0;position:relative}
+.sec{padding:clamp(56px,7.5vw,96px) 0;position:relative;scroll-margin-top:76px}
 .sec-head{max-width:680px;margin-bottom:clamp(30px,4vw,46px)}
 .sec-head.center{margin-inline:auto;text-align:center}
 .sec-head.center .eyebrow{justify-content:center}
@@ -103,6 +103,10 @@ header{position:sticky;top:0;z-index:60;background:rgba(248,244,236,.85);
 .nav-links a{font-weight:500;font-size:15px;color:var(--muted);transition:color .15s}
 .nav-links a:hover{color:var(--brass)}
 .nav .btn{padding:11px 20px;min-height:44px;font-size:14.5px}
+.nav-cta{display:flex;align-items:center;gap:10px}
+.menu-btn{align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;
+  border:1.6px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;padding:0}
+.menu-btn svg{width:22px;height:22px}
 .only-mob{display:none}
 
 /* HERO */
@@ -128,6 +132,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(248,244,236,.85);
 .divider{display:flex;align-items:center;justify-content:center;gap:18px;padding:6px 0;color:var(--brass)}
 .divider::before,.divider::after{content:"";height:1px;width:min(90px,16vw);
   background:linear-gradient(var(--dir,90deg),transparent,var(--line))}
+.divider::before{--dir:270deg}
 .divider svg{width:26px;height:26px;opacity:.85;flex:0 0 auto}
 
 /* TRUST */
@@ -140,7 +145,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(248,244,236,.85);
 .pains{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .pain{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 21px;
   box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
-.pain::after{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--amber),transparent)}
+.pain::after{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(270deg,var(--amber),transparent)}
 .pain .pic{width:46px;height:46px;border-radius:12px;background:#f3ede1;color:var(--brass);
   display:flex;align-items:center;justify-content:center;margin-bottom:15px}
 .pain .pic svg{width:24px;height:24px}
@@ -343,7 +348,17 @@ footer .wrap{position:relative;z-index:1}
 }
 @media(max-width:640px){
   .nav-links,.nav .btn.deskcta{display:none}.only-mob{display:inline-flex}
-  .pains,.bens,.ways{grid-template-columns:1fr}.loop .node{width:118px}.trust .wrap{justify-content:flex-start}
+  /* روابط التنقّل لا تختفي بلا باب: زرّ القائمة يفتحها لوحةً تحت الترويسة */
+  header.menu-open .nav-links{display:flex;position:absolute;inset-inline:0;top:72px;
+    flex-direction:column;align-items:stretch;gap:2px;padding:10px 22px 18px;
+    background:rgba(248,244,236,.97);backdrop-filter:saturate(150%) blur(12px);
+    border-bottom:1px solid var(--line);box-shadow:var(--shadow-sm)}
+  header.menu-open .nav-links a{padding:13px 4px;font-size:16px;color:var(--ink)}
+  .pains,.bens,.ways{grid-template-columns:1fr}.trust .wrap{justify-content:flex-start}
+  /* حلقة الضيف→النادل→المطبخ تبقى سطرًا واحدًا — سهمٌ معلّق أول السطر أسوأ من عقدة أصغر */
+  .loop{gap:5px}.loop .node{width:80px;gap:8px}
+  .loop .disc{width:54px;height:54px;border-radius:14px}.loop .disc svg{width:25px;height:25px}
+  .loop .node span{font-size:14px}.loop .arw svg{width:22px;height:15px}
   .brandname{font-size:26px}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.reveal{opacity:1;transform:none;transition:none}.btn:hover{transform:none}}
@@ -363,11 +378,16 @@ footer .wrap{position:relative;z-index:1}
     <a class="brand" href="#top" aria-label="سُفرة"><svg class="mark" width="42" height="42" viewBox="0 0 100 100" aria-hidden="true">
   <circle cx="50" cy="50" r="44" fill="#fdfbf7" stroke="#e0d5c2" stroke-width="3.5"/><circle cx="50" cy="50" r="30" fill="none" stroke="#efe8db" stroke-width="2.5"/><circle cx="50" cy="50" r="18" fill="#a8471f"/>
 </svg><span class="brandname disp">سُفرة</span></a>
-    <nav class="nav-links" aria-label="روابط">
+    <nav class="nav-links" id="navLinks" aria-label="روابط">
       <a href="#how">كيف تعمل</a><a href="#features">المميزات</a><a href="#pricing">الأسعار</a><a href="#faq">الأسئلة</a><a href="https://app.alsufr.com/" data-ad-events="login_click">دخول المطاعم</a>
     </nav>
-    <a href="https://app.alsufr.com/signup" class="btn btn-gold deskcta" data-ad-events="free_trial_click landing_to_app">ابدأ تجربتك المجّانية</a>
-    <a href="https://app.alsufr.com/signup" class="btn btn-gold only-mob" data-ad-events="free_trial_click landing_to_app">جرّب مجّانًا</a>
+    <div class="nav-cta">
+      <a href="https://app.alsufr.com/signup" class="btn btn-gold deskcta" data-ad-events="free_trial_click landing_to_app">ابدأ تجربتك المجّانية</a>
+      <a href="https://app.alsufr.com/signup" class="btn btn-gold only-mob" data-ad-events="free_trial_click landing_to_app">جرّب مجّانًا</a>
+      <button type="button" class="menu-btn only-mob" aria-expanded="false" aria-controls="navLinks" aria-label="فتح القائمة">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 <span id="top"></span>
@@ -744,6 +764,16 @@ document.getElementById('yr').textContent = new Date().getFullYear();
   var el=document.getElementById('phoneLink');
   if(el){var n=WHATSAPP_NUMBER;el.href='tel:+'+n;
     el.textContent='+'+n.slice(0,3)+' '+n.slice(3,5)+' '+n.slice(5,8)+' '+n.slice(8);}
+})();
+// قائمة الجوال: الزر يفتح روابط التنقّل ويغلقها، وأي نقرة على رابط تُغلقها.
+(function(){
+  var h=document.querySelector('header'),b=document.querySelector('.menu-btn');
+  if(!h||!b)return;
+  function set(open){h.classList.toggle('menu-open',open);b.setAttribute('aria-expanded',open?'true':'false');}
+  b.addEventListener('click',function(){set(!h.classList.contains('menu-open'));});
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    a.addEventListener('click',function(){set(false);});
+  });
 })();
 // مفتاح المدّة: سنويّ افتراضاً — والقيم في سمات data لا في نسختين من الشيفرة.
 // وزرّ «اشترك الآن» يحمل المدّة المختارة إلى صفحة الاشتراك فتُهيّأ مسبقًا.
