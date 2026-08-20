@@ -192,6 +192,12 @@ header{position:sticky;top:0;z-index:60;background:rgba(248,244,236,.85);
 .feat{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4.5vw,60px);align-items:center;padding:clamp(30px,4vw,46px) 0}
 .feat + .feat{border-top:1px solid var(--line)}
 .feat.rev .feat-body{order:2}
+/* الميزة الأولى بطاقةٌ مُبرزة — تقول «طريقتان للطلب» قبل كل شيء، بلمسة لا بقطيعة */
+.feat.lead{background:var(--card);border:1px solid var(--line);border-radius:20px;
+  padding:clamp(26px,4vw,44px);box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+.feat.lead::after{content:"";position:absolute;inset:0 0 auto 0;height:3px;
+  background:linear-gradient(270deg,var(--amber),transparent)}
+.feat.lead + .feat{border-top:0}
 .feat-body .fmark{display:flex;align-items:center;gap:11px;margin-bottom:12px}
 .feat-body .fmark svg{width:26px;height:26px;color:var(--brass);flex:0 0 auto}
 .feat-body .fmark span{font-family:'Cairo';font-weight:600;font-size:12px;letter-spacing:2px;color:var(--brass)}
@@ -530,44 +536,69 @@ footer .wrap{position:relative;z-index:1}
       <p class="sub">ليست إضافاتٍ شكلية — كلٌّ منها يحلّ احتكاكًا حقيقيًا في خدمتك اليومية.</p>
     </div>
 
-    <div class="feat reveal">
+    <div class="feat lead reveal">
+      <div class="feat-body">
+        <div class="fmark"><svg width="26" height="26"><use href="#star"/></svg><span>الطلب بطريقتين</span></div>
+        <h3>الضيف يطلب بنفسه أو الكابتن يسجّل الطلب</h3>
+        <p>يختار المطعم الطريقة المناسبة لكل طاولة: يطلب الضيف من جواله عبر <b>QR</b>، أو يسجّل الكابتن الطلب من نظامه مباشرة — وفي الحالتين يصل الطلب إلى المطبخ في <b>المسار نفسه</b>.</p>
+        <ul class="flist">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>طلب ذاتي من جوال الضيف دون تحميل تطبيق.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>نظام كابتن متكامل</b> لتسجيل طلبات الطاولات.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>يمكن الجمع بين الطريقتين في الجلسة نفسها.</span></li>
+        </ul>
+      </div>
+      <div class="feat-media"><div class="fig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="14" y="3.5" width="7.5" height="13.5" rx="1.8"/><path d="M16.8 14.2h2" stroke-linecap="round"/><circle cx="7.5" cy="8" r="2.8"/><path d="M2.5 20c.4-3 2.4-4.6 5-4.6s4.6 1.6 5 4.6" stroke-linecap="round"/></svg></div></div>
+    </div>
+
+    <div class="feat rev reveal">
       <div class="feat-body">
         <div class="fmark"><svg width="26" height="26"><use href="#star"/></svg><span>الطلب الجماعي</span></div>
-        <h3>الطلب الجماعي والعزائم</h3>
-        <p>كلُّ مَن حول الطاولة يطلب من جواله على <b>نفس الطلب</b>. يرى الجميع ما أُضيف إلى السلة لحظيًا، فلا تكرار ولا لبس، ويتفقون قبل رفع الطلب.</p>
+        <h3>الجميع يطلب على سلّة واحدة</h3>
+        <p>كل من حول الطاولة يضيف من جواله إلى <b>الطلب نفسه</b>، ويرى الجميع محتويات السلة لحظيًا قبل إرسالها إلى المطبخ.</p>
         <ul class="flist">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>سلّة مشتركة يراها الجميع — <b>لا طلبات مكرّرة</b>.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>اتفاقٌ واضح قبل الإرسال إلى المطبخ.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>مثاليٌّ للعوائل ومجموعات العمل والعزائم.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>سلّة مشتركة</b> بلا طلبات مكررة.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>مثالي للعوائل ومجموعات العمل والعزائم.</span></li>
         </ul>
       </div>
       <div class="feat-media"><div class="fig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M3 19c.5-3.3 3-5 6-5s5.5 1.7 6 5M15.5 15c2.6 0 4.6 1.4 5 4" stroke-linecap="round"/></svg></div></div>
     </div>
 
-    <div class="feat rev reveal">
+    <div class="feat reveal">
       <div class="feat-body">
         <div class="fmark"><svg width="26" height="26"><use href="#star"/></svg><span>التقسيم الذكي</span></div>
-        <h3>التقسيم الذكي للفاتورة</h3>
-        <p>سُفرة يعرف مَن طلب ماذا، فيصل الحساب إلى الكاشير <b>مقسّمًا وجاهزًا</b> — بلا حسابٍ على الورق ولا جدلٍ حول من دفع نصيب من. ينتهي الإحراج، وتخرج الطاولة أسرع.</p>
+        <h3>فاتورة مقسّمة وجاهزة</h3>
+        <p>يعرف سُفرة مَن طلب ماذا، ويجهّز الحساب للكاشير <b>دون حسابات يدوية</b> أو جدل بين الضيوف.</p>
         <ul class="flist">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12h6" stroke-linecap="round"/></svg><span><b>حساب واحد للطاولة</b> — للطاولة التي تريد فاتورة واحدة.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 9v6M9 12h6" stroke-linecap="round"/></svg><span><b>حساب منفصل لكل ضيف</b> — كلٌّ يرى نصيبه من طلبه بالضبط.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 12h18" stroke-linecap="round"/></svg><span><b>الطريقة الهجينة</b> — المشترك يُوزَّع، والخاصّ يُنسب لصاحبه.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg><span><b>الدفع يتم عبر نظام الكاشير عندك</b> كالمعتاد — سُفرة يجهّز التقسيم فقط.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>حساب واحد</b>، منفصل لكل ضيف، أو هجين.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>المشترك يُوزّع، والخاص يُنسب لصاحبه.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>الدفع يستمر عبر <b>نظام الكاشير</b> كالمعتاد.</span></li>
         </ul>
       </div>
       <div class="feat-media"><div class="fig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z" stroke-linejoin="round"/><path d="M9 8h6M9 12h6M9 16h3" stroke-linecap="round"/></svg></div></div>
     </div>
 
+    <div class="feat rev reveal">
+      <div class="feat-body">
+        <div class="fmark"><svg width="26" height="26"><use href="#star"/></svg><span>شاشة المطبخ</span></div>
+        <h3>متابعة التجهيز صنفًا صنفًا</h3>
+        <p>يتابع المطبخ <b>ما جُهّز وما تبقّى</b>، ثم يُنبّه النادل فور اكتمال الطلب لاستلامه وتقديمه.</p>
+        <ul class="flist">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>متابعة واضحة لكل صنف.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>لا طلب ناقص</b> ولا طبق منسي.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>تنبيه فوري للنادل عند الجاهزية.</span></li>
+        </ul>
+      </div>
+      <div class="feat-media"><div class="fig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 20h16M6 20V10M18 20V10M3.5 10h17l-2.5-5H6z" stroke-linejoin="round"/><path d="M12 5V2.5" stroke-linecap="round"/></svg></div></div>
+    </div>
+
     <div class="feat reveal">
       <div class="feat-body">
         <div class="fmark"><svg width="26" height="26"><use href="#star"/></svg><span>التخصيص الدقيق</span></div>
-        <h3>التخصيص الدقيق للطلب</h3>
-        <p>يختار الضيف تفاصيل طبقه بنفسه من الخيارات المتاحة أمامه، فيصل الطلب إلى المطبخ <b>دقيقًا كما يريده تمامًا</b> — بلا وسيطٍ ينسى أو يُخطئ.</p>
+        <h3>كل طبق كما يريده الضيف</h3>
+        <p>يختار الضيف تفاصيل طبقه من الخيارات التي يحددها المطعم، فتصل إلى المطبخ <b>واضحة ودقيقة</b>.</p>
         <ul class="flist">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg><span>درجة الاستواء (مثال: اللحم «ويل-دن»).</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg><span>الحجم والكمية (مثال: كمية الرز «وسط»)، مع إظهار الأحجام المتاحة.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg><span>الإضافات والتعديلات (مثال: كأس العصير «بدون ثلج»).</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>درجة الاستواء والأحجام والكميات.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>الإضافات والتعديلات مثل «بدون ثلج».</span></li>
         </ul>
       </div>
       <div class="feat-media"><div class="fig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 7h14M5 12h14M5 17h14" stroke-linecap="round"/><circle cx="9" cy="7" r="2.4"/><circle cx="16" cy="12" r="2.4"/><circle cx="8" cy="17" r="2.4"/></svg></div></div>
@@ -576,12 +607,11 @@ footer .wrap{position:relative;z-index:1}
     <div class="feat rev reveal">
       <div class="feat-body">
         <div class="fmark"><svg width="26" height="26"><use href="#star"/></svg><span>مناداة النادل</span></div>
-        <h3>مناداة النادل بلمسة</h3>
-        <p>يطلب الضيف المساعدة من جواله — لطلبٍ إضافي أو للحساب — <b>دون أن يرفع صوته</b> أو ينتظر مرور النادل. تصل الإشارة إلى فريقك مباشرة، فترتفع سرعة الاستجابة ويشعر الضيف بالاهتمام.</p>
+        <h3>خدمة أسرع بلمسة</h3>
+        <p>يطلب الضيف المساعدة أو الحساب من جواله، ويصل النداء <b>مباشرة</b> إلى فريق الصالة.</p>
         <ul class="flist">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 9A6 6 0 1 0 6 9c0 4-2 5-2 7h16c0-2-2-3-2-5z" stroke-linejoin="round"/><path d="M10.5 20a1.6 1.6 0 0 0 3 0" stroke-linecap="round"/></svg><span>نداءٌ لطلبٍ إضافي أثناء الجلسة.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 9A6 6 0 1 0 6 9c0 4-2 5-2 7h16c0-2-2-3-2-5z" stroke-linejoin="round"/><path d="M10.5 20a1.6 1.6 0 0 0 3 0" stroke-linecap="round"/></svg><span>نداءٌ لطلب الحساب دون انتظار.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 9A6 6 0 1 0 6 9c0 4-2 5-2 7h16c0-2-2-3-2-5z" stroke-linejoin="round"/><path d="M10.5 20a1.6 1.6 0 0 0 3 0" stroke-linecap="round"/></svg><span>هدوءٌ أرقى في الصالة، وخدمةٌ أسرع.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>طلب خدمة إضافية أثناء الجلسة.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>طلب الحساب دون انتظار أو رفع الصوت.</span></li>
         </ul>
       </div>
       <div class="feat-media"><div class="fig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M18 9A6 6 0 1 0 6 9c0 4-2 5-2 7h16c0-2-2-3-2-5z" stroke-linejoin="round"/><path d="M10 20a2 2 0 0 0 4 0" stroke-linecap="round"/></svg></div></div>
@@ -589,16 +619,16 @@ footer .wrap{position:relative;z-index:1}
 
     <div class="feat reveal">
       <div class="feat-body">
-        <div class="fmark"><svg width="26" height="26"><use href="#star"/></svg><span>شاشة المطبخ</span></div>
-        <h3>المطبخ يتابع التجهيز صنفًا صنفًا</h3>
-        <p>لم يعد الطلب كتلةً واحدة: يشطب المطبخ كلّ صنفٍ حين يجهز، فيعرف <b>ما تمّ وما تبقّى</b> — ولا يخرج الطلب للتقديم إلا مكتملًا. وحين يكتمل، يُشير المطبخ إلى النادل لاستلامه فورًا فلا يبرد الطعام على الممرّ.</p>
+        <div class="fmark"><svg width="26" height="26"><use href="#star"/></svg><span>منيو خرائط Google</span></div>
+        <h3>منيو احترافي لزوار المطعم</h3>
+        <p>ينشئ المطعم صفحة منيو مستقلة ويضع رابطها في <b>خرائط Google</b>، ليتمكن الزائر من استعراض الأطباق والأسعار قبل زيارة المطعم.</p>
         <ul class="flist">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>متابعةٌ <b>صنفًا صنفًا</b> — يعرف المطبخ ما جهز وما بقي.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>الطلب لا يخرج للتقديم إلا <b>مكتملًا</b> — لا طبقٌ ناقص ولا بارد.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>تنبيهٌ فوري للنادل عند الجهوزية — <b>لا أطباق منسيّة</b> في الذروة.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>منيو واضح ومتوافق مع الجوال.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>استعراض الأطباق والصور والأسعار بسهولة.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>يُدار من المنيو نفسه</b> داخل سُفرة.</span></li>
         </ul>
       </div>
-      <div class="feat-media"><div class="fig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 20h16M6 20V10M18 20V10M3.5 10h17l-2.5-5H6z" stroke-linejoin="round"/><path d="M12 5V2.5" stroke-linecap="round"/></svg></div></div>
+      <div class="feat-media"><div class="fig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6"/></svg></div></div>
     </div>
   </div>
 </section>
