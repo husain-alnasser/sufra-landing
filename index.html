@@ -23,411 +23,391 @@ history.replaceState(null,'',location.pathname+location.search+(_r?'#'+_r:''));}
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>سُفرة — نظام الطلب والخدمة الذكي للمطاعم الراقية</title>
-<meta name="description" content="سُفرة نظام متكامل لإدارة خدمة الطاولات في المطاعم: يطلب الضيف بنفسه عبر QR أو يسجّل النادل الطلب مباشرةً، وتصل الطلبات إلى المطبخ مع متابعة حالتها لحظة بلحظة — يعمل بجانب نظام الكاشير عندك.">
-<!--
-  ══════════════════════════════════════════════════════════════
-  إعدادات قبل النشر:
-   1) WHATSAPP_NUMBER  → رقم واتساب دولي بدون + أو أصفار (مثال 9665XXXXXXXX)
-  الصفحة ملف واحد مستقل — ارفعها على أي استضافة.
-  ══════════════════════════════════════════════════════════════
--->
+<meta name="theme-color" content="#a8471f">
+
+<title>سُفرة — نظام ذكي لخدمة وإدارة طاولات المطاعم</title>
+<meta name="description" content="سُفرة نظام لخدمة وإدارة طاولات المطاعم: يطلب الضيف من جواله عبر QR أو يسجّل الكابتن الطلب، ثم يصل الطلب إلى المطبخ وتُتابَع جاهزية الأطباق وحساب الطاولة من نظام واحد.">
+<link rel="canonical" href="https://alsufr.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:site_name" content="سُفرة">
+<meta property="og:url" content="https://alsufr.com/">
+<meta property="og:title" content="سُفرة — نظام ذكي لخدمة وإدارة طاولات المطاعم">
+<meta property="og:description" content="من طلب الطاولة إلى الحساب، كل شيء في مسار واحد. يطلب الضيف من جواله عبر QR أو يسجّل الكابتن الطلب، ثم يصل إلى المطبخ وتُتابَع جاهزية الأطباق وحساب الطاولة.">
+<meta property="og:image" content="https://alsufr.com/assets/screens/guest-menu.png">
+<meta property="og:image:width" content="780">
+<meta property="og:image:height" content="1688">
+<meta property="og:image:alt" content="قائمة الضيف في سُفرة على شاشة جوال">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="سُفرة — نظام ذكي لخدمة وإدارة طاولات المطاعم">
+<meta name="twitter:description" content="من طلب الطاولة إلى الحساب، كل شيء في مسار واحد.">
+<meta name="twitter:image" content="https://alsufr.com/assets/screens/guest-menu.png">
+
 <link rel="icon" type="image/svg+xml" href="https://app.alsufr.com/brand/sufra-icon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-
-
-
-
-
-
-
-
 :root{
   --paper:#f8f4ec; --paper-2:#efe8db; --oud:#2a2420; --oud-2:#3a322b;
-  --amber:#a8471f; --amber-lt:#cf7c50; --brass:#a8471f; --brass-2:#8a3a19;
-  --ink:#2a2420; --muted:#6f6055; --pist:#3C7A57; --card:#fdfbf7; --line:#e0d5c2;
-  --lattice:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0NicgaGVpZ2h0PSc0Nicgdmlld0JveD0nMCAwIDQ2IDQ2Jz48ZyBmaWxsPSdub25lJyBzdHJva2U9JyUyMzhBM0ExOScgc3Ryb2tlLXdpZHRoPScxLjEnPjxwYXRoIGQ9J00yMyAxIDQ1IDIzIDIzIDQ1IDEgMjNaJy8+PHBhdGggZD0nTTIzIDExIDM1IDIzIDIzIDM1IDExIDIzWicvPjwvZz48ZyBmaWxsPSclMjM4QTNBMTknPjxyZWN0IHg9JzIxJyB5PSctMicgd2lkdGg9JzQnIGhlaWdodD0nNCcvPjxyZWN0IHg9JzIxJyB5PSc0NCcgd2lkdGg9JzQnIGhlaWdodD0nNCcvPjxyZWN0IHg9Jy0yJyB5PScyMScgd2lkdGg9JzQnIGhlaWdodD0nNCcvPjxyZWN0IHg9JzQ0JyB5PScyMScgd2lkdGg9JzQnIGhlaWdodD0nNCcvPjxyZWN0IHg9JzIxJyB5PScyMScgd2lkdGg9JzQnIGhlaWdodD0nNCcvPjwvZz48L3N2Zz4=");
-  --shadow:0 18px 46px rgba(42,36,32,.13); --shadow-sm:0 8px 22px rgba(42,36,32,.08);
-  --maxw:1120px;
+  --amber:#a8471f; --amber-lt:#cf7c50; --brass:#a8471f;
+  --ink:#2a2420; --muted:#665648; --pist:#2f6b49; --card:#fdfbf7; --line:#e0d5c2;
+  --on-dark:#efe8db; --on-dark-soft:#cfc2b0; --amber-on-dark:#e5a077; --soft-dark:#b3a08b;
+  --shadow:0 18px 46px rgba(42,36,32,.13); --shadow-sm:0 8px 22px rgba(42,36,32,.07);
+  --maxw:1120px; --r:16px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'IBM Plex Sans Arabic',system-ui,sans-serif;background:var(--paper);color:var(--ink);
-  line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-.disp{font-family:'Cairo',serif}
-.kufi,h1,h2,h3{font-family:'Cairo',sans-serif;line-height:1.3;letter-spacing:-.2px}
+  line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4,.disp{font-family:'Cairo',sans-serif;line-height:1.3;letter-spacing:-.2px}
 a{color:inherit;text-decoration:none}
 svg{display:block}
-.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:22px}
+img{max-width:100%}
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:20px}
 
-/* structural label */
-.eyebrow{font-family:'Cairo';font-weight:600;font-size:12.5px;letter-spacing:2.5px;
-  color:var(--brass);display:inline-flex;align-items:center;gap:10px}
-.eyebrow::before,.eyebrow::after{content:"";width:22px;height:1px;background:var(--brass);opacity:.5}
-.eyebrow.solo::before{display:none}
-.eyebrow.on-dark{color:var(--amber-lt)}
-.eyebrow.on-dark::before,.eyebrow.on-dark::after{background:var(--amber-lt);opacity:.55}
+/* ── التركيز ────────────────────────────────────────────────────────
+   لم يكن في الصفحة أيّ نمط تركيز؛ من يتنقّل بلوحة المفاتيح كان يتوه. */
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:6px}
+.on-oud :focus-visible{outline-color:var(--amber-on-dark)}
 
-.sec{padding:clamp(56px,7.5vw,96px) 0;position:relative;scroll-margin-top:76px}
-.sec-head{max-width:680px;margin-bottom:clamp(30px,4vw,46px)}
+.skip{position:absolute;inset-inline-start:-9999px;top:0;z-index:200;background:var(--card);
+  color:var(--ink);padding:12px 18px;border-radius:0 0 12px 0;font-weight:600}
+.skip:focus{inset-inline-start:0}
+
+.eyebrow{font-family:'Cairo';font-weight:600;font-size:12.5px;letter-spacing:2px;
+  color:var(--brass);display:inline-block;margin-bottom:14px}
+.on-oud .eyebrow{color:var(--amber-on-dark)}
+
+.sec{padding:clamp(52px,7vw,88px) 0;position:relative;scroll-margin-top:80px}
+.sec-head{max-width:660px;margin-bottom:clamp(28px,4vw,44px)}
 .sec-head.center{margin-inline:auto;text-align:center}
-.sec-head.center .eyebrow{justify-content:center}
-h2.title{font-size:clamp(27px,4.4vw,43px);font-weight:700;margin:16px 0 14px}
-.sub{font-size:clamp(15px,1.9vw,18px);color:var(--muted);line-height:1.9;font-weight:400}
+h2.title{font-size:clamp(25px,4vw,38px);font-weight:700;margin-bottom:12px}
+.sub{font-size:clamp(15px,1.8vw,17px);color:var(--muted);line-height:1.85}
+.on-oud{background:var(--oud);color:var(--on-dark)}
+.on-oud .title{color:#fff}
+.on-oud .sub{color:var(--on-dark-soft)}
 
-/* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:'IBM Plex Sans Arabic';
-  font-weight:600;font-size:16px;padding:15px 27px;border-radius:12px;cursor:pointer;border:0;min-height:52px;
-  transition:transform .18s,box-shadow .18s,background .18s;white-space:nowrap}
+/* ── الأزرار ───────────────────────────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-family:'IBM Plex Sans Arabic';font-weight:600;font-size:15.5px;
+  padding:14px 24px;border-radius:12px;cursor:pointer;border:0;min-height:48px;
+  transition:transform .16s,box-shadow .16s,background .16s;white-space:nowrap;text-align:center}
 .btn:hover{transform:translateY(-2px)}
-.btn-gold{background:linear-gradient(135deg,var(--amber-lt),var(--amber));color:#fdfbf7;
-  box-shadow:0 10px 26px rgba(168,71,31,.34)}
-.btn-gold:hover{box-shadow:0 15px 32px rgba(168,71,31,.44)}
-.btn-wa{background:#1E8C50;color:#fff;box-shadow:0 8px 20px rgba(30,140,80,.28)}
+.btn-gold{background:linear-gradient(135deg,var(--amber-lt),var(--amber));color:#fff;
+  box-shadow:0 10px 24px rgba(168,71,31,.30)}
+.btn-gold:hover{box-shadow:0 14px 30px rgba(168,71,31,.40)}
 .btn-line{background:transparent;border:1.6px solid var(--line);color:var(--ink)}
-.btn-line.on-dark{border-color:rgba(207,124,80,.35);color:var(--paper)}
-.btn-line.on-dark:hover{background:rgba(207,124,80,.08)}
-.btn svg{width:20px;height:20px;flex:0 0 auto}
+.btn-line:hover{background:#f2ebdd}
+.on-oud .btn-line{border-color:rgba(229,160,119,.45);color:var(--on-dark)}
+.on-oud .btn-line:hover{background:rgba(229,160,119,.12)}
+.btn-wa{background:#1a7f48;color:#fff}
+.btn svg{width:19px;height:19px;flex:0 0 auto}
+.link-u{color:var(--brass);font-weight:600;text-decoration:underline;text-underline-offset:3px;
+  display:inline-flex;align-items:center;padding:8px 4px;min-height:44px}
 
-/* ─ the mark (star-QR) ─ */
-.mark{flex:0 0 auto}
-.brandname{font-family:'Cairo';font-weight:900;font-size:27px;color:var(--ink);line-height:1}
-
-/* HEADER */
-header{position:sticky;top:0;z-index:60;background:rgba(248,244,236,.85);
+/* ── الترويسة ──────────────────────────────────────────────────────── */
+header{position:sticky;top:0;z-index:60;background:rgba(248,244,236,.92);
   backdrop-filter:saturate(150%) blur(12px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
-.brand{display:flex;align-items:center;gap:12px}
-.nav-links{display:flex;align-items:center;gap:30px}
-.nav-links a{font-weight:500;font-size:15px;color:var(--muted);transition:color .15s}
-.nav-links a:hover{color:var(--brass)}
-.nav .btn{padding:11px 20px;min-height:44px;font-size:14.5px}
-.nav-cta{display:flex;align-items:center;gap:10px}
-.menu-btn{align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;
-  border:1.6px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;padding:0}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;min-height:44px}
+.brandname{font-family:'Cairo';font-weight:900;font-size:25px;line-height:1}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-links a{font-weight:500;font-size:14.5px;color:var(--muted);transition:color .15s,background .15s;
+  white-space:nowrap;padding:11px 10px;min-height:44px;display:inline-flex;align-items:center;border-radius:9px}
+.nav-links a:hover{color:var(--brass);background:#f2ebdd}
+.nav-cta{display:flex;align-items:center;gap:8px}
+.nav-cta .btn{padding:10px 17px;min-height:44px;font-size:14.5px}
+.nav-login{font-size:14px;color:var(--muted);padding:11px 10px;min-height:44px;
+  display:inline-flex;align-items:center;white-space:nowrap;border-radius:9px;transition:color .15s,background .15s}
+.nav-login:hover{color:var(--brass);background:#f2ebdd}
+.nav-links .nav-login{display:none}
+.menu-btn{display:none;align-items:center;justify-content:center;width:46px;height:46px;
+  border-radius:12px;border:1.6px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
 .menu-btn svg{width:22px;height:22px}
-.only-mob{display:none}
 
-/* HERO */
-.hero{position:relative;overflow:hidden;padding:clamp(40px,7vw,86px) 0 clamp(58px,8vw,104px)}
-.hero-bg{position:absolute;inset:0;z-index:-2;background:
-   radial-gradient(58% 50% at 50% 0%,rgba(207,124,80,.30),transparent 62%),
-   radial-gradient(40% 40% at 88% 92%,rgba(168,71,31,.10),transparent 60%),var(--paper)}
-.hero-lat{position:absolute;inset:0;z-index:-1;background-image:var(--lattice);background-size:46px 46px;
-  opacity:.10;-webkit-mask-image:radial-gradient(60% 55% at 50% 12%,#000,transparent 72%);
-          mask-image:radial-gradient(60% 55% at 50% 12%,#000,transparent 72%)}
-.hero-inner{max-width:880px;margin-inline:auto;text-align:center;position:relative}
-.hero-medallion{width:clamp(96px,15vw,132px);margin:0 auto clamp(20px,3vw,30px)}
-.hero .eyebrow{margin-bottom:20px}
-.hero h1{font-size:clamp(33px,6vw,62px);font-weight:700;letter-spacing:-1.2px;line-height:1.22;margin-bottom:22px}
-.hero h1 .hl{color:var(--brass);position:relative;white-space:nowrap}
-.hero .lead{font-size:clamp(16px,2.05vw,20px);color:var(--muted);line-height:1.95;max-width:600px;margin:0 auto}
-.hero .lead b{color:var(--ink);font-weight:600}
-.cta-row{display:flex;flex-wrap:wrap;gap:13px;margin-top:30px;justify-content:center}
-.mini-note{display:inline-flex;align-items:center;gap:9px;margin-top:20px;font-size:13.5px;color:var(--muted)}
-.mini-note svg{width:17px;height:17px;color:var(--pist);flex:0 0 auto}
+/* القائمة تنتقل عند ٩٠٠ لا ٦٤٠: بين ٦٤١ و٨٥٩ كانت الروابط تلتفّ سطرين
+   فتتكسّر «كيف تعمل» و«دخول المطاعم» نصفين. */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .nav-cta > .nav-login{display:none}
+  .menu-btn{display:inline-flex}
+  header.menu-open .nav-links{display:flex;position:absolute;inset-inline:0;top:70px;
+    flex-direction:column;align-items:stretch;gap:2px;padding:10px 20px 16px;
+    background:rgba(248,244,236,.98);backdrop-filter:saturate(150%) blur(12px);
+    border-bottom:1px solid var(--line);box-shadow:var(--shadow-sm)}
+  header.menu-open .nav-links a{padding:14px 6px;font-size:16px;color:var(--ink);min-height:52px}
+  header.menu-open .nav-links .nav-login{display:inline-flex;padding:14px 6px;font-size:16px;min-height:52px}
+}
 
-/* star divider (manuscript) */
-.divider{display:flex;align-items:center;justify-content:center;gap:18px;padding:6px 0;color:var(--brass)}
-.divider::before,.divider::after{content:"";height:1px;width:min(90px,16vw);
-  background:linear-gradient(var(--dir,90deg),transparent,var(--line))}
-.divider::before{--dir:270deg}
-.divider svg{width:26px;height:26px;opacity:.85;flex:0 0 auto}
+/* ── القسم الافتتاحي ───────────────────────────────────────────────── */
+.hero{position:relative;overflow:hidden;padding:clamp(34px,5vw,60px) 0 clamp(44px,6vw,74px)}
+.hero-bg{position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(70% 55% at 78% 0%,rgba(207,124,80,.26),transparent 62%),
+  radial-gradient(50% 45% at 8% 88%,rgba(168,71,31,.09),transparent 60%),var(--paper)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(26px,4vw,52px);align-items:center}
+.hero h1{font-size:clamp(30px,4.9vw,52px);font-weight:700;letter-spacing:-1px;line-height:1.24;margin-bottom:18px}
+.hero h1 .hl{color:var(--brass)}
+.hero .lead{font-size:clamp(16px,1.9vw,18.5px);color:var(--muted);line-height:1.9;max-width:34em}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:26px}
+.trust-line{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:20px;font-size:14px;color:var(--muted)}
+.trust-line span{display:inline-flex;align-items:center;gap:7px}
+.trust-line svg{width:16px;height:16px;color:var(--pist);flex:0 0 auto}
 
-/* TRUST */
-.trust{background:var(--oud);color:#efe8db;position:relative}
-.trust .wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 34px;padding-block:22px}
-.chip{display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:500}
-.chip svg{width:20px;height:20px;color:var(--amber-lt);flex:0 0 auto}
+/* لقطتان حقيقيتان من النظام — لا ميدالية مجرّدة */
+.hero-shots{position:relative;display:flex;justify-content:center;align-items:flex-end}
+.hero-shots .ph{border-radius:26px;border:7px solid #211b17;background:#f8f4ec;
+  box-shadow:0 26px 60px rgba(42,36,32,.30);overflow:hidden;display:block}
+.hero-shots .ph img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
+.hero-shots .ph-a{width:min(214px,50vw);aspect-ratio:39/76;z-index:2}
+.hero-shots .ph-b{width:min(178px,42vw);aspect-ratio:39/76;margin-inline-start:-54px;margin-bottom:32px;
+  z-index:1;transform:rotate(-4deg)}
+.hero-cap{margin-top:16px;text-align:center;font-size:12.5px;color:var(--muted)}
 
-/* PROBLEM */
-.pains{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.pain{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 21px;
-  box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
-.pain::after{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(270deg,var(--amber),transparent)}
-.pain .pic{width:46px;height:46px;border-radius:12px;background:#f3ede1;color:var(--brass);
-  display:flex;align-items:center;justify-content:center;margin-bottom:15px}
-.pain .pic svg{width:24px;height:24px}
-.pain h3{font-size:17.5px;font-weight:700;margin-bottom:7px}
-.pain p{font-size:14px;color:var(--muted);line-height:1.8}
+/* ── الواجهات الثلاث ───────────────────────────────────────────────── */
+.faces{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+.face{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:24px 22px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;position:relative}
+.face .ic{width:44px;height:44px;border-radius:12px;background:#f3ede1;color:var(--brass);
+  display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.face .ic svg{width:23px;height:23px}
+.face h3{font-size:19px;font-weight:700;margin-bottom:10px}
+.face ul{list-style:none;display:grid;gap:9px;margin-top:2px}
+.face li{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;color:var(--muted);line-height:1.75}
+.face li>svg{width:17px;height:17px;color:var(--pist);flex:0 0 auto;margin-top:5px}
+.face.soon{background:#f5efe4;border-style:dashed}
+.face.soon .ic{background:#eae0d0;color:#7d6a58}
+.face.soon li>svg{color:#8d7a66}
+.face.soon h3{padding-inline-end:64px}
+.badge-soon{position:absolute;top:18px;inset-inline-end:18px;background:#eae0d0;color:#5f5041;
+  font-family:'Cairo';font-weight:700;font-size:11.5px;letter-spacing:.5px;padding:5px 11px;border-radius:100px}
+.faces-note{margin-top:18px;font-size:14.5px;color:var(--muted);text-align:center}
 
-/* HOW (oud) */
-.how{background:var(--oud);color:#f3ede1;position:relative;overflow:hidden}
-.how-lat{position:absolute;inset:0;background-image:var(--lattice);background-size:46px 46px;opacity:.07}
-.how .wrap{position:relative;z-index:1}
-.how .sub{color:#cfc2b0}
-.how .title{color:#fff}
-.loop{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin:8px 0 42px}
-.loop .node{display:flex;flex-direction:column;align-items:center;gap:12px;width:150px}
-.loop .disc{width:78px;height:78px;border-radius:20px;background:rgba(207,124,80,.10);
-  border:1.5px solid rgba(207,124,80,.42);display:flex;align-items:center;justify-content:center;color:var(--amber-lt)}
-.loop .disc svg{width:35px;height:35px}
-.loop .node span{font-family:'Cairo';font-weight:700;font-size:17px;color:#fff}
-.loop .arw{color:var(--amber-lt)} .loop .arw svg{width:36px;height:22px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.step{background:rgba(255,255,255,.045);border:1px solid rgba(207,124,80,.16);border-radius:16px;padding:26px 24px}
-.step .sn{display:flex;align-items:center;gap:11px;margin-bottom:14px}
-.step .sn b{font-family:'Cairo';font-weight:700;font-size:15px;color:#fdfbf7;background:var(--amber-lt);
-  width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center}
-.step .sn span{font-family:'Cairo';font-weight:600;font-size:12px;letter-spacing:2px;color:var(--amber-lt)}
-.step h3{font-size:19px;font-weight:700;color:#fff;margin-bottom:8px}
-.step p{font-size:14.5px;color:#e0d5c2;line-height:1.85}
-.pullquote{margin-top:34px;text-align:center}
-.pullquote p{font-family:'Cairo';font-weight:900;font-size:clamp(20px,3.1vw,29px);
-  color:var(--amber-lt);line-height:1.75;max-width:760px;margin:0 auto}
+/* ── المسار ────────────────────────────────────────────────────────── */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.st{background:rgba(255,255,255,.05);border:1px solid rgba(229,160,119,.20);border-radius:var(--r);
+  padding:22px 20px}
+.st b{font-family:'Cairo';font-weight:700;font-size:14px;color:#fff;background:var(--amber-lt);
+  width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.st h3{font-size:17.5px;font-weight:700;color:#fff;margin-bottom:7px}
+.st p{font-size:14.5px;color:var(--on-dark-soft);line-height:1.8}
+.flow-note{margin-top:26px;text-align:center;font-family:'Cairo';font-weight:700;
+  font-size:clamp(17px,2.3vw,22px);color:var(--amber-on-dark);line-height:1.7}
 
-/* HOW — مراحل الخدمة، والخياران داخل المرحلة الأولى (على الخلفية الداكنة) */
-.stages{display:grid;gap:20px}
-.steps.duo{grid-template-columns:repeat(2,1fr)}
-.ways{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
-.way{background:rgba(255,255,255,.05);border:1px solid rgba(207,124,80,.30);border-radius:13px;
-  padding:18px;display:flex;flex-direction:column;gap:8px}
-.way-tag{align-self:flex-start;font-family:'Cairo';font-weight:600;font-size:12px;letter-spacing:1px;
-  color:var(--amber-lt);background:rgba(207,124,80,.16);padding:5px 12px;border-radius:999px}
-.way h4{font-size:16.5px;font-weight:700;color:#fff;line-height:1.3}
-.way p{font-size:14px;color:#e0d5c2;line-height:1.8}
+/* ── ما تنظّمه سُفرة ───────────────────────────────────────────────── */
+.grp{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.g{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:24px 22px;box-shadow:var(--shadow-sm)}
+.g .ic{width:44px;height:44px;border-radius:12px;color:#fff;
+  background:linear-gradient(140deg,var(--amber-lt),var(--amber));
+  display:flex;align-items:center;justify-content:center;margin-bottom:13px}
+.g .ic svg{width:22px;height:22px}
+.g h3{font-size:19px;font-weight:700;margin-bottom:8px}
+.g > p{font-size:15px;color:var(--muted);line-height:1.8}
+.g details{margin-top:12px;border-top:1px solid var(--line);padding-top:6px}
+.g summary{list-style:none;cursor:pointer;font-family:'Cairo';font-weight:600;font-size:14px;
+  color:var(--brass);display:flex;align-items:center;gap:7px;min-height:44px}
+.g summary::-webkit-details-marker{display:none}
+.g summary .chev{width:16px;height:16px;transition:transform .2s}
+.g details[open] summary .chev{transform:rotate(180deg)}
+.g details ul{list-style:none;display:grid;gap:9px;padding-bottom:6px}
+.g details li{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;color:var(--muted);line-height:1.75}
+.g details li>svg{width:16px;height:16px;color:var(--pist);flex:0 0 auto;margin-top:5px}
 
-/* FEATURES */
-.feat{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4.5vw,60px);align-items:center;padding:clamp(30px,4vw,46px) 0}
-.feat + .feat{border-top:1px solid var(--line)}
-.feat.rev .feat-body{order:2}
-/* الميزة الأولى بطاقةٌ مُبرزة — تقول «طريقتان للطلب» قبل كل شيء، بلمسة لا بقطيعة */
-.feat.lead{background:var(--card);border:1px solid var(--line);border-radius:20px;
-  padding:clamp(26px,4vw,44px);box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
-.feat.lead::after{content:"";position:absolute;inset:0 0 auto 0;height:3px;
-  background:linear-gradient(270deg,var(--amber),transparent)}
-.feat.lead + .feat{border-top:0}
-.feat-body .fmark{display:flex;align-items:center;gap:11px;margin-bottom:12px}
-.feat-body .fmark svg{width:26px;height:26px;color:var(--brass);flex:0 0 auto}
-.feat-body .fmark span{font-family:'Cairo';font-weight:600;font-size:12px;letter-spacing:2px;color:var(--brass)}
-.feat-body h3{font-size:clamp(23px,3vw,31px);font-weight:700;margin-bottom:13px;line-height:1.3}
-.feat-body p{font-size:16px;color:var(--muted);line-height:1.95}
-.feat-body p b{color:var(--ink);font-weight:600}
-.flist{list-style:none;margin-top:17px;display:grid;gap:12px}
-.flist li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--ink);font-weight:500}
-.flist li>svg{width:21px;height:21px;color:var(--pist);flex:0 0 auto;margin-top:3px}
-.flist li b{font-weight:700}
-.feat-media{border-radius:22px;min-height:270px;display:flex;align-items:center;justify-content:center;padding:34px;
-  position:relative;overflow:hidden;background:linear-gradient(150deg,#f3ede1,#efe8db);border:1px solid var(--line);box-shadow:var(--shadow-sm)}
-.feat-media::before{content:"";position:absolute;inset:0;background-image:var(--lattice);background-size:46px 46px;opacity:.09}
-.feat-media .fig{width:132px;height:132px;color:var(--brass);position:relative;z-index:1;opacity:.95}
-.feat-media .fig svg{width:100%;height:100%}
+/* ── المرونة الفعلية ───────────────────────────────────────────────── */
+.tune{margin-top:22px;background:var(--paper-2);border:1px solid var(--line);
+  border-radius:var(--r);padding:24px 22px}
+.tune h3{font-size:18px;font-weight:700;margin-bottom:5px}
+.tune > p{font-size:14.5px;color:var(--muted);margin-bottom:14px}
+.tune ul{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 20px}
+.tune li{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;line-height:1.7}
+.tune li>svg{width:17px;height:17px;color:var(--pist);flex:0 0 auto;margin-top:4px}
 
-/* BENEFITS */
-.benefits{background:var(--paper-2)}
-.bens{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.ben{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 23px;box-shadow:var(--shadow-sm)}
-.ben .bic{width:50px;height:50px;border-radius:14px;background:linear-gradient(140deg,var(--amber-lt),var(--amber));
-  color:#fdfbf7;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-.ben .bic svg{width:26px;height:26px}
-.ben h3{font-size:18.5px;font-weight:700;margin-bottom:8px}
-.ben p{font-size:14.5px;color:var(--muted);line-height:1.85}
+/* ── عارض الشاشات ──────────────────────────────────────────────────── */
+.scr-tabs{display:flex;gap:7px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;
+  padding:6px 2px 10px;margin-bottom:4px;scroll-snap-type:x proximity}
+.scr-tabs::-webkit-scrollbar{display:none}
+.scr-tab{flex:0 0 auto;scroll-snap-align:center;font-family:'IBM Plex Sans Arabic';font-weight:600;
+  font-size:14.5px;color:var(--on-dark-soft);background:rgba(255,255,255,.06);
+  border:1px solid rgba(229,160,119,.24);border-radius:11px;padding:11px 17px;min-height:46px;
+  cursor:pointer;transition:background .2s,color .2s,border-color .2s;white-space:nowrap;
+  display:inline-flex;align-items:center;gap:7px}
+.scr-tab[aria-selected="true"]{background:linear-gradient(135deg,var(--amber-lt),var(--amber));
+  color:#fff;border-color:transparent;box-shadow:0 6px 16px rgba(168,71,31,.35)}
+.scr-tab .mini{font-size:11px;font-weight:700;background:rgba(255,255,255,.16);
+  padding:2px 7px;border-radius:100px;letter-spacing:.3px}
+.scr-tab[aria-selected="true"] .mini{background:rgba(255,255,255,.26)}
+.scr-note{display:flex;align-items:flex-start;gap:8px;font-size:12.5px;color:var(--soft-dark);
+  margin:2px 0 18px}
+.scr-note svg{width:15px;height:15px;flex:0 0 auto;margin-top:4px;color:var(--amber-on-dark)}
 
-/* POSITIONING */
-.pos{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:6px}
-.pcol{border-radius:20px;padding:28px 26px}
-.pcol h3{font-size:20px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px}
-.pcol h3 svg{width:24px;height:24px;flex:0 0 auto}
-.pcol ul{list-style:none;display:grid;gap:12px}
-.pcol li{display:flex;gap:11px;align-items:flex-start;font-size:15.5px;font-weight:500;color:var(--ink)}
-.pcol li svg{width:20px;height:20px;flex:0 0 auto;margin-top:3px}
-.p-no{background:#F7E7DD;border:1px solid #ECCFBE}.p-no h3{color:#a8471f}.p-no li svg{color:#c05a2e}
-.p-is{background:#E7F1E8;border:1px solid #CBE3CE}.p-is h3{color:var(--pist)}.p-is li svg{color:var(--pist)}
+.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;
+  scrollbar-width:none;padding:4px 0 6px;scroll-behavior:smooth}
+.rail::-webkit-scrollbar{display:none}
+.card{flex:0 0 auto;width:min(430px,86vw);scroll-snap-align:start;
+  background:rgba(255,255,255,.05);border:1px solid rgba(229,160,119,.18);
+  border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.card .shot{border-radius:20px;border:6px solid #211b17;overflow:hidden;background:#f8f4ec;
+  box-shadow:0 16px 36px rgba(0,0,0,.34);aspect-ratio:39/74;width:min(218px,58%);margin-inline:auto}
+.card .shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.card h3{font-size:18.5px;font-weight:700;color:#fff;margin-bottom:7px}
+.card p{font-size:14.5px;color:var(--on-dark-soft);line-height:1.8}
+.card .tag{display:inline-block;font-family:'Cairo';font-weight:600;font-size:11.5px;letter-spacing:.6px;
+  color:var(--amber-on-dark);background:rgba(229,160,119,.16);padding:5px 11px;border-radius:100px;margin-bottom:10px}
+.card.soon-card{border-style:dashed;justify-content:center;text-align:center;min-height:320px}
+.card.soon-card .badge-soon{position:static;align-self:center;margin:0 auto 14px}
 
-/* FLEX band */
-.flex{background:linear-gradient(140deg,var(--oud),var(--oud-2));color:#f3ede1;position:relative;overflow:hidden}
-.flex-lat{position:absolute;inset:0;background-image:var(--lattice);background-size:46px 46px;opacity:.06}
-.flex .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4vw,54px);align-items:center}
-.flex h2{font-size:clamp(25px,3.6vw,37px);font-weight:700;color:#fff;margin-bottom:16px}
-.flex p{font-size:16.5px;color:#e0d5c2;line-height:2}
-.tgls{display:grid;gap:13px}
-.tgl{display:flex;align-items:center;justify-content:space-between;gap:14px;background:rgba(255,255,255,.05);
-  border:1px solid rgba(207,124,80,.16);border-radius:14px;padding:16px 19px}
-.tgl span{font-weight:500;font-size:15.5px;color:#f3ede1}
-.sw{width:46px;height:26px;border-radius:100px;flex:0 0 auto;position:relative}
-.sw::after{content:"";position:absolute;top:3px;width:20px;height:20px;border-radius:50%;background:#fff}
-.sw.on{background:var(--amber-lt)} .sw.on::after{inset-inline-start:3px}
-.sw.off{background:rgba(255,255,255,.16)} .sw.off::after{inset-inline-end:3px}
+.rail-nav{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px}
+.rail-btn{width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(229,160,119,.35);
+  background:rgba(255,255,255,.06);color:var(--on-dark);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:background .18s}
+.rail-btn:hover:not(:disabled){background:rgba(229,160,119,.16)}
+.rail-btn:disabled{opacity:.3;cursor:default}
+.rail-btn svg{width:19px;height:19px}
+.dots{display:flex;gap:4px}
+.dot-hit{background:none;border:0;padding:16px 5px;cursor:pointer;display:flex;align-items:center;min-height:46px}
+.dot{width:9px;height:9px;border-radius:50%;background:rgba(229,160,119,.34);display:block;transition:width .2s}
+.dot[data-on="true"]{background:var(--amber-lt);width:22px;border-radius:100px}
 
-/* FINAL CTA */
-.final{position:relative;overflow:hidden}
-.final-bg{position:absolute;inset:0;z-index:-1;background:
-  radial-gradient(55% 70% at 82% 8%,rgba(207,124,80,.20),transparent 62%),var(--paper)}
-.final-card{background:var(--card);border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow);
-  display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(26px,4vw,50px);padding:clamp(30px,4vw,50px);align-items:center;
-  position:relative;overflow:hidden}
-.final-card::before{content:"";position:absolute;inset-inline-start:0;top:0;bottom:0;width:5px;
-  background:linear-gradient(var(--amber-lt),var(--amber))}
-.final-card h2{font-size:clamp(26px,3.6vw,39px);font-weight:700;margin:14px 0 13px}
-.final-card .lead2{font-size:16px;color:var(--muted);line-height:1.95}
+/* ── بداية سهلة ────────────────────────────────────────────────────── */
+.starts{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.start{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:26px 24px;box-shadow:var(--shadow-sm)}
+.start .ic{width:46px;height:46px;border-radius:13px;background:#f3ede1;color:var(--brass);
+  display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.start .ic svg{width:24px;height:24px}
+.start h3{font-size:19px;font-weight:700;margin-bottom:9px}
+.start p{font-size:15px;color:var(--muted);line-height:1.85}
+.start .langs{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.start .langs span{font-size:13px;font-weight:600;background:#f3ede1;padding:6px 12px;border-radius:100px}
 
-/* form */
-.fbox{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px 24px;position:relative}
-.fbox h3{font-size:21px;font-weight:700;margin-bottom:5px}
-.fbox .fsub{font-size:13.5px;color:var(--muted);margin-bottom:17px}
-.field{margin-bottom:14px}
-.field label{display:block;font-family:'Cairo';font-weight:600;font-size:13.5px;margin-bottom:7px;color:var(--ink)}
-.field input{width:100%;font-family:'IBM Plex Sans Arabic';font-size:16px;padding:14px 15px;border:1.6px solid var(--line);
-  border-radius:12px;background:#fdfbf7;color:var(--ink);min-height:52px;transition:border-color .15s,box-shadow .15s}
-.field input:focus{outline:none;border-color:var(--amber);box-shadow:0 0 0 4px rgba(168,71,31,.15)}
-.field input::placeholder{color:#b3a695}
-.fbox .btn{width:100%;margin-top:4px}.wa2{width:100%;margin-top:10px}
-.err{color:#B23B2E;font-size:12.5px;margin-top:5px;display:none}
-.field.bad input{border-color:#D06253;background:#FCF3F1}.field.bad .err{display:block}
-.fok{display:none;text-align:center;padding:18px 8px}
-.fok svg{width:54px;height:54px;color:var(--pist);margin:0 auto 12px}
-.fok h3{font-size:20px;margin-bottom:6px}.fok p{font-size:14px;color:var(--muted)}
-
-/* FAQ */
-.faqs{max-width:820px;margin-inline:auto;display:grid;gap:12px}
-details.q{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm)}
-details.q summary{list-style:none;cursor:pointer;padding:20px 22px;display:flex;align-items:center;justify-content:space-between;
-  gap:14px;font-family:'Cairo';font-weight:600;font-size:17.5px;color:var(--ink)}
-details.q summary::-webkit-details-marker{display:none}
-details.q summary .qi{width:30px;height:30px;border-radius:9px;background:#f3ede1;color:var(--brass);
-  display:flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .25s}
-details.q[open] summary .qi{transform:rotate(135deg)}
-details.q .a{padding:0 22px 21px;font-size:15px;color:var(--muted);line-height:1.95}
-details.q .a b{color:var(--ink)}
-
-/* PRICING */
-.plans{display:grid;grid-template-columns:minmax(0,480px);gap:22px;max-width:900px;margin-inline:auto;justify-content:center;align-items:stretch}
-.plan{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px 28px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;position:relative;text-align:center}
-.plan.top{border:1.6px solid var(--amber);box-shadow:0 18px 46px rgba(168,71,31,.20);background:linear-gradient(180deg,#fdfbf7,#f8f4ec)}
-.plan-badge{position:absolute;top:-14px;inset-inline-start:50%;transform:translateX(50%);background:linear-gradient(135deg,var(--amber-lt),var(--amber));color:#fdfbf7;font-family:'Cairo';font-weight:700;font-size:12.5px;padding:6px 15px;border-radius:100px;box-shadow:var(--shadow-sm);white-space:nowrap}
-/* لكل صفٍّ في البطاقة ارتفاعٌ ثابت لا يتبع طول نصّه — يُبقي الإيقاع
-   البصريّ منتظمًا (وكان يُحاذي بطاقتين حين كانت الباقات باقتين). */
-.plan-name{font-family:'Cairo';font-weight:900;font-size:24px;color:var(--ink);margin-bottom:8px}
-.plan-name b{color:var(--amber)}
-.plan-tag{font-size:14px;color:var(--muted);line-height:1.8;min-height:54px;margin-bottom:12px;display:flex;align-items:flex-start;justify-content:center}
-.plan-sep{border:0;border-top:1px solid var(--line);opacity:.7;margin:0 0 16px}
-.plan-price{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:6px;min-height:58px}
-.plan-price .amt{font-family:'Cairo';font-weight:900;font-size:clamp(38px,5.5vw,52px);color:var(--amber);line-height:1}
-.plan-price .unit{display:flex;flex-direction:column;align-items:flex-start;line-height:1.5}
-.plan-price .cur{font-family:'Cairo';font-weight:700;font-size:16px;color:var(--ink)}
+/* ── الأسعار ───────────────────────────────────────────────────────── */
+.billing{display:flex;justify-content:center;margin:0 auto 26px;background:var(--card);
+  border:1px solid var(--line);border-radius:100px;padding:5px;width:fit-content;box-shadow:var(--shadow-sm)}
+.billing button{font-family:'IBM Plex Sans Arabic';font-weight:600;font-size:14.5px;border:0;
+  background:transparent;color:var(--muted);padding:10px 20px;border-radius:100px;cursor:pointer;
+  transition:background .18s,color .18s;min-height:44px}
+.billing button.on{background:linear-gradient(135deg,var(--amber-lt),var(--amber));color:#fff;
+  box-shadow:0 6px 16px rgba(168,71,31,.26)}
+.billing .save{font-size:12px;opacity:.92}
+.plan{background:var(--card);border:1.6px solid var(--amber);border-radius:22px;padding:30px 26px;
+  box-shadow:0 18px 46px rgba(168,71,31,.16);max-width:480px;margin-inline:auto;
+  display:flex;flex-direction:column;text-align:center}
+.plan-name{font-family:'Cairo';font-weight:900;font-size:22px;margin-bottom:6px}
+.plan-tag{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:14px}
+.plan-sep{border:0;border-top:1px solid var(--line);margin:0 0 16px}
+.plan-price{display:flex;align-items:center;justify-content:center;gap:11px;margin-bottom:5px}
+.plan-price .amt{font-family:'Cairo';font-weight:900;font-size:clamp(38px,5vw,50px);color:var(--amber);line-height:1}
+.plan-price .unit{display:flex;flex-direction:column;align-items:flex-start;line-height:1.45}
+.plan-price .cur{font-family:'Cairo';font-weight:700;font-size:15.5px}
 .plan-price .per{font-size:13px;color:var(--muted)}
 .plan-note{font-size:13.5px;color:var(--muted);font-weight:600;margin-bottom:16px;min-height:22px}
-.plan-incl{font-family:'Cairo';font-weight:700;font-size:15.5px;color:var(--ink);text-align:start;margin-bottom:14px}
-.plan-list{list-style:none;display:grid;gap:12px;margin-bottom:24px;text-align:start}
-.plan-list li{display:flex;gap:11px;align-items:flex-start;font-size:15px;color:var(--ink);font-weight:500}
-.plan-list li svg{width:21px;height:21px;flex:0 0 auto;margin-top:2px;color:#fff;background:var(--pist);border-radius:50%;padding:4px}
-.plan-list li b{color:var(--amber)}
-.plan-btn{width:100%;margin-top:auto}
-/* مفتاح المدّة — سنويّ افتراضاً، والخصم معلَن على الزرّ نفسه */
-.billing-toggle{display:flex;justify-content:center;gap:0;margin:0 auto 30px;background:var(--card);border:1px solid var(--line);border-radius:100px;padding:5px;width:fit-content;box-shadow:var(--shadow-sm)}
-.billing-toggle button{font-family:'IBM Plex Sans Arabic';font-weight:600;font-size:14.5px;border:0;background:transparent;color:var(--muted);padding:10px 22px;border-radius:100px;cursor:pointer;transition:background .18s,color .18s;min-height:44px}
-.billing-toggle button.on{background:linear-gradient(135deg,var(--amber-lt),var(--amber));color:#fdfbf7;box-shadow:0 6px 16px rgba(168,71,31,.28)}
-.billing-toggle .save{font-size:12px;opacity:.9}
-.pricing-foot{text-align:center;font-size:13px;color:var(--muted);margin-top:24px}
-.pricing-foot b{color:var(--brass)}
+.plan-incl{font-family:'Cairo';font-weight:700;font-size:15px;text-align:start;margin-bottom:12px}
+.plan-list{list-style:none;display:grid;gap:11px;margin-bottom:22px;text-align:start}
+.plan-list li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;font-weight:500;line-height:1.7}
+.plan-list li svg{width:20px;height:20px;flex:0 0 auto;margin-top:3px;color:#fff;background:var(--pist);border-radius:50%;padding:4px}
+.plan-cta{display:flex;flex-direction:column;gap:9px;margin-top:auto}
+.pricing-foot{text-align:center;font-size:13px;color:var(--muted);margin-top:18px;line-height:1.8}
+.note-fine{display:inline-block;margin-top:6px;font-size:12.5px;color:var(--muted);opacity:.95}
+.branches{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;
+  margin-top:20px;text-align:center;font-size:14.5px;color:var(--muted)}
 
-/* FOOTER */
-footer{background:var(--oud);color:#cfc2b0;padding:48px 0 30px;position:relative;overflow:hidden}
-.foot-lat{position:absolute;inset:0;background-image:var(--lattice);background-size:46px 46px;opacity:.05}
-footer .wrap{position:relative;z-index:1}
-.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:22px;align-items:center;
-  padding-bottom:26px;border-bottom:1px solid rgba(207,124,80,.16)}
-.foot-brand{display:flex;align-items:center;gap:13px}
-.foot-brand .bn{font-family:'Cairo';font-weight:900;font-size:24px;color:#fff}
-.foot-brand p{font-size:13px;color:#8b7f72;margin-top:3px}
-.foot-links{display:flex;gap:24px;flex-wrap:wrap}
-.foot-contact{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;
-  margin-top:26px;padding:22px 0 4px;border-top:1px solid rgba(207,124,80,.22)}
-.fc-title{font-family:'Cairo';font-weight:700;font-size:17px;color:#f3ede1}
-.fc-sub{font-size:14px;color:#cfc2b0;margin-top:4px}
-.fc-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.fc-num{font-family:'Cairo';font-weight:700;font-size:17px;color:var(--amber-lt);
-  letter-spacing:.5px;white-space:nowrap}
+/* ── الأسئلة ───────────────────────────────────────────────────────── */
+.faqs{max-width:800px;margin-inline:auto;display:grid;gap:11px}
+#faqExtra{display:grid;gap:11px;margin-top:11px}
+#faqExtra[hidden]{display:none}
+details.q{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;box-shadow:var(--shadow-sm)}
+details.q summary{list-style:none;cursor:pointer;padding:16px 20px;display:flex;align-items:center;
+  justify-content:space-between;gap:14px;font-family:'Cairo';font-weight:600;font-size:16.5px;min-height:56px}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary .qi{width:28px;height:28px;border-radius:9px;background:#f3ede1;color:var(--brass);
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .25s}
+details.q summary .qi svg{width:16px;height:16px}
+details.q[open] summary .qi{transform:rotate(135deg)}
+details.q .a{padding:0 20px 19px;font-size:15px;color:var(--muted);line-height:1.9}
+.faq-more{display:flex;justify-content:center;margin-top:20px}
+
+/* ── الدعوة الختامية ───────────────────────────────────────────────── */
+.final{border-radius:24px;padding:clamp(30px,4.5vw,52px);text-align:center}
+.final h2{font-size:clamp(24px,3.4vw,34px);font-weight:700;color:#fff;margin-bottom:12px}
+.final p{font-size:16px;color:var(--on-dark-soft);max-width:46em;margin:0 auto 24px;line-height:1.85}
+.final .cta-row{justify-content:center;margin-top:0}
+.final small{display:block;margin-top:16px;font-size:13px;color:var(--soft-dark)}
+
+/* ── التذييل ───────────────────────────────────────────────────────── */
+footer{background:var(--oud);color:var(--on-dark-soft);padding:44px 0 26px}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center;
+  padding-bottom:20px;border-bottom:1px solid rgba(229,160,119,.16)}
+.foot-brand{display:flex;align-items:center;gap:12px}
+.foot-brand .bn{font-family:'Cairo';font-weight:900;font-size:22px;color:#fff}
+.foot-brand p{font-size:13px;color:var(--on-dark-soft);margin-top:2px}
+.foot-links{display:flex;gap:4px;flex-wrap:wrap}
+.foot-links a{font-size:14.5px;color:var(--on-dark-soft);padding:11px 10px;min-height:44px;
+  display:inline-flex;align-items:center;border-radius:9px;transition:color .15s}
+.foot-links a:hover{color:var(--amber-on-dark)}
+.foot-contact{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;
+  margin-top:18px;padding-top:18px;border-top:1px solid rgba(229,160,119,.16)}
+.fc-title{font-family:'Cairo';font-weight:700;font-size:16.5px;color:var(--on-dark)}
+.fc-sub{font-size:14px;color:var(--on-dark-soft);margin-top:3px}
+.fc-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.fc-num{font-family:'Cairo';font-weight:700;font-size:16.5px;color:var(--amber-on-dark);
+  white-space:nowrap;padding:11px 4px;min-height:44px;display:inline-flex;align-items:center}
 .fc-num:hover{text-decoration:underline}
-.foot-links a{font-size:14.5px;color:#cfc2b0;transition:color .15s}.foot-links a:hover{color:var(--amber-lt)}
-.copy{text-align:center;font-size:12.5px;color:#6f6055;padding-top:22px}
-.copy .disp{color:var(--amber-lt);font-size:15px}
+.copy{text-align:center;font-size:12.5px;color:var(--soft-dark);padding-top:22px}
 
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
 
+/* ── الاستجابة ─────────────────────────────────────────────────────── */
 @media(max-width:960px){
-  .flex .wrap,.final-card,.pos,.plans{grid-template-columns:1fr}
-  .pains{grid-template-columns:1fr 1fr}.steps,.steps.duo{grid-template-columns:1fr}.bens{grid-template-columns:1fr 1fr}
-  .feat{grid-template-columns:1fr;gap:24px}.feat.rev .feat-body{order:0}.feat-media{min-height:190px}
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .hero-shots .ph-a{width:min(196px,46vw)}
+  .hero-shots .ph-b{width:min(164px,39vw);margin-inline-start:-48px}
+  .faces,.grp,.starts{grid-template-columns:1fr}
+  .flow{grid-template-columns:repeat(2,1fr)}
+  .tune ul{grid-template-columns:1fr}
 }
-@media(max-width:640px){
-  .nav-links,.nav .btn.deskcta{display:none}.only-mob{display:inline-flex}
-  /* روابط التنقّل لا تختفي بلا باب: زرّ القائمة يفتحها لوحةً تحت الترويسة */
-  header.menu-open .nav-links{display:flex;position:absolute;inset-inline:0;top:72px;
-    flex-direction:column;align-items:stretch;gap:2px;padding:10px 22px 18px;
-    background:rgba(248,244,236,.97);backdrop-filter:saturate(150%) blur(12px);
-    border-bottom:1px solid var(--line);box-shadow:var(--shadow-sm)}
-  header.menu-open .nav-links a{padding:13px 4px;font-size:16px;color:var(--ink)}
-  .pains,.bens,.ways{grid-template-columns:1fr}.trust .wrap{justify-content:flex-start}
-  /* حلقة الضيف→النادل→المطبخ تبقى سطرًا واحدًا — سهمٌ معلّق أول السطر أسوأ من عقدة أصغر */
-  .loop{gap:5px}.loop .node{width:80px;gap:8px}
-  .loop .disc{width:54px;height:54px;border-radius:14px}.loop .disc svg{width:25px;height:25px}
-  .loop .node span{font-size:14px}.loop .arw svg{width:22px;height:15px}
-  .brandname{font-size:26px}
+@media(max-width:620px){
+  .flow{grid-template-columns:1fr}
+  .cta-row .btn{flex:1 1 100%}
+  .card .shot{width:min(218px,68%)}
+  .foot-top{flex-direction:column;align-items:flex-start}
+  .face.soon h3{padding-inline-end:0}
+  .badge-soon{position:static;display:inline-block;margin-bottom:10px}
 }
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.reveal{opacity:1;transform:none;transition:none}.btn:hover{transform:none}}
-
-/* SCREENS — شاشات حقيقية من النظام في تبويبات متحركة */
-.screens{background:var(--oud);color:#f3ede1;position:relative;overflow:hidden}
-.screens .title{color:#fff}
-.screens .sub{color:#cfc2b0}
-.scr-tabs{position:relative;display:flex;flex-wrap:wrap;justify-content:center;gap:6px;
-  background:rgba(255,255,255,.05);border:1px solid rgba(207,124,80,.18);
-  border-radius:16px;padding:7px;max-width:820px;margin:0 auto 14px}
-.scr-tab{position:relative;z-index:1;font-family:'IBM Plex Sans Arabic';font-weight:600;font-size:14.5px;
-  color:#e0d5c2;background:transparent;border:0;border-radius:11px;padding:10px 16px;min-height:44px;
-  cursor:pointer;transition:color .25s;white-space:nowrap}
-.scr-tab.on{color:#fdfbf7}
-.scr-ind{position:absolute;z-index:0;top:0;left:0;border-radius:11px;
-  background:linear-gradient(135deg,var(--amber-lt),var(--amber));
-  box-shadow:0 6px 18px rgba(168,71,31,.4);opacity:0;
-  transition:transform .45s cubic-bezier(.3,1.25,.4,1),width .45s cubic-bezier(.3,1.25,.4,1),height .45s,opacity .3s}
-.scr-note{display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;color:#b7a893;
-  margin-bottom:clamp(22px,3vw,34px);text-align:center}
-.scr-note svg{width:15px;height:15px;flex:0 0 auto;color:var(--amber-lt)}
-.scr-stage{background:rgba(255,255,255,.045);border:1px solid rgba(207,124,80,.16);
-  border-radius:20px;padding:clamp(22px,3.5vw,40px)}
-.scr-panel{display:none}
-.scr-panel.on{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,52px);align-items:center}
-.scr-panel.enter{animation:scrIn .5s cubic-bezier(.2,.8,.3,1) both}
-@keyframes scrIn{from{opacity:0;transform:scale(.96) translateX(-10px);filter:blur(10px)}
-  to{opacity:1;transform:scale(1) translateX(0);filter:blur(0)}}
-.scr-phone{width:min(250px,64vw);border-radius:24px;border:6px solid #1c1713;outline:1px solid rgba(207,124,80,.35);
-  box-shadow:0 24px 60px rgba(0,0,0,.45);display:block;height:auto;background:#f8f4ec;justify-self:center}
-.scr-body .way-tag{margin-bottom:12px}
-.scr-body h3{font-size:clamp(21px,2.7vw,28px);font-weight:700;color:#fff;margin-bottom:11px;line-height:1.35}
-.scr-body p{font-size:15.5px;color:#e0d5c2;line-height:1.95;max-width:520px}
-@media(max-width:760px){
-  .scr-tab{font-size:13px;padding:9px 12px}
-  .scr-panel.on{grid-template-columns:1fr;gap:22px}
-  .scr-body{display:flex;flex-direction:column;align-items:center;text-align:center}
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none;transition:none}
+  .btn:hover{transform:none}
+  .rail{scroll-behavior:auto}
 }
-@media(prefers-reduced-motion:reduce){.scr-panel.enter{animation:none}.scr-ind{transition:none}}
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-<symbol id="star" viewBox="0 0 100 100">
-  <path d="M50 4 62 38 96 50 62 62 50 96 38 62 4 50 38 38Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
-  <path d="M50 22 58 42 78 50 58 58 50 78 42 58 22 50 42 42Z" fill="currentColor" opacity=".16"/>
-  <rect x="45" y="45" width="10" height="10" fill="currentColor"/>
-</symbol>
-</defs></svg>
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
 
-<header>
+<header id="hdr">
   <div class="wrap nav">
-    <a class="brand" href="#top" aria-label="سُفرة"><svg class="mark" width="42" height="42" viewBox="0 0 100 100" aria-hidden="true">
-  <circle cx="50" cy="50" r="44" fill="#fdfbf7" stroke="#e0d5c2" stroke-width="3.5"/><circle cx="50" cy="50" r="30" fill="none" stroke="#efe8db" stroke-width="2.5"/><circle cx="50" cy="50" r="18" fill="#a8471f"/>
-</svg><span class="brandname disp">سُفرة</span></a>
-    <nav class="nav-links" id="navLinks" aria-label="روابط">
-      <a href="#how">كيف تعمل</a><a href="#features">المميزات</a><a href="#screens">الشاشات</a><a href="#pricing">الأسعار</a><a href="#faq">الأسئلة</a><a href="https://app.alsufr.com/" data-ad-events="login_click">دخول المطاعم</a>
+    <a class="brand" href="#top" aria-label="سُفرة — أعلى الصفحة">
+      <svg width="38" height="38" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="44" fill="#fdfbf7" stroke="#e0d5c2" stroke-width="3.5"/>
+        <circle cx="50" cy="50" r="30" fill="none" stroke="#efe8db" stroke-width="2.5"/>
+        <circle cx="50" cy="50" r="18" fill="#a8471f"/>
+      </svg>
+      <span class="brandname">سُفرة</span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="روابط الصفحة">
+      <a href="#how">كيف تعمل؟</a>
+      <a href="#surfaces">أنظمة سُفرة</a>
+      <a href="#screens">شاهد النظام</a>
+      <a href="#pricing">الأسعار</a>
+      <a class="nav-login" href="https://app.alsufr.com/" data-ad-events="login_click">دخول المطاعم</a>
     </nav>
     <div class="nav-cta">
-      <a href="https://app.alsufr.com/signup" class="btn btn-gold deskcta" data-ad-events="free_trial_click landing_to_app">ابدأ تجربتك المجّانية</a>
-      <a href="https://app.alsufr.com/signup" class="btn btn-gold only-mob" data-ad-events="free_trial_click landing_to_app">جرّب مجّانًا</a>
-      <button type="button" class="menu-btn only-mob" aria-expanded="false" aria-controls="navLinks" aria-label="فتح القائمة">
+      <a class="nav-login" href="https://app.alsufr.com/" data-ad-events="login_click">دخول المطاعم</a>
+      <a href="https://app.alsufr.com/signup" class="btn btn-gold" data-ad-events="free_trial_click landing_to_app">ابدأ تجربتك المجانية</a>
+      <button type="button" class="menu-btn" aria-expanded="false" aria-controls="navLinks" aria-label="فتح القائمة">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
       </button>
     </div>
@@ -435,544 +415,667 @@ footer .wrap{position:relative;z-index:1}
 </header>
 <span id="top"></span>
 
-<!-- HERO -->
+<main id="main">
+
+<!-- ═══ القسم الافتتاحي ═══ -->
 <section class="hero">
-  <div class="hero-bg"></div><div class="hero-lat"></div>
-  <div class="wrap hero-inner reveal">
-    <div class="hero-medallion"><svg width="100%" viewBox="0 0 200 200" role="img" aria-label="شعار سُفرة">
-  <circle cx="100" cy="100" r="92" fill="none" stroke="#e0d5c2" stroke-width="1.5"/>
-  <g stroke="#c05a2e" stroke-width="1.3" fill="none" opacity=".55">
-    <circle cx="100" cy="100" r="78" stroke-dasharray="2 7"/>
-  </g>
-  <circle cx="100" cy="100" r="62" fill="#fdfbf7" stroke="#e0d5c2" stroke-width="4"/>
-  <circle cx="100" cy="100" r="43" fill="none" stroke="#efe8db" stroke-width="3"/>
-  <circle cx="100" cy="100" r="26" fill="#a8471f"/>
-  <g fill="#cf7c50" opacity=".9"><circle cx="100" cy="26" r="2.4"/><circle cx="174" cy="100" r="2.4"/><circle cx="100" cy="174" r="2.4"/><circle cx="26" cy="100" r="2.4"/></g>
-</svg></div>
-    <div class="eyebrow solo" style="justify-content:center">نظام متكامل لخدمة الطاولات</div>
-    <h1>خدمة طاولة <span class="hl">أذكى</span>،<br>من أول طلب إلى <span class="hl">وصول الطبق</span>.</h1>
-    <p class="lead"><b>سُفرة</b> تربط الضيف والنادل والمطبخ في نظام واحد. يطلب الضيف بنفسه عبر <b>QR</b>، أو يسجّل النادل الطلب له مباشرةً — وتصل الطلبات إلى المطبخ بوضوح، مع متابعة حالتها لحظة بلحظة.<br>
-      <b>خدمة أسرع، أخطاء أقل، وتجربة أريح لفريقك وضيوفك.</b></p>
-    <div class="cta-row">
-      <a href="https://app.alsufr.com/signup" class="btn btn-gold" data-ad-events="free_trial_click landing_to_app">ابدأ تجربتك المجّانية</a>
-      <a href="https://app.alsufr.com/subscribe" class="btn btn-line" data-ad-events="landing_to_app">اشترك الآن</a>
+  <div class="hero-bg"></div>
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="eyebrow">نظام ذكي لخدمة وإدارة طاولات المطاعم</span>
+      <h1>من طلب الطاولة إلى <span class="hl">الحساب</span>، كل شيء في مسار واحد.</h1>
+      <p class="lead">يطلب الضيف من جواله عبر <span lang="en">QR</span>، أو يسجّل الكابتن الطلب.
+        ثم يصل الطلب إلى المطبخ، وتُتابَع جاهزية الأطباق وحساب الطاولة من نظام واحد.</p>
+      <div class="cta-row">
+        <a href="https://app.alsufr.com/signup" class="btn btn-gold" data-ad-events="free_trial_click landing_to_app">ابدأ تجربتك المجانية</a>
+        <a href="#how" class="btn btn-line">شاهد كيف تعمل سُفرة</a>
+      </div>
+      <div class="trust-line">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> أسبوعان مجانًا</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> بلا بطاقة</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> لا يحتاج الضيف إلى تطبيق</span>
+      </div>
     </div>
-    <div class="mini-note">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      أسبوعان مجّانًا · بلا بطاقة · تبدأ فورًا
-    </div>
-  </div>
-</section>
-
-<div class="trust">
-  <div class="wrap">
-    <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M20 20v.01M17 20h.01M20 14v3" stroke-linecap="round"/></svg> يعمل من كاميرا الجوال</div>
-    <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M5 8h14M7 3v3M17 3v3" stroke-linecap="round"/></svg> بلا تطبيق تحمّله</div>
-    <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7 9 18l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> يعمل بجانب نظامك الحالي</div>
-    <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg> خدمة أسرع وأدق</div>
-  </div>
-</div>
-
-<!-- PROBLEM -->
-<section class="sec" id="problem">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow">التحدّي</span>
-      <h2 class="title">في كل طاولةٍ احتكاكاتٌ صغيرة تكلّفك ضيوفك</h2>
-      <p class="sub">لحظاتٌ متكرّرة تُفقد الضيف راحته، وتُرهق فريقك، وتُبطئ طاولاتك.</p>
-    </div>
-    <div class="pains">
-      <div class="pain reveal"><div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg></div><h3>انتظار النادل</h3><p>الضيف يرفع يده وينتظر، والنادل مشغولٌ على طاولةٍ أخرى — فتطول لحظة الطلب.</p></div>
-      <div class="pain reveal"><div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z" stroke-linejoin="round"/><path d="M9 8h6M9 12h6" stroke-linecap="round"/></svg></div><h3>إحراج الحساب</h3><p>وقت الدفع الجماعي يصبح محرجًا: مَن يدفع نصيب مَن؟ وكيف نقسّم الفاتورة بلا لبس؟</p></div>
-      <div class="pain reveal"><div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 4l-7 12a2 2 0 0 0 1.7 3h14a2 2 0 0 0 1.7-3l-7-12a2 2 0 0 0-3.4 0z" stroke-linejoin="round"/></svg></div><h3>أخطاء الطلب</h3><p>«قلتُ بدون ثلج» — تفاصيلُ دقيقة تضيع بين الطاولة والمطبخ، فيرجع الطبق ويضيع الوقت.</p></div>
-      <div class="pain reveal"><div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-linecap="round"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13A4 4 0 0 1 16 11" stroke-linecap="round"/></svg></div><h3>ضغط الذروة</h3><p>أوقات الزحام تُرهق فريقك، فتتأخر الطلبات وتنخفض جودة الخدمة حين تحتاجها أكثر.</p></div>
-    </div>
-  </div>
-</section>
-
-<div class="wrap"><div class="divider reveal"><svg width="26" height="26"><use href="#star"/></svg></div></div>
-
-<!-- HOW -->
-<section class="sec how" id="how">
-  <div class="how-lat"></div>
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow on-dark">طريقة الخدمة</span>
-      <h2 class="title">كيف تعمل سُفرة؟</h2>
-      <p class="sub">تبدأ الخدمة بالطريقة التي تناسب ضيفك، ثم يتابع النادل والمطبخ الطلب من خلال مسار واحد واضح.</p>
-    </div>
-    <div class="loop reveal" aria-hidden="true">
-      <div class="node"><span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10.5 18.5h3" stroke-linecap="round"/></svg></span><span>الضيف</span></div>
-      <span class="arw"><svg viewBox="0 0 36 22" fill="none" stroke="currentColor" stroke-width="2"><path d="M34 11H2M9 4 2 11l7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      <div class="node"><span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="7" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0" stroke-linecap="round"/></svg></span><span>النادل</span></div>
-      <span class="arw"><svg viewBox="0 0 36 22" fill="none" stroke="currentColor" stroke-width="2"><path d="M34 11H2M9 4 2 11l7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      <div class="node"><span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M6 20V10M18 20V10M4 10h16l-2-4H6z" stroke-linejoin="round"/><path d="M12 6V3" stroke-linecap="round"/></svg></span><span>المطبخ</span></div>
-    </div>
-    <div class="stages">
-      <div class="step reveal">
-        <div class="sn"><b>١</b><span>المرحلة الأولى</span></div>
-        <h3>يبدأ الطلب بالطريقة المناسبة</h3>
-        <p>يطلب الضيف بنفسه عبر QR، أو يطلب بالطريقة المعتادة ويسجّل النادل طلبه مباشرةً في النظام. وفي الحالتين يصل الطلب إلى المسار نفسه.</p>
-        <div class="ways">
-          <div class="way"><span class="way-tag">الضيف · QR</span><h4>الضيف يطلب بنفسه</h4><p>يمسح رمز الطاولة، يتصفّح القائمة ويرسل طلبه دون تحميل تطبيق.</p></div>
-          <div class="way"><span class="way-tag">النادل</span><h4>النادل يسجّل الطلب</h4><p>يستقبل النادل الطلب بالطريقة المعتادة ويسجّله من جهازه، حتى لمن لا يرغب في استخدام QR.</p></div>
+    <div class="reveal">
+      <div class="hero-shots">
+        <div class="ph ph-b" aria-hidden="true">
+          <img src="assets/screens/captain-board.png" alt="" width="1170" height="3000" decoding="async">
+        </div>
+        <div class="ph ph-a">
+          <img src="assets/screens/guest-menu.png" alt="قائمة الضيف في سُفرة على شاشة جوال: أقسام وأصناف بأسعارها، وزر نداء النادل" width="780" height="1688" decoding="async" fetchpriority="high">
         </div>
       </div>
-      <div class="steps duo">
-        <div class="step reveal"><div class="sn"><b>٢</b><span>المرحلة الثانية</span></div><h3>النادل يتابع وينسّق</h3><p>تظهر الطلبات وحالتها ونداءات الطاولات أمام النادل بوضوح، ليعرف ما يحتاج إلى متابعة وما أصبح جاهزًا للتقديم.</p></div>
-        <div class="step reveal"><div class="sn"><b>٣</b><span>المرحلة الثالثة</span></div><h3>المطبخ يستلم ويُجهّز</h3><p>تصل تفاصيل الطلب إلى المطبخ مباشرةً، ويحدّث الفريق حالة الأصناف عند تجهيزها ليعرف النادل متى يقدمها.</p></div>
-      </div>
+      <p class="hero-cap">شاشتان من النظام: قائمة الضيف، ولوحة الكابتن.</p>
     </div>
-    <div class="pullquote reveal"><p>طريقتان للطلب، ومسار خدمة واحد منظم.</p></div>
   </div>
 </section>
 
-<!-- FEATURES -->
+<!-- ═══ الواجهات الثلاث ═══ -->
+<section class="sec" id="surfaces">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">أنظمة سُفرة</span>
+      <h2 class="title">قائمة واحدة، ثلاث واجهات لمطعمك</h2>
+      <p class="sub">تُدير أصنافك وأسعارك من مكان واحد داخل سُفرة — بلا منيو ثانٍ تبنيه وتحدّثه بيدك.</p>
+    </div>
+    <div class="faces">
+      <div class="face reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3M20 20v.01M17 20h.01M20 14v3" stroke-linecap="round"/></svg></div>
+        <h3>الطلب الذكي عبر <span lang="en">QR</span></h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>يمسح الضيف رمز طاولته فتفتح القائمة في المتصفّح — بلا تحميل تطبيق.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>يتصفّح الأصناف، ويختار الحجم والإضافات، ويرسل طلبه.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>يشارك في طلب الطاولة حسب نمط الجلسة الذي تختارونه.</span></li>
+        </ul>
+      </div>
+
+      <div class="face reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="7" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0" stroke-linecap="round"/></svg></div>
+        <h3>نظام الكابتن</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>يسجّل الكابتن الطلب بالطريقة المعتادة من جهازه.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>يختار الحجم والإضافات، ويرسل الطلب إلى المطبخ.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>يتابع الطاولات والنداءات والأطباق الجاهزة من لوحة واحدة.</span></li>
+        </ul>
+      </div>
+
+      <div class="face soon reveal">
+        <span class="badge-soon">قريبًا</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6"/></svg></div>
+        <h3>منيو عرض لخرائط <span lang="en">Google</span></h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>صفحة منيو للعرض فقط.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>يضع المطعم رابطها في ملفه على خرائط <span lang="en">Google</span>.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>تعرض الأصناف والأسعار من القائمة نفسها.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>بلا سلّة ولا طلب ولا فتح جلسة طاولة.</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="faces-note reveal">أضف الصنف أو غيّر سعره مرّة واحدة، فيتحدّث نظام الضيف والكابتن معًا —
+      وسيظهر التحديث نفسه في منيو خرائط <span lang="en">Google</span> عند إطلاقه.</p>
+  </div>
+</section>
+
+<!-- ═══ المسار ═══ -->
+<section class="sec on-oud" id="how">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">كيف تعمل؟</span>
+      <h2 class="title">من الطلب إلى الحساب</h2>
+      <p class="sub">طلبات متفرّقة، وتأخّرٌ بين الطاولة والمطبخ، وحسابٌ لا يعرف من طلب ماذا —
+        مسارٌ واحد يرتّب الأربعة.</p>
+    </div>
+    <div class="flow">
+      <div class="st reveal"><b>١</b><h3>يبدأ الطلب</h3><p>يطلب الضيف من جواله، أو يسجّل الكابتن الطلب على الطاولة. والوجهة واحدة.</p></div>
+      <div class="st reveal"><b>٢</b><h3>يصل المطبخ</h3><p>تذكرة بالأصناف وأحجامها وخياراتها، تظهر على شاشة المطبخ لحظة الإرسال.</p></div>
+      <div class="st reveal"><b>٣</b><h3>تظهر الجاهزية</h3><p>يشطب المطبخ الصنف حين يجهز، فيعرف الكابتن ما يقدّمه الآن بلا مناداة.</p></div>
+      <div class="st reveal"><b>٤</b><h3>يُغلق الحساب</h3><p>الطاولة تُغلق بفاتورة تقول من طلب ماذا ومن قبض كم — بلا حساب على ورقة.</p></div>
+    </div>
+    <p class="flow-note reveal">طريقتان للطلب، ومسار خدمة واحد.</p>
+  </div>
+</section>
+
+<!-- ═══ ما تنظّمه سُفرة ═══ -->
 <section class="sec" id="features">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <span class="eyebrow">المميزات</span>
-      <h2 class="title">مميزاتٌ تصنع الفرق في كل طاولة</h2>
-      <p class="sub">ليست إضافاتٍ شكلية — كلٌّ منها يحلّ احتكاكًا حقيقيًا في خدمتك اليومية.</p>
+      <span class="eyebrow">ما الذي تنظّمه سُفرة؟</span>
+      <h2 class="title">أربعة أشياء ترتّبها سُفرة في كل طاولة</h2>
+      <p class="sub">اضغط «التفاصيل» في أي بطاقة لتقرأ ما تحتها.</p>
     </div>
 
-    <div class="feat lead reveal">
-      <div class="feat-body">
-        <div class="fmark"><svg width="26" height="26"><use href="#star"/></svg><span>الطلب بطريقتين</span></div>
-        <h3>الضيف يطلب بنفسه أو الكابتن يسجّل الطلب</h3>
-        <p>يختار المطعم الطريقة المناسبة لكل طاولة: يطلب الضيف من جواله عبر <b>QR</b>، أو يسجّل الكابتن الطلب من نظامه مباشرة — وفي الحالتين يصل الطلب إلى المطبخ في <b>المسار نفسه</b>.</p>
-        <ul class="flist">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>طلب ذاتي من جوال الضيف دون تحميل تطبيق.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>نظام كابتن متكامل</b> لتسجيل طلبات الطاولات.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>يمكن الجمع بين الطريقتين في الجلسة نفسها.</span></li>
-        </ul>
+    <div class="grp">
+      <div class="g reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M3 19c.5-3.3 3-5 6-5s5.5 1.7 6 5M15.5 15c2.6 0 4.6 1.4 5 4" stroke-linecap="round"/></svg></div>
+        <h3>طلب الطاولة وحسابها</h3>
+        <p>الطاولة كلّها على سلّة واحدة، والحساب يعرف من أضاف كل صنف.</p>
+        <details>
+          <summary>التفاصيل <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>سلّة مشتركة يراها من على الطاولة قبل أن تُرسل.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>سؤال واحد في أول الجلسة: حسابات منفصلة، أو حساب واحد للطاولة، أو مشترك ومنفصل.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>كل صنف منسوب لمن أضافه، والمشترك يبقى مشتركًا.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>فاتورة لكل طاولة أُغلقت، وتصدير الفواتير والطلبات إلى ملف.</span></li>
+          </ul>
+        </details>
       </div>
-      <div class="feat-media"><div class="fig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="14" y="3.5" width="7.5" height="13.5" rx="1.8"/><path d="M16.8 14.2h2" stroke-linecap="round"/><circle cx="7.5" cy="8" r="2.8"/><path d="M2.5 20c.4-3 2.4-4.6 5-4.6s4.6 1.6 5 4.6" stroke-linecap="round"/></svg></div></div>
+
+      <div class="g reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M4 20h16M6 20V10M18 20V10M3.5 10h17l-2.5-5H6z" stroke-linejoin="round"/><path d="M12 5V2.5" stroke-linecap="round"/></svg></div>
+        <h3>المطبخ وجاهزية الأطباق</h3>
+        <p>التذكرة تصل لحظة الإرسال، والحالة تتحرّك بشطبة واحدة.</p>
+        <details>
+          <summary>التفاصيل <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>شاشة مطبخ مستقلّة: بطاقة لكل طاولة، والأقدم أولاً.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>كل صنف بحجمه وخياراته تحته.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ثلاث حالات ظاهرة: جديد، قيد التحضير، جاهز.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>تنبيه وصوت حين يجهز الطلب، وزمن انتظار يحمرّ إن طال.</span></li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="g reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M18 9A6 6 0 1 0 6 9c0 4-2 5-2 7h16c0-2-2-3-2-5z" stroke-linejoin="round"/><path d="M10 20a2 2 0 0 0 4 0" stroke-linecap="round"/></svg></div>
+        <h3>خدمة الطاولة</h3>
+        <p>نداء يصل إلى الكابتن، وطاولات مرتّبة بحسب ما يحتاج تدخّلاً.</p>
+        <details>
+          <summary>التفاصيل <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>نداء النادل بضغطة، وأنواعه يعرّفها مطعمك.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>يرى الضيف أن نداءه وصل، ومن تولّاه.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>أول من يقبل النداء يملكه، ومن انشغل يعود نداؤه مفتوحًا للفريق.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>لوحة الطاولات: ما يحتاج تدخّلاً أولاً، ومع كل طاولة ما لم يُحصَّل.</span></li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="g reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14" stroke-linecap="round"/><circle cx="9" cy="7" r="2.4"/><circle cx="16" cy="12" r="2.4"/><circle cx="8" cy="17" r="2.4"/></svg></div>
+        <h3>المنيو وتخصيص الطلب</h3>
+        <p>الأحجام والإضافات تُعرَّف مرّة، ويختارها الضيف أو الكابتن بلمسة.</p>
+        <details>
+          <summary>التفاصيل <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>أحجام بأسعارها لكل طبق.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>إضافات وخيارات تُعرَّف مرّة وتُربط بأطباق كثيرة — «بدون ثلج»، «أرز أبيض».</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>التخصيص بالضغط لا بالكتابة — فتصل الخيارات إلى المطبخ كما هي.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>تعليق الطبق لحظة نفاده، وتحديث الأصناف والأسعار من مكان واحد.</span></li>
+          </ul>
+        </details>
+      </div>
     </div>
 
-    <div class="feat rev reveal">
-      <div class="feat-body">
-        <div class="fmark"><svg width="26" height="26"><use href="#star"/></svg><span>الطلب الجماعي</span></div>
-        <h3>الجميع يطلب على سلّة واحدة</h3>
-        <p>كل من حول الطاولة يضيف من جواله إلى <b>الطلب نفسه</b>، ويرى الجميع محتويات السلة لحظيًا قبل إرسالها إلى المطبخ.</p>
-        <ul class="flist">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>سلّة مشتركة</b> بلا طلبات مكررة.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>مثالي للعوائل ومجموعات العمل والعزائم.</span></li>
-        </ul>
-      </div>
-      <div class="feat-media"><div class="fig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M3 19c.5-3.3 3-5 6-5s5.5 1.7 6 5M15.5 15c2.6 0 4.6 1.4 5 4" stroke-linecap="round"/></svg></div></div>
-    </div>
-
-    <div class="feat reveal">
-      <div class="feat-body">
-        <div class="fmark"><svg width="26" height="26"><use href="#star"/></svg><span>التقسيم الذكي</span></div>
-        <h3>فاتورة مقسّمة وجاهزة</h3>
-        <p>يعرف سُفرة مَن طلب ماذا، ويجهّز الحساب للكاشير <b>دون حسابات يدوية</b> أو جدل بين الضيوف.</p>
-        <ul class="flist">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>حساب واحد</b>، منفصل لكل ضيف، أو هجين.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>المشترك يُوزّع، والخاص يُنسب لصاحبه.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>الدفع يستمر عبر <b>نظام الكاشير</b> كالمعتاد.</span></li>
-        </ul>
-      </div>
-      <div class="feat-media"><div class="fig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z" stroke-linejoin="round"/><path d="M9 8h6M9 12h6M9 16h3" stroke-linecap="round"/></svg></div></div>
-    </div>
-
-    <div class="feat rev reveal">
-      <div class="feat-body">
-        <div class="fmark"><svg width="26" height="26"><use href="#star"/></svg><span>شاشة المطبخ</span></div>
-        <h3>متابعة التجهيز صنفًا صنفًا</h3>
-        <p>يتابع المطبخ <b>ما جُهّز وما تبقّى</b>، ثم يُنبّه النادل فور اكتمال الطلب لاستلامه وتقديمه.</p>
-        <ul class="flist">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>متابعة واضحة لكل صنف.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>لا طلب ناقص</b> ولا طبق منسي.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>تنبيه فوري للنادل عند الجاهزية.</span></li>
-        </ul>
-      </div>
-      <div class="feat-media"><div class="fig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 20h16M6 20V10M18 20V10M3.5 10h17l-2.5-5H6z" stroke-linejoin="round"/><path d="M12 5V2.5" stroke-linecap="round"/></svg></div></div>
-    </div>
-
-    <div class="feat reveal">
-      <div class="feat-body">
-        <div class="fmark"><svg width="26" height="26"><use href="#star"/></svg><span>التخصيص الدقيق</span></div>
-        <h3>كل طبق كما يريده الضيف</h3>
-        <p>يختار الضيف تفاصيل طبقه من الخيارات التي يحددها المطعم، فتصل إلى المطبخ <b>واضحة ودقيقة</b>.</p>
-        <ul class="flist">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>درجة الاستواء والأحجام والكميات.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>الإضافات والتعديلات مثل «بدون ثلج».</span></li>
-        </ul>
-      </div>
-      <div class="feat-media"><div class="fig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 7h14M5 12h14M5 17h14" stroke-linecap="round"/><circle cx="9" cy="7" r="2.4"/><circle cx="16" cy="12" r="2.4"/><circle cx="8" cy="17" r="2.4"/></svg></div></div>
-    </div>
-
-    <div class="feat rev reveal">
-      <div class="feat-body">
-        <div class="fmark"><svg width="26" height="26"><use href="#star"/></svg><span>مناداة النادل</span></div>
-        <h3>خدمة أسرع بلمسة</h3>
-        <p>يطلب الضيف المساعدة أو الحساب من جواله، ويصل النداء <b>مباشرة</b> إلى فريق الصالة.</p>
-        <ul class="flist">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>طلب خدمة إضافية أثناء الجلسة.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>طلب الحساب دون انتظار أو رفع الصوت.</span></li>
-        </ul>
-      </div>
-      <div class="feat-media"><div class="fig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M18 9A6 6 0 1 0 6 9c0 4-2 5-2 7h16c0-2-2-3-2-5z" stroke-linejoin="round"/><path d="M10 20a2 2 0 0 0 4 0" stroke-linecap="round"/></svg></div></div>
-    </div>
-
-    <div class="feat reveal">
-      <div class="feat-body">
-        <div class="fmark"><svg width="26" height="26"><use href="#star"/></svg><span>منيو خرائط Google</span></div>
-        <h3>منيو احترافي لزوار المطعم</h3>
-        <p>ينشئ المطعم صفحة منيو مستقلة ويضع رابطها في <b>خرائط Google</b>، ليتمكن الزائر من استعراض الأطباق والأسعار قبل زيارة المطعم.</p>
-        <ul class="flist">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>منيو واضح ومتوافق مع الجوال.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>استعراض الأطباق والصور والأسعار بسهولة.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>يُدار من المنيو نفسه</b> داخل سُفرة.</span></li>
-        </ul>
-      </div>
-      <div class="feat-media"><div class="fig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6"/></svg></div></div>
+    <!-- المرونة: إعدادات موجودة فعلاً في لوحة المدير -->
+    <div class="tune reveal">
+      <h3>شغّل ما يناسب طريقة مطعمك</h3>
+      <p>إعدادات تضبطها من لوحة المدير:</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>نداء النادل: فعّله أو عطّله.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>أوضاع الحساب المعروضة على الطاولة: «حساب واحد للطاولة» و«حساب مشترك ومنفصل».</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>سؤال اسم الضيف: اطلبه، أو تجاوزه.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ساعات عمل المطعم: وقت الفتح ووقت الإغلاق.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>مُهل النداء: متى يُصعَّد، ومتى يعود مفتوحًا، ومتى ينتهي.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>مظهر القائمة: القالب واللون والشعار، ونغمة تنبيه الطلبات.</span></li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- SCREENS — لقطات حقيقية من النظام، تبويبات متحركة على رحلة الخدمة -->
-<section class="sec how screens" id="screens">
-  <div class="how-lat"></div>
+<!-- ═══ شاهد النظام ═══ -->
+<section class="sec on-oud" id="screens">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <span class="eyebrow on-dark">من داخل النظام</span>
-      <h2 class="title">شاهد سُفرة كما يراها فريقك وضيوفك</h2>
-      <p class="sub">ست شاشات حقيقية من رحلة الخدمة — من إضافة النادل، إلى طلب الضيف، إلى المطبخ، إلى ملخص المدير.</p>
+      <span class="eyebrow">شاهد النظام</span>
+      <h2 class="title">اختر من يستعمله، وشاهد شاشاته</h2>
+      <p class="sub">لقطات من النظام نفسه — اختر الواجهة، ثم تنقّل بين شاشاتها.</p>
     </div>
 
     <div class="scr reveal">
-      <div class="scr-tabs" role="tablist" aria-label="شاشات النظام">
-        <span class="scr-ind" aria-hidden="true"></span>
-        <button class="scr-tab on" role="tab" aria-selected="true" data-scr="staff">إضافة النادل</button>
-        <button class="scr-tab" role="tab" aria-selected="false" data-scr="guest">قائمة الضيف</button>
-        <button class="scr-tab" role="tab" aria-selected="false" data-scr="board">لوحة النادل</button>
-        <button class="scr-tab" role="tab" aria-selected="false" data-scr="table">تفاصيل الطاولة</button>
-        <button class="scr-tab" role="tab" aria-selected="false" data-scr="kitchen">شاشة المطبخ</button>
-        <button class="scr-tab" role="tab" aria-selected="false" data-scr="summary">ملخص المدير</button>
+      <div class="scr-tabs" role="tablist" aria-label="واجهات النظام">
+        <button class="scr-tab" role="tab" id="tab-guest"   aria-controls="panel-guest"   aria-selected="true"  tabindex="0">الضيف</button>
+        <button class="scr-tab" role="tab" id="tab-captain" aria-controls="panel-captain" aria-selected="false" tabindex="-1">الكابتن</button>
+        <button class="scr-tab" role="tab" id="tab-kitchen" aria-controls="panel-kitchen" aria-selected="false" tabindex="-1">المطبخ</button>
+        <button class="scr-tab" role="tab" id="tab-manager" aria-controls="panel-manager" aria-selected="false" tabindex="-1">المدير</button>
+        <button class="scr-tab" role="tab" id="tab-maps"    aria-controls="panel-maps"    aria-selected="false" tabindex="-1">منيو خرائط <span lang="en">Google</span> <span class="mini">قريبًا</span></button>
       </div>
+
       <p class="scr-note">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01" stroke-linecap="round"/></svg>
-        لقطات حقيقية من بيئة عرض تجريبية — الأسماء والطلبات فيها وهمية لغرض الاستعراض.
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01" stroke-linecap="round"/></svg>
+        <span>لقطات من بيئة عرض تجريبية — الأسماء والطلبات والمبالغ فيها وهمية.</span>
       </p>
 
-      <div class="scr-stage">
-        <div class="scr-panel on" data-scr="staff" role="tabpanel">
-          <img class="scr-phone" src="assets/screens/manager-staff.png" alt="شاشة المدير — إضافة عضو طاقم جديد بدور نادل" width="390" height="844">
-          <div class="scr-body">
-            <span class="way-tag">المدير</span>
-            <h3>أضف نادلك في ثوانٍ</h3>
-            <p>من لوحة المدير يُضاف عضو الطاقم باسمٍ واسم مستخدم وكلمة سر، ويُحدَّد دوره <b>نادلًا أو مطبخًا</b> — بلا تجهيزٍ معقّد ولا أجهزةٍ خاصة: أي جوال أو جهاز لوحي يكفي.</p>
-          </div>
+      <!-- ── الضيف ── -->
+      <div id="panel-guest" role="tabpanel" aria-labelledby="tab-guest" tabindex="0">
+        <div class="rail">
+          <article class="card">
+            <div class="shot"><img src="assets/screens/guest-menu.png" alt="قائمة الضيف: أقسام وأصناف بأسعارها ومكوّناتها، وزر «نادِ النادل» في الرأس" width="780" height="1688" loading="lazy" decoding="async"></div>
+            <div><span class="tag">القائمة</span><h3>يفتح القائمة من جواله</h3><p>يمسح رمز الطاولة فتفتح القائمة في المتصفّح — بلا تحميل تطبيق. يتصفّح الأقسام، ويبحث عن صنف، ويرى السعر شاملاً الضريبة.</p></div>
+          </article>
+          <article class="card">
+            <div class="shot"><img src="assets/screens/guest-dish.png" alt="ورقة الطبق: اختيار الحجم ونوع الأرز والإضافات، وزر «أضف» بالسعر" width="780" height="1688" loading="lazy" decoding="async"></div>
+            <div><span class="tag">تخصيص الطبق</span><h3>يختار الحجم والإضافات</h3><p>الأحجام بأسعارها، والخيارات التي يعرّفها مطعمك. الاختيار بالضغط لا بالكتابة، فتصل التفاصيل إلى المطبخ كما هي.</p></div>
+          </article>
+          <article class="card">
+            <div class="shot"><img src="assets/screens/guest-mode.png" alt="سؤال تنظيم الحساب: حسابات منفصلة، أو حساب واحد للطاولة، أو حساب مشترك ومنفصل" width="780" height="1688" loading="lazy" decoding="async"></div>
+            <div><span class="tag">تنظيم الحساب</span><h3>سؤال واحد في أول الجلسة</h3><p>«كيف تريدون تنظيم الحساب؟» يُسأل أوّل من يمسح الرمز فقط، ويُقفل الجواب عند إرسال أول طلب — فلا يتكرّر السؤال عند كل طبق.</p></div>
+          </article>
+          <article class="card">
+            <div class="shot"><img src="assets/screens/guest-cart.png" alt="سلّة الطاولة: طريقة الدفع والمشاركون وأصناف بانتظار الإرسال والإجمالي" width="780" height="1688" loading="lazy" decoding="async"></div>
+            <div><span class="tag">السلّة المشتركة</span><h3>الطاولة على سلّة واحدة</h3><p>ما يضيفه كل واحد يراه الباقون قبل الإرسال — بلا تكرار ولا صنف منسيّ. وما وصل المطبخ ينتقل إلى قسمه ولا يُعدّ مرّتين.</p></div>
+          </article>
+          <article class="card">
+            <div class="shot"><img src="assets/screens/guest-host.png" alt="سؤال مسؤول الطلبات المشتركة: «نعم، سأتولى المسؤولية» أو «لا، سيتولاها شخص آخر»" width="780" height="1688" loading="lazy" decoding="async"></div>
+            <div><span class="tag">المسؤول</span><h3>من يتولّى المشترك؟</h3><p>في وضعَي «حساب واحد للطاولة» و«مشترك ومنفصل» تسأل سُفرة من يتولّى الطلبات المشتركة — فيُعرف صاحب المشترك قبل أن يبدأ الطلب.</p></div>
+          </article>
         </div>
-        <div class="scr-panel" data-scr="guest" role="tabpanel">
-          <img class="scr-phone" src="assets/screens/guest-menu.png" alt="قائمة الضيف على الجوال — أصناف بأسعارها ونداء النادل وسلة الطاولة" width="390" height="844" loading="lazy">
-          <div class="scr-body">
-            <span class="way-tag">الضيف · QR</span>
-            <h3>الضيف يطلب من جواله</h3>
-            <p>يمسح الضيف رمز الطاولة فتفتح القائمة فورًا: يتصفّح الأصناف بأسعارها ومكوّناتها، يخصّص طبقه، ويرسل إلى المطبخ — وينادي النادل بلمسةٍ حين يحتاجه، كما في الشارة أعلى الشاشة.</p>
-          </div>
+      </div>
+
+      <!-- ── الكابتن ── -->
+      <div id="panel-captain" role="tabpanel" aria-labelledby="tab-captain" tabindex="0" hidden>
+        <div class="rail">
+          <article class="card">
+            <div class="shot"><img src="assets/screens/captain-board.png" alt="لوحة الكابتن: عدد الطاولات المفتوحة والمبلغ غير المحصَّل، ومرشّحات الطاولات، وصفوف الطاولات بحالاتها" width="1170" height="3000" loading="lazy" decoding="async"></div>
+            <div><span class="tag">لوحة الطاولات</span><h3>ما يحتاج تدخّلاً أولاً</h3><p>رأس ثابت يقول كم طاولة مفتوحة وكم لم يُحصَّل، ومرشّحات: الكل، تحتاج تدخّلاً، مفتوحة، متاحة. ومع كل طاولة حالتها ومبلغها، وزرّ «＋ طلب» لتسجيل طلبها.</p></div>
+          </article>
         </div>
-        <div class="scr-panel" data-scr="board" role="tabpanel">
-          <img class="scr-phone" src="assets/screens/waiter-board.png" alt="لوحة النادل — الطاولات مرتبة بحسب الحاجة للتدخل مع المبالغ غير المحصلة" width="390" height="844" loading="lazy">
-          <div class="scr-body">
-            <span class="way-tag">النادل</span>
-            <h3>كل الطاولات في شاشة واحدة</h3>
-            <p>ما يحتاج تدخّلًا يتصدّر اللوحة: نداءٌ بعدّاد وقته، وتنبيه طلبٍ جاهز، ومع كل طاولةٍ مبلغها <b>غير المحصَّل</b> — فيعرف النادل أين يذهب الآن دون أن يسأل أحدًا.</p>
-          </div>
+      </div>
+
+      <!-- ── المطبخ ── -->
+      <div id="panel-kitchen" role="tabpanel" aria-labelledby="tab-kitchen" tabindex="0" hidden>
+        <div class="rail">
+          <article class="card">
+            <div class="shot"><img src="assets/screens/kitchen-screen.png" alt="شاشة المطبخ: بطاقتا طاولتين بحالتيهما «جديد» و«قيد التحضير» وأصنافهما" width="1290" height="3000" loading="lazy" decoding="async"></div>
+            <div><span class="tag">شاشة المطبخ</span><h3>بطاقة لكل طاولة</h3><p>التذاكر بالأقدم أولاً، وعلى كل بطاقة رقم الطاولة وحالتها وزمن انتظارها. والمطبخ يقرأ طاولةً لا أسماء.</p></div>
+          </article>
+          <article class="card">
+            <div class="shot"><img src="assets/screens/kitchen-ticket.png" alt="تذكرة مطبخ: أصناف بخياراتها، وصنف مشطوب بعد تجهيزه، وزر «تحديد الكل كمجهز»" width="1194" height="2166" loading="lazy" decoding="async"></div>
+            <div><span class="tag">التذكرة</span><h3>شطبة واحدة لكل صنف</h3><p>كل صنف بحجمه وخياراته تحته. يُشطب عند تجهيزه فتتحرّك حالة التذكرة — وتُتراجع الشطبة بضغطة ثانية.</p></div>
+          </article>
         </div>
-        <div class="scr-panel" data-scr="table" role="tabpanel">
-          <img class="scr-phone" src="assets/screens/waiter-table.png" alt="تفاصيل الطاولة عند النادل — النداء وملخص الحساب لكل جالس والطلب الجاهز" width="390" height="844" loading="lazy">
-          <div class="scr-body">
-            <span class="way-tag">النادل</span>
-            <h3>الطاولة كلّها في صفحة</h3>
-            <p>يفتح النادل الطاولة فيجد كل شيء: النداء يتولّاه بزر، وملخّص الحساب <b>لكل جالسٍ على حدة</b>، والطلب الجاهز يقدّمه بضغطة — ويسجّل طلبًا خارج QR لمن لا يرغب بالمسح.</p>
-          </div>
+      </div>
+
+      <!-- ── المدير ── -->
+      <div id="panel-manager" role="tabpanel" aria-labelledby="tab-manager" tabindex="0" hidden>
+        <div class="rail">
+          <article class="card">
+            <div class="shot"><img src="assets/screens/manager-summary.png" alt="ملخص المدير: طاولات مفتوحة، جلسات جارية، نداءات مفتوحة، ومبلغ غير محصَّل" width="780" height="1519" loading="lazy" decoding="async"></div>
+            <div><span class="tag">الملخص</span><h3>حال مطعمك الآن</h3><p>أربعة أرقام: الطاولات المفتوحة، والجلسات الجارية، والنداءات المفتوحة، وما لم يُحصَّل — ومنها تنفذ إلى القائمة والطاقم.</p></div>
+          </article>
+          <article class="card">
+            <div class="shot"><img src="assets/screens/manager-menu.png" alt="شاشة القائمة عند المدير: تصنيفات وأصناف بأسعارها وحالة إتاحتها، وزر استيراد قائمة من صورة" width="780" height="1519" loading="lazy" decoding="async"></div>
+            <div><span class="tag">القائمة</span><h3>الأصناف والأسعار من مكان واحد</h3><p>تصنيفات وأصناف وأحجام وإضافات. غيّر سعرًا أو علّق صنفًا نفد — فيظهر التغيير في كل واجهة.</p></div>
+          </article>
+          <article class="card">
+            <div class="shot"><img src="assets/screens/manager-staff.png" alt="شاشة الطاقم: أعضاء الفريق بأدوارهم وحالتهم وآخر نشاط لكل منهم" width="780" height="1519" loading="lazy" decoding="async"></div>
+            <div><span class="tag">الطاقم</span><h3>حسابات وصلاحيات</h3><p>لكل موظّف حساب بدور: نادل أو مطبخ. والصلاحيات تُمنح وتُسحب لكل واحد على حدة.</p></div>
+          </article>
+          <article class="card">
+            <div class="shot"><img src="assets/screens/manager-invoices.png" alt="شاشة الفواتير: مرشّح الفترة وأزرار التصدير وقائمة الفواتير بمبالغها وحالتها" width="780" height="1519" loading="lazy" decoding="async"></div>
+            <div><span class="tag">الفواتير</span><h3>كل طاولة أُغلقت</h3><p>الأحدث أولاً، بمرشّح فترة. والفاتورة تقول من طلب ماذا ومن قبض كم. وتُصدَّر الفواتير والطلبات إلى ملف يفتحه إكسل.</p></div>
+          </article>
         </div>
-        <div class="scr-panel" data-scr="kitchen" role="tabpanel">
-          <img class="scr-phone" src="assets/screens/kitchen.png" alt="شاشة المطبخ — تذاكر الطلبات وشطب الأصناف عند تجهيزها" width="390" height="844" loading="lazy">
-          <div class="scr-body">
-            <span class="way-tag">المطبخ</span>
-            <h3>تذاكر واضحة، صنفًا صنفًا</h3>
-            <p>تصل التذاكر إلى المطبخ بتفاصيل كل صنف وخياراته، ويُشطب الصنف حين يجهز — فلا يخرج الطلب إلا <b>مكتملًا</b>، ويعرف النادل لحظة الجهوزية دون مناداة.</p>
-          </div>
+      </div>
+
+      <!-- ── منيو خرائط Google ── -->
+      <div id="panel-maps" role="tabpanel" aria-labelledby="tab-maps" tabindex="0" hidden>
+        <div class="rail">
+          <article class="card soon-card">
+            <span class="badge-soon">قريبًا</span>
+            <div>
+              <h3>منيو عرض لخرائط <span lang="en">Google</span></h3>
+              <p>صفحة منيو للعرض فقط، يضع المطعم رابطها في ملفه على خرائط <span lang="en">Google</span>.
+                تعرض الأصناف والأسعار من القائمة نفسها، بلا سلّة ولا طلب ولا فتح جلسة طاولة.</p>
+              <p style="margin-top:14px;color:var(--soft-dark)">هذه الواجهة قيد التطوير ولم تُطلق بعد — فلا لقطة لها.</p>
+            </div>
+          </article>
         </div>
-        <div class="scr-panel" data-scr="summary" role="tabpanel">
-          <img class="scr-phone" src="assets/screens/manager-summary.png" alt="ملخص المدير — الطاولات المفتوحة والجلسات والنداءات والمبالغ غير المحصلة" width="390" height="844" loading="lazy">
-          <div class="scr-body">
-            <span class="way-tag">المدير</span>
-            <h3>نبض مطعمك الآن</h3>
-            <p>الطاولات المفتوحة، والجلسات الجارية، والنداءات، والمبالغ غير المحصَّلة — <b>لحظة بلحظة</b> من جوال المدير أينما كان، ومنها ينفذ إلى القائمة والطاقم بضغطة.</p>
-          </div>
+      </div>
+
+      <div class="rail-nav">
+        <button type="button" class="rail-btn" id="railPrev" aria-label="الشاشة السابقة">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="dots" id="railDots"></div>
+        <button type="button" class="rail-btn" id="railNext" aria-label="الشاشة التالية">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m15 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ بداية سهلة ═══ -->
+<section class="sec" id="start">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">البداية</span>
+      <h2 class="title">بداية سهلة لمطعمك وفريقك</h2>
+      <p class="sub">أطول خطوتين في أي نظام جديد: إدخال المنيو، وتعليم الفريق.</p>
+    </div>
+    <div class="starts">
+      <div class="start reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M6 3h9l5 5v13H6z" stroke-linejoin="round"/><path d="M15 3v5h5M9 13h6M9 17h4" stroke-linecap="round"/></svg></div>
+        <h3>نقل المنيو</h3>
+        <p>نستخدم الذكاء الاصطناعي لنقل بيانات منيو مطعمك التقليدي إلى المنيو الإلكتروني،
+          بدل إدخال الأصناف والأسعار يدويًا. ترفع صورة منيوك فتُقرأ الأصناف وأسعارها،
+          وتراجعها قبل الحفظ — وما لم يُقرأ بوضوح يبقى فارغًا ولا يُخمَّن.</p>
+      </div>
+      <div class="start reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-linecap="round"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke-linecap="round"/></svg></div>
+        <h3>شرح لفريقك</h3>
+        <p>نوفّر شرحًا مبسطًا بالعربية والإنجليزية والهندية والفلبينية، ويمكن شرح الاستخدام
+          الأساسي لفريقك في نحو ١٥ دقيقة. الواجهات مصمّمة ليتقنها الكابتن والمطبخ من أول يوم.</p>
+        <div class="langs">
+          <span>العربية</span><span lang="en">English</span><span lang="hi">हिन्दी</span><span lang="fil">Filipino</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ONBOARDING — نحن نجهّز المنيو نيابةً عن المطعم -->
-<section class="sec" id="onboarding">
+<!-- ═══ الأسعار ═══ -->
+<section class="sec" id="pricing">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <span class="eyebrow">الانطلاق</span>
-      <h2 class="title">منيوك جاهزٌ في النظام خلال ٢٤ ساعة — مجانًا</h2>
-      <p class="sub">أطول خطوة في أي نظام جديد هي إدخال القائمة. عند سُفرة تختفي هذي الخطوة:
-        أرسل لنا صورة منيوك أو ملفه، ونتولّى نحن إدخال الأصناف والأحجام والخيارات
-        والأسعار — ثم نراجعها معك قبل الانطلاق.</p>
-    </div>
-    <div class="bens">
-      <div class="ben reveal"><div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h9l5 5v13H6z" stroke-linejoin="round"/><path d="M15 3v5h5M9 13h6M9 17h4" stroke-linecap="round"/></svg></div><h3>أرسل منيوك كما هو</h3><p>صورة، PDF، أو ملف. لا تعبئة يدوية عليك.</p></div>
-      <div class="ben reveal"><div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 4.1L18 9l-4.1 1.9L12 15l-1.9-4.1L6 9l4.1-1.9z" stroke-linejoin="round"/><path d="M18 15l.9 2.1L21 18l-2.1.9L18 21l-.9-2.1L15 18l2.1-.9z" stroke-linejoin="round"/></svg></div><h3>نبنيها لك كاملة</h3><p>أصنافًا وأحجامًا وخياراتٍ وأسعارًا.</p></div>
-      <div class="ben reveal"><div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9" stroke-linecap="round"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z" stroke-linejoin="round"/></svg></div><h3>تعدّل متى شئت</h3><p>إضافة صنف أو تغيير سعر من لوحتك في ثوانٍ.</p></div>
-    </div>
-    <div class="pullquote reveal"><p>التجهيز مجاني — للاشتراك الشهريّ والسنويّ.</p></div>
-  </div>
-</section>
-
-<div class="wrap"><div class="divider reveal"><svg width="26" height="26"><use href="#star"/></svg></div></div>
-
-<!-- BENEFITS -->
-<section class="sec benefits" id="benefits">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow">العائد على مطعمك</span>
-      <h2 class="title">ماذا يعني هذا لمطعمك؟</h2>
-      <p class="sub">كل احتكاكٍ نُزيله من الطاولة يتحوّل إلى وقتٍ ومالٍ ورضا.</p>
-    </div>
-    <div class="bens">
-      <div class="ben reveal"><div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg></div><h3>وقتٌ أقل في أخذ الطلبات</h3><p>الضيوف يطلبون بأنفسهم، فيتفرّغ فريقك للضيافة والاهتمام باللمسة الإنسانية.</p></div>
-      <div class="ben reveal"><div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>أخطاءٌ أقل في الطلبات</h3><p>الطلب يصل للمطبخ كما اختاره الضيف تمامًا، فتقلّ الأطباق المرتجعة والهدر.</p></div>
-      <div class="ben reveal"><div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8M20 4v4h-4M20 12a8 8 0 0 1-13.7 5.6L4 16M4 20v-4h4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>دورانٌ أسرع للطاولات</h3><p>الطلب الفوري والحساب المقسَّم مسبقًا يختصران وقت الطاولة، فترتفع طاقتك الاستيعابية ومبيعاتك.</p></div>
-      <div class="ben reveal"><div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.6 5.6 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6L3.4 9.4l6-.8z" stroke-linejoin="round"/></svg></div><h3>رضا أعلى وتقييماتٌ أفضل</h3><p>تجربةٌ سلسة يتذكّرها الضيف، فتعود إليك وتوصي بك غيرها.</p></div>
-      <div class="ben reveal"><div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 21V7l7-4 7 4v14M9 21v-6h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>تجربةٌ حصرية تليق بك</h3><p>تميّزٌ في الخدمة يوازي مستوى مطبخك ومكانة مطعمك.</p></div>
-      <div class="ben reveal"><div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 3 8l9 5 9-5-9-5zM3 13l9 5 9-5M3 17.5l9 5 9-5" stroke-linejoin="round" stroke-linecap="round"/></svg></div><h3>يعمل بجانب أنظمتك</h3><p>لا يستبدل شيئًا لديك — يكمّل تشغيلك الحالي ويرفع كفاءته.</p></div>
-      <div class="ben reveal"><div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 18a4 4 0 0 1-.5-7.97 6 6 0 0 1 11.5 1.02A3.5 3.5 0 0 1 17.5 18z" stroke-linejoin="round"/></svg></div><h3>سحابيٌّ بالكامل — بلا بنية تقنية</h3><p>لا شبكة محلية ولا دومين ولا أجهزة تُركَّب. كل ما يحتاجه فريقك اتصالٌ بالإنترنت ليستقبل النداءات وتذاكر المطبخ من أي جهاز.</p></div>
-      <div class="ben reveal"><div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11.5V6a1.8 1.8 0 0 1 3.6 0v4.5" stroke-linecap="round"/><path d="M12.6 10.5a1.7 1.7 0 0 1 3.4 0V15a5 5 0 0 1-5 5h-.4a4 4 0 0 1-3.1-1.5L4 14.4a1.6 1.6 0 0 1 2.4-2l1.1 1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>سهولةٌ تامّة لكل الطاقم</h3><p>واجهةٌ خاليةٌ من التعقيد يُتقنها كل فردٍ في فريقك من أول يوم، بلا تدريبٍ طويل ولا دليل استخدام.</p></div>
-    </div>
-  </div>
-</section>
-
-<div class="wrap"><div class="divider reveal"><svg width="26" height="26"><use href="#star"/></svg></div></div>
-
-<!-- FLEX -->
-<section class="sec flex" id="flexibility">
-  <div class="flex-lat"></div>
-  <div class="wrap">
-    <div class="reveal">
-      <span class="eyebrow on-dark">المرونة</span>
-      <h2 style="margin-top:16px">يتفصّل على مطعمك، لا العكس</h2>
-      <p>كلُّ ميزةٍ في سُفرة قابلةٌ للتفعيل أو الإيقاف حسب سير عملك. لا تريد توجيه الطلب مباشرةً إلى المطبخ؟ أوقفه. لا تحتاج مناداة النادل؟ أغلقها. تختار ما يناسب تدفّق الخدمة عندك، ونضبط النظام على مقاسك تمامًا.</p>
-    </div>
-    <div class="tgls reveal" aria-hidden="true">
-      <div class="tgl"><span>توجيه الطلب إلى المطبخ</span><span class="sw on"></span></div>
-      <div class="tgl"><span>مناداة النادل بلمسة</span><span class="sw on"></span></div>
-      <div class="tgl"><span>التقسيم المنفصل للفاتورة</span><span class="sw on"></span></div>
-      <div class="tgl"><span>الطلب الجماعي للطاولة</span><span class="sw off"></span></div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="sec pricing" id="pricing">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow">الباقة والأسعار</span>
-      <h2 class="title">باقة سُفرة</h2>
-      <p class="sub">باقةٌ واحدة بكل ما يحتاجه مطعمك — قائمتك كاملة وتجهيزها مجانًا.</p>
+      <span class="eyebrow">الأسعار</span>
+      <h2 class="title">باقة واحدة، بكل ما سبق</h2>
+      <p class="sub">ابدأ بأسبوعين مجانًا بلا بطاقة. الأسعار أدناه تبدأ بعد انتهاء التجربة.</p>
     </div>
 
-    <div class="pullquote reveal"><p>ابدأ بأسبوعين مجّانًا — بلا بطاقة، وبلا أيّ دفعٍ الآن. الأسعار أدناه تبدأ بعد انتهاء التجربة.</p></div>
-
-    <!-- مفتاح المدّة: سنويّ افتراضاً — والسعر يُعرض شهريّاً في الحالتين،
-         وسطر ما تحت السعر يقول صراحةً أن السنويّ يُدفع دفعةً واحدة. -->
-    <div class="billing-toggle reveal" role="group" aria-label="مدة الاشتراك">
-      <button type="button" class="on" data-period="y">سنوي <span class="save">· خصم 20%</span></button>
+    <div class="billing reveal" role="group" aria-label="مدة الاشتراك">
+      <button type="button" class="on" data-period="y">سنوي <span class="save">· وفّر ٢٠٠ ريال</span></button>
       <button type="button" data-period="m">شهري</button>
     </div>
 
-    <div class="plans">
-      <div class="plan reveal">
-        <div class="plan-name">سُفرة</div>
-        <div class="plan-tag">نظامٌ واحد من الطاولة إلى المطبخ إلى الحساب — يطلب الضيف بالـQR أو يسجّل النادل طلبه.</div>
-        <hr class="plan-sep">
-        <div class="plan-price"><span class="amt" data-y="760" data-m="80">760</span><span class="unit"><span class="cur">ريال</span><span class="per" data-y="/ سنويًا" data-m="/ شهريًا">/ سنويًا</span></span></div>
-        <div class="plan-note" data-y="تُدفع دفعةً واحدة · يعادل 63 ريالًا في الشهر" data-m="تجديدٌ شهريّ · بلا التزام">تُدفع دفعةً واحدة · يعادل 63 ريالًا في الشهر</div>
-        <hr class="plan-sep">
-        <div class="plan-incl">تشمل الباقة:</div>
-        <ul class="plan-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>قائمة رقمية كاملة: صور وأوصاف وخيارات — بالعربية والإنجليزية.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>رموز QR للطاولات جاهزة للطباعة — الضيف يطلب بنفسه من جواله.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>الطلب يصل المطبخ مباشرةً، والنادل يستلم الجاهز — تذاكر حيّة.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>النادل يأخذ الطلب <b>على الطاولة</b> ويُرسله للمطبخ من داخل سُفرة — لمن لا يستخدم QR.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>نداء النادل من الطاولة — بأنواعٍ يحدّدها مطعمك.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>حسابات طاقم بصلاحيات: مطبخ، نادل، تحصيل · وتقسيم الفاتورة.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>حتى <b>50 طاولة</b> و<b>300 طبق</b> — و<b>تجهيز قائمتك كاملةً مجانًا</b>، وأولويةٌ في الدعم.</span></li>
-        </ul>
-        <div class="plan-cta" style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
-          <a href="https://app.alsufr.com/subscribe" class="btn btn-gold plan-btn plan-subscribe" style="margin-top:0" data-ad-events="landing_to_app">اشترك الآن</a>
-          <a href="https://app.alsufr.com/signup" class="btn btn-line plan-btn" style="margin-top:0" data-ad-events="free_trial_click landing_to_app">جرّب سُفرة مجّانًا</a>
-        </div>
+    <div class="plan reveal">
+      <div class="plan-name">سُفرة — الباقة العادية</div>
+      <div class="plan-tag">نظام واحد من الطاولة إلى المطبخ إلى الحساب.</div>
+      <hr class="plan-sep">
+      <div class="plan-price">
+        <span class="amt" data-y="٧٦٠" data-m="٨٠">٧٦٠</span>
+        <span class="unit"><span class="cur">ريال</span><span class="per" data-y="/ سنويًا" data-m="/ شهريًا">/ سنويًا</span></span>
+      </div>
+      <div class="plan-note" data-y="تُدفع دفعةً واحدة · بدل ٩٦٠ ريالاً شهريًا" data-m="تجديد شهري · بلا التزام">تُدفع دفعةً واحدة · بدل ٩٦٠ ريالاً شهريًا</div>
+      <hr class="plan-sep">
+      <div class="plan-incl">تشمل الباقة:</div>
+      <ul class="plan-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>قائمة رقمية بالعربية والإنجليزية: أحجام وإضافات وصور.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>رموز <span lang="en">QR</span> للطاولات جاهزة للطباعة.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>نظام الكابتن لتسجيل الطلبات على الطاولة.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>شاشة المطبخ ومتابعة جاهزية الأصناف.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>نداء الطاولة بأنواع يحدّدها مطعمك.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>حسابات طاقم بصلاحيات، وأوضاع حساب الطاولة، وفواتير قابلة للتصدير.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>حتى <b>٥٠ طاولة</b> و<b>٣٠٠ صنف</b>.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>دعم مباشر وسريع عند الحاجة.</span></li>
+      </ul>
+      <div class="plan-cta">
+        <a href="https://app.alsufr.com/signup" class="btn btn-gold" data-ad-events="free_trial_click landing_to_app">ابدأ تجربتك المجانية</a>
+        <a href="https://app.alsufr.com/subscribe?period=annual" class="btn btn-line" id="subBtn" data-ad-events="landing_to_app">اشترك مباشرة</a>
       </div>
     </div>
 
-    <!-- الفروع الإضافية — سطرٌ تحت البطاقة لا بطاقة ثانية -->
-    <div class="mini-note reveal" style="display:flex;justify-content:center;margin-top:26px;text-align:center;flex-wrap:wrap;gap:8px">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21V8l7-4 7 4v13M9 21v-6h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span><b>عندك أكثر من فرع؟</b> الأسعار أعلاه للفرع الواحد. الفروع الإضافية بسعرٍ مخفّض —
-        تواصل معنا لنحدّد ما يناسب مجموعتك. <a href="#" class="wa-link" target="_blank" rel="noopener" style="color:var(--brass);font-weight:600;text-decoration:underline">تواصل بخصوص الفروع</a></span>
-    </div>
-
-    <p class="pricing-foot reveal">الأسعار بالريال السعودي. لا حاجة لبطاقةٍ للبدء — وعند الاشتراك بعد التجربة يكون الدفع آمنًا عبر <b>ميسّر</b> (مدى، فيزا، ماستركارد، وApple Pay).</p>
+    <p class="branches reveal">
+      <span>الأسعار للفرع الواحد.</span>
+      <a href="#" class="wa-link link-u" target="_blank" rel="noopener">تواصل بخصوص الفروع</a>
+    </p>
+    <p class="pricing-foot reveal">الأسعار بالريال السعودي وشاملة ضريبة القيمة المضافة. لا حاجة لبطاقة للبدء —
+      و<b>دفع اشتراك سُفرة</b> آمن عبر <b>ميسّر</b>، وتتوفّر <span lang="en">Apple&nbsp;Pay</span> على الأجهزة المدعومة.<br>
+      <span class="note-fine">هذا اشتراك مطعمك في سُفرة. أمّا حساب الطاولة فيُحصَّل عند الكابتن في مطعمك كالمعتاد.</span></p>
   </div>
 </section>
 
-<!-- FAQ -->
+<!-- ═══ الأسئلة ═══ -->
 <section class="sec" id="faq">
   <div class="wrap">
-    <div class="sec-head center reveal"><span class="eyebrow">الأسئلة الشائعة</span><h2 class="title">أسئلةٌ قد تدور في بالك</h2></div>
+    <div class="sec-head center reveal">
+      <span class="eyebrow">الأسئلة الشائعة</span>
+      <h2 class="title">أسئلة قد تدور في بالك</h2>
+    </div>
     <div class="faqs">
-      <details class="q reveal"><summary>هل يحتاج ضيوفي إلى تطبيق؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">لا. يعمل سُفرة من كاميرا الجوال مباشرةً عبر رمز <b>QR</b> على الطاولة، دون تحميل أي تطبيق أو إنشاء حساب.</div></details>
-      <details class="q reveal"><summary>هل يُغني سُفرة عن النادل؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">لا. سُفرة <b>يساعد</b> النادل ويجعله أسرع وأكفأ، ولا يحلّ محلّه — اللمسة الإنسانية تبقى جوهر الخدمة الراقية، وسُفرة يمنح فريقك وقتًا أكبر ليقدّمها.</div></details>
-      <details class="q reveal"><summary>هل أستطيع إلغاء بعض المميزات؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">نعم. كل ميزةٍ قابلةٌ للتفعيل أو الإيقاف (توجيه الطلب إلى المطبخ، مناداة النادل، الطلب الجماعي، وغيرها) حسب سير عمل مطعمك — <b>سُفرة يتفصّل على مقاسك</b>.</div></details>
-      <details class="q reveal"><summary>هل يناسب حجم مطعمي؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">صُمِّم سُفرة لمطاعم الجلسات الراقية، ويتكيّف مع عدد طاولاتك — سواءً كنت صالةً واحدة أو عدّة أقسام.</div></details>
-      <details class="q reveal"><summary>هل هو نظام محاسبة أو كاشير؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">لا، وليس بديلًا عنه. سُفرة أداة تشغيلٍ تربط الضيف بالنادل بالمطبخ، وتعمل <b>بجانب</b> نظامك الحالي مهما كان. لا تغيّر شيئًا في محاسبتك ولا في فواتيرك الضريبية.</div></details>
-      <details class="q reveal"><summary>هل يستقبل سُفرة مدفوعات الضيوف؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">لا. الدفع يتم عبر نظام الكاشير عندك كالمعتاد. ما يفعله سُفرة هو أنه يعرف مَن طلب ماذا، فيصل الحساب إلى الكاشير <b>مقسّمًا وجاهزًا</b> — فينتهي الجدل حول تقسيم الفاتورة دون أن نلمس أموالك.</div></details>
-      <details class="q reveal"><summary>هل أحتاج تغيير نظام الكاشير عندي؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">لا. سُفرة يعمل مع أي نظام كاشير لأنه لا يتداخل معه — طلبات ضيوفك تصل إلى فريقك ومطبخك عبر سُفرة، والحساب يُغلق عندك كالمعتاد.</div></details>
-      <details class="q reveal"><summary>هل سُفرة بديل لنظام الكاشير؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">سُفرة نظام لإدارة خدمة الطاولات والطلبات داخل المطعم، ويمكنه العمل إلى جانب نظام الكاشير المستخدم لديك.</div></details>
-      <details class="q reveal"><summary>من يُدخل الطلب في الكاشير؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">فريقك، كما يفعل اليوم. الفرق أن الطلب يصل إليه <b>مكتوبًا ودقيقًا</b> من الضيف مباشرة — بلا سماعٍ خاطئ ولا تفاصيل ضائعة. (الربط الآلي مع أنظمة الكاشير ضمن خطتنا القادمة.)</div></details>
-      <details class="q reveal"><summary>كم يستغرق التجهيز والانطلاق؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">نستقبل منيوك (صورة أو ملف)، ونجهّزه لك خلال ٢٤ ساعة، ثم نراجعه معك ونضبط النظام على سير عملك. والتجهيز مجاني.</div></details>
-      <details class="q reveal"><summary>هل بياناتي وقائمتي ملك لي؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">نعم. قائمتك وبيانات طلباتك ملكك، وتستطيع تصديرها في أي وقت من لوحة المدير.</div></details>
-      <details class="q reveal"><summary>هل يمكنني تصدير تقارير الطلبات؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">نعم. يستطيع المدير تصدير تقرير الطلبات والطاولات في أي وقت بصيغة يسهل فتحها في إكسل. (تقرير تشغيلي لمتابعتك — الفواتير الضريبية تبقى من نظام الكاشير عندك.)</div></details>
-      <details class="q reveal"><summary>هل يمكنني التجربة قبل الاشتراك؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">نعم — نفتح لك تجربةً مجّانيّةً لمدّة <b>أسبوعين</b>، بلا بطاقة وبلا التزام. نجهّز قائمتك ونفعّل حسابك، فتستخدم النظام كاملًا مع فريقك وضيوفك. وبعد التجربة تختار الاستمرار — شهريًّا أو سنويًّا.</div></details>
+      <details class="q reveal"><summary>هل يحتاج الضيف إلى تحميل تطبيق؟ <span class="qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">لا. يمسح رمز الطاولة بكاميرا جواله فتفتح القائمة في المتصفّح. يختار لغته ويكتب اسمه ويدخل — بلا تطبيق وبلا إنشاء حساب.</div></details>
 
-      <!--
-        ══════════════════════════════════════════════════════════════
-        بانتظار إجابات حسين — الأسئلة الخمسة أدناه مكتوبة ومخفيّة.
+      <details class="q reveal"><summary>هل يطلب الضيف بنفسه أم يسجّل الكابتن الطلب؟ <span class="qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">الاثنان، وفي الجلسة نفسها. من أراد أن يطلب من جواله فعل، ومن فضّل الطريقة المعتادة سجّل له الكابتن الطلب من جهازه. وفي الحالتين يصل الطلب إلى المطبخ في المسار نفسه.</div></details>
 
-        لإظهار سؤال: اكتب الإجابة مكان [يحدّده حسين]، ثم انقل سطره إلى
-        خارج كتلة التعليق أدناه. ولا تحذف السؤال بإجابة مخترعة.
-        ══════════════════════════════════════════════════════════════
-      <details class="q reveal"><summary>ماذا لو انقطع الإنترنت؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">[يحدّده حسين]</div></details>
-      <details class="q reveal"><summary>كم عدد الطاولات المشمولة؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">[يحدّده حسين]</div></details>
-      <details class="q reveal"><summary>ماذا لو أردت الإلغاء؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">[يحدّده حسين]</div></details>
-      <details class="q reveal"><summary>كيف أحصل على الدعم؟ <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">[يحدّده حسين — القناة وأوقات الاستجابة]</div></details>
-      -->
+      <details class="q reveal"><summary>هل سُفرة بديل لنظام الكاشير؟ <span class="qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">سُفرة حاليًا نظام مستقل لتنظيم خدمة الطاولات والطلبات، ويمكن تشغيله بجانب نظام الكاشير الموجود في المطعم. ومع تطوّر النظام نخطّط لإضافة تكاملات وقدرات أوسع مع أنظمة نقاط البيع.</div></details>
+
+      <details class="q reveal"><summary>كيف يُنقل منيو المطعم إلى النظام؟ <span class="qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">ترفع صورة منيوك، فيقرأ النظام الأصناف وأسعارها بالذكاء الاصطناعي ويعرضها عليك للمراجعة قبل الحفظ. وما لم يُقرأ بوضوح يبقى فارغًا ولا يُخمَّن — فتكمله بنفسك. ويمكنك أيضًا إدخال الأصناف يدويًا في أي وقت.</div></details>
+
+      <details class="q reveal"><summary>كيف تعمل التجربة المجانية؟ <span class="qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">أسبوعان بالنظام كاملًا، بلا بطاقة وبلا التزام. تنشئ حسابك وتبدأ فورًا، وتستخدمه مع فريقك وضيوفك. وللاستمرار بعدها تشترك — شهريًا أو سنويًا.</div></details>
+
+      <div id="faqExtra" hidden>
+        <details class="q"><summary>كم عدد الطاولات والأصناف المشمولة؟ <span class="qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">الباقة تشمل حتى ٥٠ طاولة و٣٠٠ صنف. وإن احتجت أكثر تواصل معنا.</div></details>
+
+        <details class="q"><summary>كيف يُقسَّم الحساب بين الجالسين؟ <span class="qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">تُسأل الطاولة سؤالًا واحدًا في أولها: حسابات منفصلة (كل شخص يدفع طلبه)، أو حساب واحد للطاولة (شخص واحد يدفع عن الجميع)، أو حساب مشترك ومنفصل (بعض الأصناف للجميع والباقي لكل شخص). وسُفرة تحسب نصيب كل واحد وتعرضه، أمّا التحصيل فيتم عند الكابتن في مطعمك — نقدًا أو بالبطاقة عبر جهاز الدفع المعتاد عندك. سُفرة لا تستقبل أموال الضيوف.</div></details>
+
+        <details class="q"><summary>بأي لغة يرى الضيف القائمة؟ <span class="qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">العربية أو الإنجليزية — يختار الضيف لغته عند دخوله الطاولة. وتستطيع تثبيت لغة افتراضية لمطعمك بدل سؤاله.</div></details>
+
+        <details class="q"><summary>عندي أكثر من فرع — كيف يعمل الاشتراك؟ <span class="qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">الأسعار المعروضة للفرع الواحد. تواصل معنا لنحدّد ما يناسب فروعك.</div></details>
+
+        <details class="q"><summary>هل أستطيع إيقاف الاشتراك؟ <span class="qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">نعم. الاشتراك يتجدّد تلقائيًا، وتستطيع إيقاف التجديد من صفحة حسابك متى شئت.</div></details>
+
+        <details class="q"><summary>هل أستطيع تصدير الفواتير والطلبات؟ <span class="qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">نعم. يصدّر المدير الفواتير أو الطلبات لفترة يختارها، في ملف يفتحه إكسل وGoogle Sheets. وتُنزَّل الفاتورة الواحدة PDF أيضًا.</div></details>
+      </div>
+    </div>
+    <div class="faq-more">
+      <button type="button" class="btn btn-line" id="faqToggle" aria-expanded="false" aria-controls="faqExtra">عرض أسئلة أكثر</button>
     </div>
   </div>
 </section>
 
+<!-- ═══ الدعوة الختامية ═══ -->
+<section class="sec" id="cta">
+  <div class="wrap">
+    <div class="final on-oud reveal">
+      <h2>جرّب سُفرة على طاولاتك</h2>
+      <p>أسبوعان بالنظام كاملًا، بلا بطاقة وبلا التزام. وإن أردت أن تسأل قبل أن تبدأ — تواصل معنا.</p>
+      <div class="cta-row">
+        <a href="https://app.alsufr.com/signup" class="btn btn-gold" data-ad-events="free_trial_click landing_to_app">ابدأ تجربتك المجانية</a>
+        <a href="#" class="btn btn-line wa-link" target="_blank" rel="noopener">تواصل معنا</a>
+      </div>
+      <small>تبدأ فورًا · بلا بيانات دفع</small>
+    </div>
+  </div>
+</section>
+
+</main>
+
 <footer>
-  <div class="foot-lat"></div>
   <div class="wrap">
     <div class="foot-top">
-      <div class="foot-brand"><svg class="mark" width="44" height="44" viewBox="0 0 100 100" aria-hidden="true">
-  <circle cx="50" cy="50" r="44" fill="#fdfbf7" stroke="#e0d5c2" stroke-width="3.5"/><circle cx="50" cy="50" r="30" fill="none" stroke="#efe8db" stroke-width="2.5"/><circle cx="50" cy="50" r="18" fill="#a8471f"/>
-</svg><div><span class="bn disp">سُفرة</span><p>نظام الطلب والخدمة الذكي</p></div></div>
+      <div class="foot-brand">
+        <svg width="42" height="42" viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="44" fill="#fdfbf7" stroke="#e0d5c2" stroke-width="3.5"/>
+          <circle cx="50" cy="50" r="30" fill="none" stroke="#efe8db" stroke-width="2.5"/>
+          <circle cx="50" cy="50" r="18" fill="#a8471f"/>
+        </svg>
+        <div><span class="bn">سُفرة</span><p>نظام ذكي لخدمة وإدارة طاولات المطاعم</p></div>
+      </div>
       <nav class="foot-links" aria-label="روابط التذييل">
-        <a href="#how">كيف تعمل</a><a href="#features">المميزات</a><a href="#faq">الأسئلة</a><a href="https://app.alsufr.com/signup" data-ad-events="free_trial_click landing_to_app">ابدأ تجربتك المجّانية</a><a href="https://app.alsufr.com/" data-ad-events="login_click">دخول المطاعم</a>
+        <a href="#how">كيف تعمل؟</a>
+        <a href="#surfaces">أنظمة سُفرة</a>
+        <a href="#screens">شاهد النظام</a>
+        <a href="#pricing">الأسعار</a>
+        <a href="#faq">الأسئلة</a>
+        <a href="https://app.alsufr.com/" data-ad-events="login_click">دخول المطاعم</a>
       </nav>
     </div>
-    <!--
-      قسم التواصل — رقمٌ ظاهر لا نموذجٌ وحده.
 
-      كل مسارات الصفحة كانت تقود إلى «اترك رقمك ونتواصل معك»، وهي تطلب من
-      الزائر أن يثق قبل أن يعرف. ومن يريد سؤالاً واحداً قبل أن يترك بياناته
-      لم يكن يجد باباً — فيغلق الصفحة. والرقم الظاهر يقلب الاتجاه: يتّصل هو.
-    -->
     <div class="foot-contact">
       <div>
         <span class="fc-title">تواصل معنا مباشرة</span>
-        <p class="fc-sub">سؤالٌ قبل أن تقرّر؟ اسأل — بلا نموذج وبلا انتظار.</p>
+        <p class="fc-sub">سؤال قبل أن تقرّر؟ اسأل — بلا نموذج وبلا انتظار.</p>
       </div>
       <div class="fc-actions">
         <a class="btn btn-wa wa-link" href="#" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.33 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm5.8 14.06c-.24.68-1.42 1.32-1.95 1.36-.5.05-.98.23-3.3-.69-2.78-1.1-4.55-3.95-4.69-4.13-.14-.18-1.13-1.5-1.13-2.86s.71-2.03.96-2.31c.25-.28.55-.35.73-.35.18 0 .37 0 .53.01.17.01.4-.06.62.48.24.57.81 1.96.88 2.1.07.14.12.31.02.49-.09.18-.14.29-.28.45-.14.16-.29.36-.42.48-.14.14-.28.29-.12.57.16.28.72 1.18 1.54 1.91 1.06.95 1.96 1.24 2.24 1.38.28.14.44.12.6-.07.18-.21.69-.8.87-1.08.18-.28.37-.23.62-.14.25.09 1.6.75 1.87.89.28.14.46.21.53.32.07.12.07.66-.17 1.34z"/></svg>
           واتساب
         </a>
-        <!-- الرقم نصٌّ يُنسخ ويُتّصل به — لا صورةً ولا داخل زرّ فقط. -->
         <a class="fc-num" id="phoneLink" href="#" dir="ltr">+966 55 788 4367</a>
       </div>
     </div>
 
-    <p class="copy">© <span id="yr">2026</span> <span class="disp">سُفرة</span> · طلبٌ أسرع، وحسابٌ أوضح، وتجربةٌ أرقى.</p>
+    <p class="copy">© <span id="yr">2026</span> سُفرة · نظام ذكي لخدمة وإدارة طاولات المطاعم.</p>
   </div>
 </footer>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://alsufr.com/#org","name":"سُفرة","url":"https://alsufr.com/","logo":"https://app.alsufr.com/brand/sufra-icon.svg","contactPoint":{"@type":"ContactPoint","telephone":"+966557884367","contactType":"sales","areaServed":"SA","availableLanguage":["ar","en"]}},
+{"@type":"WebSite","@id":"https://alsufr.com/#site","url":"https://alsufr.com/","name":"سُفرة","inLanguage":"ar","publisher":{"@id":"https://alsufr.com/#org"}},
+{"@type":"SoftwareApplication","name":"سُفرة","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":["ar","en"],"url":"https://alsufr.com/","description":"نظام لخدمة وإدارة طاولات المطاعم: طلب الضيف عبر QR أو تسجيل الكابتن للطلب، وشاشة مطبخ، ومتابعة جاهزية الأطباق، وحساب الطاولة وفواتيرها.","offers":[{"@type":"Offer","price":"80","priceCurrency":"SAR","name":"اشتراك شهري"},{"@type":"Offer","price":"760","priceCurrency":"SAR","name":"اشتراك سنوي"}]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"هل يحتاج الضيف إلى تحميل تطبيق؟","acceptedAnswer":{"@type":"Answer","text":"لا. يمسح رمز الطاولة بكاميرا جواله فتفتح القائمة في المتصفّح. يختار لغته ويكتب اسمه ويدخل — بلا تطبيق وبلا إنشاء حساب."}},
+{"@type":"Question","name":"هل يطلب الضيف بنفسه أم يسجّل الكابتن الطلب؟","acceptedAnswer":{"@type":"Answer","text":"الاثنان، وفي الجلسة نفسها. من أراد أن يطلب من جواله فعل، ومن فضّل الطريقة المعتادة سجّل له الكابتن الطلب من جهازه. وفي الحالتين يصل الطلب إلى المطبخ في المسار نفسه."}},
+{"@type":"Question","name":"هل سُفرة بديل لنظام الكاشير؟","acceptedAnswer":{"@type":"Answer","text":"سُفرة حاليًا نظام مستقل لتنظيم خدمة الطاولات والطلبات، ويمكن تشغيله بجانب نظام الكاشير الموجود في المطعم. ومع تطوّر النظام نخطّط لإضافة تكاملات وقدرات أوسع مع أنظمة نقاط البيع."}},
+{"@type":"Question","name":"كيف يُنقل منيو المطعم إلى النظام؟","acceptedAnswer":{"@type":"Answer","text":"ترفع صورة منيوك، فيقرأ النظام الأصناف وأسعارها بالذكاء الاصطناعي ويعرضها عليك للمراجعة قبل الحفظ. وما لم يُقرأ بوضوح يبقى فارغًا ولا يُخمَّن — فتكمله بنفسك. ويمكنك أيضًا إدخال الأصناف يدويًا في أي وقت."}},
+{"@type":"Question","name":"كيف تعمل التجربة المجانية؟","acceptedAnswer":{"@type":"Answer","text":"أسبوعان بالنظام كاملًا، بلا بطاقة وبلا التزام. تنشئ حسابك وتبدأ فورًا، وتستخدمه مع فريقك وضيوفك. وللاستمرار بعدها تشترك — شهريًا أو سنويًا."}}
+]}]}
+</script>
 
 <script>
 var WHATSAPP_NUMBER = "966557884367";   // ← رقم واتساب دولي بدون + أو أصفار
 document.getElementById('yr').textContent = new Date().getFullYear();
-(function(){var base="https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent("السلام عليكم، مهتم بخدمة سُفرة لمطعمي وأرغب بالاشتراك.");
+
+/* واتساب والهاتف — رقمٌ واحد يُشتقّ منه المعروض والمتّصل به، فلا يفترقان. */
+(function(){
+  var base="https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent("السلام عليكم، مهتم بخدمة سُفرة لمطعمي.");
   document.querySelectorAll('.wa-link').forEach(function(a){a.href=base;});
-  /* الرقم المعروض والمتّصل به يُشتقّان من WHATSAPP_NUMBER نفسه: رقمان
-     مكتوبان بيدين يفترقان يوم يتغيّر أحدهما. */
   var el=document.getElementById('phoneLink');
   if(el){var n=WHATSAPP_NUMBER;el.href='tel:+'+n;
     el.textContent='+'+n.slice(0,3)+' '+n.slice(3,5)+' '+n.slice(5,8)+' '+n.slice(8);}
 })();
-// قائمة الجوال: الزر يفتح روابط التنقّل ويغلقها، وأي نقرة على رابط تُغلقها.
+
+/* قائمة الجوال */
 (function(){
-  var h=document.querySelector('header'),b=document.querySelector('.menu-btn');
+  var h=document.getElementById('hdr'),b=h&&h.querySelector('.menu-btn');
   if(!h||!b)return;
   function set(open){h.classList.toggle('menu-open',open);b.setAttribute('aria-expanded',open?'true':'false');}
   b.addEventListener('click',function(){set(!h.classList.contains('menu-open'));});
-  document.querySelectorAll('.nav-links a').forEach(function(a){
-    a.addEventListener('click',function(){set(false);});
-  });
+  h.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){set(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
 })();
-// مفتاح المدّة: سنويّ افتراضاً — والقيم في سمات data لا في نسختين من الشيفرة.
-// وزرّ «اشترك الآن» يحمل المدّة المختارة إلى صفحة الاشتراك فتُهيّأ مسبقًا.
+
+/* مفتاح المدّة — القيم في سمات data، والزرّ يحمل المدّة إلى صفحة الاشتراك. */
 (function(){
-  var period = 'y';
-  var sBtn = document.querySelector('.plan-subscribe');
+  var period='y', sBtn=document.getElementById('subBtn');
   function apply(){
     document.querySelectorAll('#pricing [data-y]').forEach(function(el){
-      el.textContent = el.getAttribute(period === 'y' ? 'data-y' : 'data-m');
+      el.textContent=el.getAttribute(period==='y'?'data-y':'data-m');
     });
-    document.querySelectorAll('.billing-toggle button').forEach(function(b){
-      b.classList.toggle('on', b.getAttribute('data-period') === period);
+    document.querySelectorAll('.billing button').forEach(function(b){
+      b.classList.toggle('on', b.getAttribute('data-period')===period);
     });
-    if(sBtn) sBtn.href = 'https://app.alsufr.com/subscribe?period=' +
-      (period === 'y' ? 'annual' : 'monthly');
+    if(sBtn) sBtn.href='https://app.alsufr.com/subscribe?period='+(period==='y'?'annual':'monthly');
   }
-  document.querySelectorAll('.billing-toggle button').forEach(function(b){
-    b.addEventListener('click', function(){ period = b.getAttribute('data-period'); apply(); });
+  document.querySelectorAll('.billing button').forEach(function(b){
+    b.addEventListener('click',function(){period=b.getAttribute('data-period');apply();});
   });
   apply();
 })();
-(function(){if(!('IntersectionObserver'in window)){document.querySelectorAll('.reveal').forEach(function(e){e.classList.add('in');});return;}
-  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.12,rootMargin:"0px 0px -40px 0px"});
-  document.querySelectorAll('.reveal').forEach(function(e){io.observe(e);})})();
-// شاشات النظام: مؤشّر التبويب ينزلق إلى الزرّ النشط، والمحتوى يدخل بتلاشٍ وتمويه.
-// المؤشّر يُقاس من مواضع الأزرار الفعلية فيصحّ مع RTL ومع التفاف الأزرار سطرين.
+
+/* الأسئلة الإضافية — الفتح لا يقفز بالصفحة: نقيس موضع الزرّ قبل وبعد ونعوّض. */
 (function(){
-  var box=document.querySelector('.scr');if(!box)return;
-  var bar=box.querySelector('.scr-tabs'),ind=box.querySelector('.scr-ind'),
-      tabs=[].slice.call(box.querySelectorAll('.scr-tab')),
-      panels=[].slice.call(box.querySelectorAll('.scr-panel'));
-  function place(btn,animate){
-    if(!animate)ind.style.transition='none';
-    ind.style.width=btn.offsetWidth+'px';ind.style.height=btn.offsetHeight+'px';
-    ind.style.transform='translate('+btn.offsetLeft+'px,'+btn.offsetTop+'px)';
-    ind.style.opacity='1';
-    if(!animate){void ind.offsetWidth;ind.style.transition='';}
+  var btn=document.getElementById('faqToggle'), box=document.getElementById('faqExtra');
+  if(!btn||!box)return;
+  btn.addEventListener('click',function(){
+    var open=box.hasAttribute('hidden');
+    var before=btn.getBoundingClientRect().top;
+    if(open){box.removeAttribute('hidden');}else{box.setAttribute('hidden','');}
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.textContent=open?'عرض أسئلة أقل':'عرض أسئلة أكثر';
+    window.scrollBy(0, btn.getBoundingClientRect().top - before);
+    if(open){var d=box.querySelector('details summary');if(d)d.focus({preventScroll:true});}
+  });
+})();
+
+/* ═══ شاشات النظام: تبويبات + عارض بطاقات ═══
+   التبويبات بـroving tabindex والأسهم (وفي RTL يمشي السهم الأيسر للأمام)،
+   والعارض شريطٌ بانجذاب أفقي — فالسحب على الجوال أصليّ، والأزرار تحرّكه
+   على الكمبيوتر. والمؤشّر يُحسب من مواضع البطاقات لا من scrollLeft، لأن
+   إشارته تختلف بين المتصفّحات في RTL. */
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.scr-tab'));
+  if(!tabs.length)return;
+  var panels=tabs.map(function(t){return document.getElementById(t.getAttribute('aria-controls'));});
+  var prev=document.getElementById('railPrev'), next=document.getElementById('railNext'),
+      dots=document.getElementById('railDots');
+
+  function activeIdx(){
+    for(var i=0;i<tabs.length;i++){if(tabs[i].getAttribute('aria-selected')==='true')return i;}
+    return 0;
   }
-  function activate(key,animate){
-    tabs.forEach(function(t){var on=t.getAttribute('data-scr')===key;
-      t.classList.toggle('on',on);t.setAttribute('aria-selected',on?'true':'false');
-      if(on)place(t,animate);});
-    panels.forEach(function(p){var on=p.getAttribute('data-scr')===key;
-      p.classList.remove('enter');
-      p.classList.toggle('on',on);
-      if(on&&animate){void p.offsetWidth;p.classList.add('enter');}});
+  function rail(){var p=panels[activeIdx()];return p?p.querySelector('.rail'):null;}
+  function cards(){var r=rail();return r?[].slice.call(r.children):[];}
+
+  /* الحافة الابتدائية للشريط — يمينه في RTL ويساره في LTR. والقياس من
+     getBoundingClientRect لا من scrollLeft: إشارة scrollLeft في RTL تختلف
+     بين المتصفّحات، وrect لا يختلف. */
+  function edges(){
+    var r=rail(); if(!r) return null;
+    var rtl=getComputedStyle(r).direction==='rtl';
+    var rr=r.getBoundingClientRect();
+    return {r:r,rtl:rtl,start:rtl?rr.right:rr.left};
   }
-  tabs.forEach(function(t){t.addEventListener('click',function(){activate(t.getAttribute('data-scr'),true);});});
-  // الموضع الأول بعد تحميل الخطوط: عرض الزرّ يتغيّر حين يصل خطّ العرض.
-  function init(){var on=box.querySelector('.scr-tab.on');if(on)place(on,false);}
-  init();
-  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(init);
-  window.addEventListener('resize',init);
+  function currentIndex(){
+    var e=edges(); if(!e) return 0;
+    var best=0,bd=Infinity;
+    cards().forEach(function(c,i){
+      var cr=c.getBoundingClientRect();
+      var ce=e.rtl?cr.right:cr.left;
+      var d=Math.abs(ce-e.start);
+      if(d<bd-1){bd=d;best=i;}
+    });
+    return best;
+  }
+  function goTo(i,instant){
+    var e=edges(), cs=cards(); if(!e||!cs[i])return;
+    var cr=cs[i].getBoundingClientRect();
+    var delta=(e.rtl?cr.right:cr.left)-e.start;
+    if(Math.abs(delta)<1&&!instant){renderDots();return;}
+    e.r.scrollBy({left:delta,behavior:instant?'auto':'smooth'});
+  }
+  function renderDots(){
+    var cs=cards(), i=currentIndex();
+    dots.innerHTML='';
+    if(cs.length<2){prev.disabled=true;next.disabled=true;return;}
+    cs.forEach(function(_,n){
+      var hit=document.createElement('button');
+      hit.type='button';hit.className='dot-hit';
+      hit.setAttribute('aria-label','الشاشة '+(n+1)+' من '+cs.length);
+      var d=document.createElement('span');
+      d.className='dot';d.setAttribute('data-on',n===i?'true':'false');
+      hit.appendChild(d);
+      hit.addEventListener('click',function(){goTo(n);});
+      dots.appendChild(hit);
+    });
+    prev.disabled=(i===0);
+    next.disabled=(i===cs.length-1);
+  }
+  function select(idx,focus){
+    tabs.forEach(function(t,n){
+      var on=n===idx;
+      t.setAttribute('aria-selected',on?'true':'false');
+      t.tabIndex=on?0:-1;
+      if(panels[n]){ if(on){panels[n].removeAttribute('hidden');} else {panels[n].setAttribute('hidden','');} }
+    });
+    if(focus)tabs[idx].focus();
+    /* البطاقة الأولى إلى حافة البدء بلا حركة — والقياس بعد إطار الرسم
+       لأن اللوحة كُشفت للتوّ ومقاساتها لم تُحسب بعد. */
+    requestAnimationFrame(function(){goTo(0,true);renderDots();});
+    renderDots();
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){select(i);});
+    t.addEventListener('keydown',function(e){
+      var n=null;
+      if(e.key==='ArrowLeft')n=i+1;
+      else if(e.key==='ArrowRight')n=i-1;
+      else if(e.key==='Home')n=0;
+      else if(e.key==='End')n=tabs.length-1;
+      if(n===null)return;
+      e.preventDefault();
+      select((n+tabs.length)%tabs.length,true);
+    });
+  });
+  prev.addEventListener('click',function(){goTo(Math.max(0,currentIndex()-1));});
+  next.addEventListener('click',function(){goTo(Math.min(cards().length-1,currentIndex()+1));});
+  document.querySelectorAll('.rail').forEach(function(r){
+    var raf=0;
+    r.addEventListener('scroll',function(){
+      if(raf)return;
+      raf=requestAnimationFrame(function(){raf=0;if(r===rail())renderDots();});
+    },{passive:true});
+  });
+  window.addEventListener('resize',renderDots);
+  select(0);
+})();
+
+/* ظهور تدريجي */
+(function(){
+  if(!('IntersectionObserver'in window)){document.querySelectorAll('.reveal').forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.1,rootMargin:"0px 0px -40px 0px"});
+  document.querySelectorAll('.reveal').forEach(function(e){io.observe(e);});
 })();
 
 /* ══════════════════════════════════════════════════════════════════════
@@ -1080,8 +1183,8 @@ try{
         if(kinds[i])send({op:'event',kind:kinds[i],activeSeconds:active,scroll:scroll});
       }
 
-      /* يُبنى بـURL لا بسلسلة: الوجهة قد تحمل ?period= (يضعه زر التسعير
-         أدناه) أو fragment، وإلحاق '#sv=' نصًا يدهسهما بصمت. */
+      /* يُبنى بـURL لا بسلسلة: الوجهة قد تحمل ?period= (يضعه زر التسعير)
+         أو fragment، وإلحاق '#sv=' نصًا يدهسهما بصمت. */
       var u=new URL(href,location.href);
       var hs=new URLSearchParams(u.hash.replace(/^#/,''));
       hs.set('sv',sv);u.hash=hs.toString();
