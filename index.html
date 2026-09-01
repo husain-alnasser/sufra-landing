@@ -290,8 +290,11 @@ header{position:sticky;top:0;z-index:60;background:rgba(248,244,236,.92);
 .billing button.on{background:linear-gradient(135deg,var(--amber-lt),var(--amber));color:#fff;
   box-shadow:0 6px 16px rgba(168,71,31,.26)}
 .billing .save{font-size:12px;opacity:.92}
+/* بطاقتان منذ «سُفرة استلام»: شبكةٌ تتوسّط واحدةً وتصفّ اثنتين وتنزل عمودًا على الضيّق. */
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),480px));
+  gap:22px;justify-content:center;align-items:stretch}
 .plan{background:var(--card);border:1.6px solid var(--amber);border-radius:22px;padding:30px 26px;
-  box-shadow:0 18px 46px rgba(168,71,31,.16);max-width:480px;margin-inline:auto;
+  box-shadow:0 18px 46px rgba(168,71,31,.16);max-width:480px;margin-inline:auto;width:100%;
   display:flex;flex-direction:column;text-align:center}
 .plan-name{font-family:'Cairo';font-weight:900;font-size:22px;margin-bottom:6px}
 .plan-tag{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:14px}
@@ -778,17 +781,18 @@ footer{background:var(--oud);color:var(--on-dark-soft);padding:44px 0 26px}
   <div class="wrap">
     <div class="sec-head center reveal">
       <span class="eyebrow">الأسعار</span>
-      <h2 class="title">باقة واحدة، بكل ما سبق</h2>
+      <h2 class="title">باقتان بحسب طريقة عملك</h2>
       <p class="sub">ابدأ بأسبوعين مجانًا بلا بطاقة. الأسعار أدناه تبدأ بعد انتهاء التجربة.</p>
     </div>
 
     <div class="billing reveal" role="group" aria-label="مدة الاشتراك">
-      <button type="button" class="on" data-period="y">سنوي <span class="save">· وفّر ٢٠٠ ريال</span></button>
+      <button type="button" class="on" data-period="y">سنوي <span class="save">· وفّر ٢٠٪</span></button>
       <button type="button" data-period="m">شهري</button>
     </div>
 
+    <div class="plans">
     <div class="plan reveal">
-      <div class="plan-name">سُفرة — الباقة العادية</div>
+      <div class="plan-name">سُفرة — الباقة الكاملة</div>
       <div class="plan-tag">نظام واحد من الطاولة إلى المطبخ إلى الحساب.</div>
       <hr class="plan-sep">
       <div class="plan-price">
@@ -814,8 +818,35 @@ footer{background:var(--oud);color:var(--on-dark-soft);padding:44px 0 26px}
       </div>
     </div>
 
+    <!-- ═══ سُفرة استلام — للمقاهي السحابية ونوافذ الاستلام ═══ -->
+    <div class="plan reveal">
+      <div class="plan-name">سُفرة استلام</div>
+      <div class="plan-tag">للمقاهي السحابية ونوافذ الاستلام — جوّال عميلك يصير جهاز نداء.</div>
+      <hr class="plan-sep">
+      <div class="plan-price">
+        <span class="amt" data-y="٣٧٠" data-m="٣٩">٣٧٠</span>
+        <span class="unit"><span class="cur">ريال</span><span class="per" data-y="/ سنويًا" data-m="/ شهريًا">/ سنويًا</span></span>
+      </div>
+      <div class="plan-note" data-y="تُدفع دفعةً واحدة · بدل ٤٦٨ ريالًا شهريًا" data-m="تجديد شهري · بلا التزام">تُدفع دفعةً واحدة · بدل ٤٦٨ ريالًا شهريًا</div>
+      <hr class="plan-sep">
+      <div class="plan-incl">تشمل الباقة:</div>
+      <ul class="plan-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ملصق <span lang="en">QR</span> عند الكاونتر — العميل يمسحه ويكتب رقم طلبه.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>تنبيه جاهزية فوري على جوّال العميل — صوت وإشعار، بلا أجهزة نداء.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ربطٌ برمزٍ قصير عند الكاشير لمن لا يعرف رقم طلبه.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>لوحة كاشير بسيطة: جاهز، العميل قادم، تم الاستلام.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>فروع متعددة</b> — لكل فرع ملصقه ولوحته وطلباته المعزولة.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>دعم مباشر وسريع عند الحاجة.</span></li>
+      </ul>
+      <div class="plan-cta">
+        <a href="https://app.alsufr.com/signup?plan=pickup" class="btn btn-gold" data-ad-events="free_trial_click landing_to_app">ابدأ تجربتك المجانية</a>
+        <a href="https://app.alsufr.com/subscribe?plan=pickup&amp;period=annual" class="btn btn-line" id="subBtnPickup" data-ad-events="landing_to_app">اشترك مباشرة</a>
+      </div>
+    </div>
+    </div>
+
     <p class="branches reveal">
-      <span>الأسعار للفرع الواحد.</span>
+      <span>أسعار الباقة الكاملة للفرع الواحد — وباقة «سُفرة استلام» تشمل فروع الاستلام.</span>
       <a href="#" class="wa-link link-u" target="_blank" rel="noopener">تواصل بخصوص الفروع</a>
     </p>
     <div class="cards reveal" role="list" aria-label="البطاقات المقبولة">
@@ -858,7 +889,8 @@ footer{background:var(--oud);color:var(--on-dark-soft);padding:44px 0 26px}
       <details class="q reveal"><summary>كيف تعمل التجربة المجانية؟ <span class="qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">أسبوعان بالنظام كاملًا، بلا بطاقة وبلا التزام. تنشئ حسابك وتبدأ فورًا، وتستخدمه مع فريقك وضيوفك. وللاستمرار بعدها تشترك — شهريًا أو سنويًا.</div></details>
 
       <div id="faqExtra" hidden>
-        <details class="q"><summary>كم عدد الطاولات والأصناف المشمولة؟ <span class="qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">الباقة تشمل حتى ٥٠ طاولة و٣٠٠ صنف. وإن احتجت أكثر تواصل معنا.</div></details>
+        <details class="q"><summary>ما الفرق بين «سُفرة» و«سُفرة استلام»؟ <span class="qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">«سُفرة» الكاملة نظامُ الجلسات كلُّه: طاولات وقائمة ونادل ومطبخ وفواتير — والاستلام إحدى مزاياها. أمّا «سُفرة استلام» فباقة خفيفة للمقاهي السحابية ونوافذ الاستلام: كاشير وملصق QR وتنبيه جاهزية على جوّال العميل، بلا طاولات ولا قائمة. وتستطيع الترقية إلى الكاملة لاحقًا دون فقد شيء.</div></details>
+        <details class="q"><summary>كم عدد الطاولات والأصناف المشمولة؟ <span class="qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">الباقة الكاملة تشمل حتى ٥٠ طاولة و٣٠٠ صنف. وإن احتجت أكثر تواصل معنا.</div></details>
 
         <details class="q"><summary>كيف يُقسَّم الحساب بين الجالسين؟ <span class="qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary><div class="a">تُسأل الطاولة سؤالًا واحدًا في أولها: حسابات منفصلة (كل شخص يدفع طلبه)، أو حساب واحد للطاولة (شخص واحد يدفع عن الجميع)، أو حساب مشترك ومنفصل (بعض الأصناف للجميع والباقي لكل شخص). وسُفرة تحسب نصيب كل واحد وتعرضه، أمّا التحصيل فيتم عند الكابتن في مطعمك — نقدًا أو بالبطاقة عبر جهاز الدفع المعتاد عندك. سُفرة لا تستقبل أموال الضيوف.</div></details>
 
@@ -944,7 +976,7 @@ footer{background:var(--oud);color:var(--on-dark-soft);padding:44px 0 26px}
 {"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://alsufr.com/#org","name":"سُفرة","url":"https://alsufr.com/","logo":"https://app.alsufr.com/brand/sufra-icon.svg","contactPoint":{"@type":"ContactPoint","telephone":"+966557884367","contactType":"sales","areaServed":"SA","availableLanguage":["ar","en"]}},
 {"@type":"WebSite","@id":"https://alsufr.com/#site","url":"https://alsufr.com/","name":"سُفرة","inLanguage":"ar","publisher":{"@id":"https://alsufr.com/#org"}},
-{"@type":"SoftwareApplication","name":"سُفرة","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":["ar","en"],"url":"https://alsufr.com/","description":"نظام لخدمة وإدارة طاولات المطاعم: طلب الضيف عبر QR أو تسجيل الكابتن للطلب، وشاشة مطبخ، ومتابعة جاهزية الأطباق، وحساب الطاولة وفواتيرها.","offers":[{"@type":"Offer","price":"80","priceCurrency":"SAR","name":"اشتراك شهري"},{"@type":"Offer","price":"760","priceCurrency":"SAR","name":"اشتراك سنوي"}]},
+{"@type":"SoftwareApplication","name":"سُفرة","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":["ar","en"],"url":"https://alsufr.com/","description":"نظام لخدمة وإدارة طاولات المطاعم: طلب الضيف عبر QR أو تسجيل الكابتن للطلب، وشاشة مطبخ، ومتابعة جاهزية الأطباق، وحساب الطاولة وفواتيرها.","offers":[{"@type":"Offer","price":"80","priceCurrency":"SAR","name":"سُفرة — اشتراك شهري"},{"@type":"Offer","price":"760","priceCurrency":"SAR","name":"سُفرة — اشتراك سنوي"},{"@type":"Offer","price":"39","priceCurrency":"SAR","name":"سُفرة استلام — اشتراك شهري"},{"@type":"Offer","price":"370","priceCurrency":"SAR","name":"سُفرة استلام — اشتراك سنوي"}]},
 {"@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"هل يحتاج الضيف إلى تحميل تطبيق؟","acceptedAnswer":{"@type":"Answer","text":"لا. يمسح رمز الطاولة بكاميرا جواله فتفتح القائمة في المتصفّح. يختار لغته ويكتب اسمه ويدخل — بلا تطبيق وبلا إنشاء حساب."}},
 {"@type":"Question","name":"هل يطلب الضيف بنفسه أم يسجّل الكابتن الطلب؟","acceptedAnswer":{"@type":"Answer","text":"الاثنان، وفي الجلسة نفسها. من أراد أن يطلب من جواله فعل، ومن فضّل الطريقة المعتادة سجّل له الكابتن الطلب من جهازه. وفي الحالتين يصل الطلب إلى المطبخ في المسار نفسه."}},
@@ -977,17 +1009,19 @@ document.getElementById('yr').textContent = new Date().getFullYear();
   document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
 })();
 
-/* مفتاح المدّة — القيم في سمات data، والزرّ يحمل المدّة إلى صفحة الاشتراك. */
+/* مفتاح المدّة — القيم في سمات data، والزرّان يحملان المدّة (والباقة) إلى صفحة الاشتراك. */
 (function(){
-  var period='y', sBtn=document.getElementById('subBtn');
+  var period='y', sBtn=document.getElementById('subBtn'), sBtnP=document.getElementById('subBtnPickup');
   function apply(){
+    var p=(period==='y'?'annual':'monthly');
     document.querySelectorAll('#pricing [data-y]').forEach(function(el){
       el.textContent=el.getAttribute(period==='y'?'data-y':'data-m');
     });
     document.querySelectorAll('.billing button').forEach(function(b){
       b.classList.toggle('on', b.getAttribute('data-period')===period);
     });
-    if(sBtn) sBtn.href='https://app.alsufr.com/subscribe?period='+(period==='y'?'annual':'monthly');
+    if(sBtn) sBtn.href='https://app.alsufr.com/subscribe?period='+p;
+    if(sBtnP) sBtnP.href='https://app.alsufr.com/subscribe?plan=pickup&period='+p;
   }
   document.querySelectorAll('.billing button').forEach(function(b){
     b.addEventListener('click',function(){period=b.getAttribute('data-period');apply();});
