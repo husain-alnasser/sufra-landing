@@ -64,7 +64,6 @@ h2.title{font-size:clamp(25px,4vw,38px);font-weight:700;margin-bottom:12px}
 .btn-line:hover{background:#f2ebdd}
 .on-oud .btn-line{border-color:rgba(229,160,119,.45);color:var(--on-dark)}
 .on-oud .btn-line:hover{background:rgba(229,160,119,.12)}
-.btn-wa{background:#1a7f48;color:#fff}
 .btn svg{width:19px;height:19px;flex:0 0 auto}
 .link-u{color:var(--brass);font-weight:600;text-decoration:underline;text-underline-offset:3px;
   display:inline-flex;align-items:center;padding:8px 4px;min-height:44px}
@@ -350,21 +349,17 @@ footer{background:var(--oud);color:var(--on-dark-soft);padding:44px 0 26px}
   .flow{grid-template-columns:1fr}
 }
 
-/* ── حسابات التواصل في التذييل ────────────────────────────────────────
-   إنستغرام وتيك توك دائرتان بجانب زرّ الواتساب — أيقونتان بلا نصّ لأن
-   الشكل يُعرف من بُعد، والاسم في aria-label لقارئ الشاشة. وحدٌّ خفيف
-   يفصلهما عن زرّ الواتساب فلا يُقرأ الثلاثة زرًّا واحدًا. */
-.fc-social{display:flex;align-items:center;gap:8px;padding-inline-start:12px;
-  margin-inline-start:4px;border-inline-start:1px solid rgba(229,160,119,.22)}
+/* ── قنوات التواصل في التذييل ─────────────────────────────────────────
+   واتساب وإنستغرام وتيك توك: ثلاث دوائر بهيئةٍ واحدة، لأنها ثلاثة أبواب
+   إلى الشيء نفسه فلا يعلو بابٌ على أخيه. أيقوناتٌ بلا نصّ — الشكل يُعرف
+   من بُعد — والاسم في aria-label وtitle لمن لا يعرفه أو لا يبصره. */
+.fc-social{display:flex;align-items:center;gap:8px}
 .fc-social a{width:44px;height:44px;border-radius:50%;display:inline-flex;
   align-items:center;justify-content:center;color:var(--on-dark-soft);
   border:1px solid rgba(229,160,119,.30);background:rgba(255,255,255,.04);
   transition:color .15s,background .15s,border-color .15s}
 .fc-social a:hover{color:#fff;background:rgba(229,160,119,.16);border-color:rgba(229,160,119,.55)}
 .fc-social svg{width:20px;height:20px}
-@media(max-width:620px){
-  .fc-social{padding-inline-start:8px;margin-inline-start:0}
-}
 
 /* ── ترويسة الجوال: نداءٌ أقصر كي تتّسع ────────────────────────────────
    الشعار وشارة المنتج ونداء التجربة وزرّ القائمة على سطرٍ واحد عرضه ٣٣٥ن
