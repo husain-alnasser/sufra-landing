@@ -190,11 +190,6 @@ history.replaceState(null,'',location.pathname+location.search+(_r?'#'+_r:''));}
 
 /* ── القيمة: ست بطاقات، والسادسة قادمة ───────────────────────────────── */
 .grp.pk-grp{grid-template-columns:repeat(3,1fr)}
-.g.soon{background:#f5efe4;border-style:dashed;position:relative}
-.g.soon .ic{background:#eae0d0;color:#7d6a58}
-.badge-soon{position:absolute;top:18px;inset-inline-end:18px;background:#eae0d0;color:#5f5041;
-  font-family:'Cairo';font-weight:700;font-size:11.5px;letter-spacing:.5px;padding:5px 11px;border-radius:100px}
-.g.soon h3{padding-inline-end:64px}
 
 /* ── الاستجابة ───────────────────────────────────────────────────────── */
 @media(max-width:960px){
@@ -212,8 +207,6 @@ history.replaceState(null,'',location.pathname+location.search+(_r?'#'+_r:''));}
   .grp.pk-grp{grid-template-columns:1fr}
   .bd-row{grid-template-columns:auto 1fr;row-gap:10px}
   .bd-row .a{grid-column:1 / -1;justify-content:center}
-  .g.soon h3{padding-inline-end:0}
-  .badge-soon{position:static;display:inline-block;margin-bottom:10px}
 }
 </style>
 </head>
@@ -525,11 +518,10 @@ history.replaceState(null,'',location.pathname+location.search+(_r?'#'+_r:''));}
         <h3>بديل بسيط لأجهزة النداء</h3>
         <p>جوّال العميل هو جهاز النداء — بلا أجهزة تُشترى وتُشحن وتُنسى على الطاولات وتضيع.</p>
       </div>
-      <div class="g soon reveal">
-        <span class="badge-soon">قريبًا</span>
+      <div class="g reveal">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M4 19h16M6 16V9M11 16V5M16 16v-6" stroke-linecap="round"/></svg></div>
-        <h3>متابعة أوقات الاستلام</h3>
-        <p>كم انتظر العميل، ومتى جهز الطلب، ومتى استُلم — أرقام لتحسين التجهيز وقت الذروة. قيد التطوير ولم تُطلق بعد.</p>
+        <h3>تحليلات أوقات التحضير والاستلام</h3>
+        <p>كم استغرق التجهيز، وكم انتظر العميل بعد الجاهزية، ومتى الذروة — لكل فرع، ومقارنةً بالمدة السابقة، في لوحة المدير.</p>
       </div>
     </div>
 
