@@ -362,3 +362,11 @@ footer{background:var(--oud);color:var(--on-dark-soft);padding:44px 0 26px}
   .brand-tag{font-size:11.5px;padding:5px 9px}
   header .nav-cta .btn-gold{padding:12px 15px;font-size:14px}
 }
+
+/* ── مزايا الباقة حين يصحبُ كلَّ ميزةٍ شرحُها ──────────────────────────
+   سطرٌ عريضٌ يسمّي الميزة وسطرٌ خافتٌ يقول ماذا تعني — والفجوة تتّسع
+   لأن العنصر صار سطرين لا سطرًا. */
+.plan-list.detailed{gap:15px}
+.plan-list.detailed b{display:block;font-weight:700}
+.plan-list.detailed small{display:block;margin-top:3px;font-size:13.5px;
+  font-weight:400;color:var(--muted);line-height:1.7}
