@@ -2,7 +2,7 @@
    السلوك المشترك بين صفحات سُفرة التسويقية — الرئيسية (/) والاستلام (/pickup)
    ══════════════════════════════════════════════════════════════════════
 
-   واتساب والهاتف، وقائمة الجوال، وقائمة «حلول سُفرة»، ومفتاح مدّة
+   روابط الواتساب، وقائمة الجوال، وقائمة «حلول سُفرة»، ومفتاح مدّة
    الاشتراك، والأسئلة الإضافية، والظهور التدريجي، وقياس الحملات.
    وما يخصّ صفحةً بعينها (عارض شاشات المطاعم، نموذج الاستلام المتحرّك)
    يبقى في <script> داخل صفحته.
@@ -13,14 +13,11 @@
 var WHATSAPP_NUMBER = "966557884367";   // ← رقم واتساب دولي بدون + أو أصفار
 (function(){var y=document.getElementById('yr');if(y)y.textContent=new Date().getFullYear();})();
 
-/* واتساب والهاتف — رقمٌ واحد يُشتقّ منه المعروض والمتّصل به، فلا يفترقان. */
+/* روابط الواتساب — رقمٌ واحد في مكانٍ واحد يملأ كل زرّ يحمل الصنف. */
 (function(){
   var txt=(document.body&&document.body.getAttribute('data-wa-text'))||"السلام عليكم، مهتم بخدمة سُفرة.";
   var base="https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(txt);
   document.querySelectorAll('.wa-link').forEach(function(a){a.href=base;});
-  var el=document.getElementById('phoneLink');
-  if(el){var n=WHATSAPP_NUMBER;el.href='tel:+'+n;
-    el.textContent='+'+n.slice(0,3)+' '+n.slice(3,5)+' '+n.slice(5,8)+' '+n.slice(8);}
 })();
 
 /* قائمة الجوال */
