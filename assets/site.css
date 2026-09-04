@@ -1,0 +1,351 @@
+/* ══════════════════════════════════════════════════════════════════════
+   الأنماط المشتركة بين صفحات سُفرة التسويقية — الرئيسية (/) والاستلام (/pickup)
+   ══════════════════════════════════════════════════════════════════════
+
+   ما هنا يظهر في الصفحتين معًا: الرموز، والطباعة، والأزرار، والترويسة
+   بقائمة «حلول سُفرة»، والتسعير، والأسئلة، والدعوة الختامية، والتذييل.
+   وما يخصّ صفحةً بعينها (هيرو المطاعم، عارض الشاشات، نماذج الاستلام…)
+   يبقى في <style> داخل صفحته. فتعديل الترويسة أو التذييل مرّةً هنا يصل
+   الصفحتين — وهذا سبب الفصل.
+*/
+
+:root{
+  --paper:#f8f4ec; --paper-2:#efe8db; --oud:#2a2420; --oud-2:#3a322b;
+  --amber:#a8471f; --amber-lt:#cf7c50; --brass:#a8471f;
+  --ink:#2a2420; --muted:#665648; --pist:#2f6b49; --card:#fdfbf7; --line:#e0d5c2;
+  --on-dark:#efe8db; --on-dark-soft:#cfc2b0; --amber-on-dark:#e5a077; --soft-dark:#b3a08b;
+  --shadow:0 18px 46px rgba(42,36,32,.13); --shadow-sm:0 8px 22px rgba(42,36,32,.07);
+  --maxw:1120px; --r:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'IBM Plex Sans Arabic',system-ui,sans-serif;background:var(--paper);color:var(--ink);
+  line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4,.disp{font-family:'Cairo',sans-serif;line-height:1.3;letter-spacing:-.2px}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+img{max-width:100%}
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:20px}
+
+
+/* ── التركيز ────────────────────────────────────────────────────────
+   لم يكن في الصفحة أيّ نمط تركيز؛ من يتنقّل بلوحة المفاتيح كان يتوه. */
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:6px}
+.on-oud :focus-visible{outline-color:var(--amber-on-dark)}
+
+.skip{position:absolute;inset-inline-start:-9999px;top:0;z-index:200;background:var(--card);
+  color:var(--ink);padding:12px 18px;border-radius:0 0 12px 0;font-weight:600}
+.skip:focus{inset-inline-start:0}
+
+.eyebrow{font-family:'Cairo';font-weight:600;font-size:12.5px;letter-spacing:2px;
+  color:var(--brass);display:inline-block;margin-bottom:14px}
+.on-oud .eyebrow{color:var(--amber-on-dark)}
+
+.sec{padding:clamp(52px,7vw,88px) 0;position:relative;scroll-margin-top:80px}
+.sec-head{max-width:660px;margin-bottom:clamp(28px,4vw,44px)}
+.sec-head.center{margin-inline:auto;text-align:center}
+h2.title{font-size:clamp(25px,4vw,38px);font-weight:700;margin-bottom:12px}
+.sub{font-size:clamp(15px,1.8vw,17px);color:var(--muted);line-height:1.85}
+.on-oud{background:var(--oud);color:var(--on-dark)}
+.on-oud .title{color:#fff}
+.on-oud .sub{color:var(--on-dark-soft)}
+
+
+/* ── الأزرار ───────────────────────────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-family:'IBM Plex Sans Arabic';font-weight:600;font-size:15.5px;
+  padding:14px 24px;border-radius:12px;cursor:pointer;border:0;min-height:48px;
+  transition:transform .16s,box-shadow .16s,background .16s;white-space:nowrap;text-align:center}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:linear-gradient(135deg,var(--amber-lt),var(--amber));color:#fff;
+  box-shadow:0 10px 24px rgba(168,71,31,.30)}
+.btn-gold:hover{box-shadow:0 14px 30px rgba(168,71,31,.40)}
+.btn-line{background:transparent;border:1.6px solid var(--line);color:var(--ink)}
+.btn-line:hover{background:#f2ebdd}
+.on-oud .btn-line{border-color:rgba(229,160,119,.45);color:var(--on-dark)}
+.on-oud .btn-line:hover{background:rgba(229,160,119,.12)}
+.btn-wa{background:#1a7f48;color:#fff}
+.btn svg{width:19px;height:19px;flex:0 0 auto}
+.link-u{color:var(--brass);font-weight:600;text-decoration:underline;text-underline-offset:3px;
+  display:inline-flex;align-items:center;padding:8px 4px;min-height:44px}
+
+
+/* ── الترويسة ──────────────────────────────────────────────────────── */
+header{position:sticky;top:0;z-index:60;background:rgba(248,244,236,.92);
+  backdrop-filter:saturate(150%) blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;min-height:44px}
+.brandname{font-family:'Cairo';font-weight:900;font-size:25px;line-height:1}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-links a{font-weight:500;font-size:14.5px;color:var(--muted);transition:color .15s,background .15s;
+  white-space:nowrap;padding:11px 10px;min-height:44px;display:inline-flex;align-items:center;border-radius:9px}
+.nav-links a:hover{color:var(--brass);background:#f2ebdd}
+.nav-cta{display:flex;align-items:center;gap:8px}
+.nav-cta .btn{padding:10px 17px;min-height:44px;font-size:14.5px}
+.nav-login{font-size:14px;color:var(--muted);padding:11px 10px;min-height:44px;
+  display:inline-flex;align-items:center;white-space:nowrap;border-radius:9px;transition:color .15s,background .15s}
+.nav-login:hover{color:var(--brass);background:#f2ebdd}
+.nav-links .nav-login{display:none}
+.menu-btn{display:none;align-items:center;justify-content:center;width:46px;height:46px;
+  border-radius:12px;border:1.6px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.menu-btn svg{width:22px;height:22px}
+
+/* القائمة تنتقل عند ٩٠٠ لا ٦٤٠: بين ٦٤١ و٨٥٩ كانت الروابط تلتفّ سطرين
+   فتتكسّر «كيف تعمل» و«دخول المطاعم» نصفين. */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .nav-cta > .nav-login{display:none}
+  .menu-btn{display:inline-flex}
+  header.menu-open .nav-links{display:flex;position:absolute;inset-inline:0;top:70px;
+    flex-direction:column;align-items:stretch;gap:2px;padding:10px 20px 16px;
+    background:rgba(248,244,236,.98);backdrop-filter:saturate(150%) blur(12px);
+    border-bottom:1px solid var(--line);box-shadow:var(--shadow-sm)}
+  header.menu-open .nav-links a{padding:14px 6px;font-size:16px;color:var(--ink);min-height:52px}
+  header.menu-open .nav-links .nav-login{display:inline-flex;padding:14px 6px;font-size:16px;min-height:52px}
+}
+
+
+/* ── صفوف الأزرار وسطر الثقة (الهيرو والدعوة الختامية) ─────────────── */
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:26px}
+.trust-line{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:20px;font-size:14px;color:var(--muted)}
+.trust-line span{display:inline-flex;align-items:center;gap:7px}
+.trust-line svg{width:16px;height:16px;color:var(--pist);flex:0 0 auto}
+
+/* ── الأسعار ───────────────────────────────────────────────────────── */
+.billing{display:flex;justify-content:center;margin:0 auto 26px;background:var(--card);
+  border:1px solid var(--line);border-radius:100px;padding:5px;width:fit-content;box-shadow:var(--shadow-sm)}
+.billing button{font-family:'IBM Plex Sans Arabic';font-weight:600;font-size:14.5px;border:0;
+  background:transparent;color:var(--muted);padding:10px 20px;border-radius:100px;cursor:pointer;
+  transition:background .18s,color .18s;min-height:44px}
+.billing button.on{background:linear-gradient(135deg,var(--amber-lt),var(--amber));color:#fff;
+  box-shadow:0 6px 16px rgba(168,71,31,.26)}
+.billing .save{font-size:12px;opacity:.92}
+/* بطاقتان منذ «سُفرة استلام»: شبكةٌ تتوسّط واحدةً وتصفّ اثنتين وتنزل عمودًا على الضيّق. */
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),480px));
+  gap:22px;justify-content:center;align-items:stretch}
+.plan{background:var(--card);border:1.6px solid var(--amber);border-radius:22px;padding:30px 26px;
+  box-shadow:0 18px 46px rgba(168,71,31,.16);max-width:480px;margin-inline:auto;width:100%;
+  display:flex;flex-direction:column;text-align:center}
+.plan-name{font-family:'Cairo';font-weight:900;font-size:22px;margin-bottom:6px}
+.plan-tag{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:14px}
+.plan-sep{border:0;border-top:1px solid var(--line);margin:0 0 16px}
+.plan-price{display:flex;align-items:center;justify-content:center;gap:11px;margin-bottom:5px}
+.plan-price .amt{font-family:'Cairo';font-weight:900;font-size:clamp(38px,5vw,50px);color:var(--amber);line-height:1}
+.plan-price .unit{display:flex;flex-direction:column;align-items:flex-start;line-height:1.45}
+.plan-price .cur{font-family:'Cairo';font-weight:700;font-size:15.5px}
+.plan-price .per{font-size:13px;color:var(--muted)}
+.plan-note{font-size:13.5px;color:var(--muted);font-weight:600;margin-bottom:16px;min-height:22px}
+.plan-incl{font-family:'Cairo';font-weight:700;font-size:15px;text-align:start;margin-bottom:12px}
+.plan-list{list-style:none;display:grid;gap:11px;margin-bottom:22px;text-align:start}
+.plan-list li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;font-weight:500;line-height:1.7}
+.plan-list li svg{width:20px;height:20px;flex:0 0 auto;margin-top:3px;color:#fff;background:var(--pist);border-radius:50%;padding:4px}
+.plan-cta{display:flex;flex-direction:column;gap:9px;margin-top:auto}
+.pricing-foot{text-align:center;font-size:13px;color:var(--muted);margin-top:18px;line-height:1.8}
+.note-fine{display:inline-block;margin-top:6px;font-size:12.5px;color:var(--muted);opacity:.95}
+
+/* -- Accepted cards -------------------------------------------------
+   يشترطها مزوّد الدفع، ويطمئنّ لها من يوشك أن يُدخل بطاقته. */
+.cards{display:flex;justify-content:center;align-items:center;gap:10px;
+  flex-wrap:wrap;margin-top:16px}
+.card-chip{display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  height:36px;padding:0 13px;background:var(--card);border:1px solid var(--line);
+  border-radius:9px;box-shadow:var(--shadow-sm)}
+.link-fine{color:var(--brass);font-weight:600;text-decoration:underline;
+  text-underline-offset:3px;white-space:nowrap}
+.card-chip b{font-family:'Cairo';font-weight:700;font-size:13px;
+  letter-spacing:.6px;color:var(--ink)}
+.branches{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;
+  margin-top:20px;text-align:center;font-size:14.5px;color:var(--muted)}
+
+/* ── الأسئلة ───────────────────────────────────────────────────────── */
+.faqs{max-width:800px;margin-inline:auto;display:grid;gap:11px}
+#faqExtra{display:grid;gap:11px;margin-top:11px}
+#faqExtra[hidden]{display:none}
+details.q{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;box-shadow:var(--shadow-sm)}
+details.q summary{list-style:none;cursor:pointer;padding:16px 20px;display:flex;align-items:center;
+  justify-content:space-between;gap:14px;font-family:'Cairo';font-weight:600;font-size:16.5px;min-height:56px}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary .qi{width:28px;height:28px;border-radius:9px;background:#f3ede1;color:var(--brass);
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .25s}
+details.q summary .qi svg{width:16px;height:16px}
+details.q[open] summary .qi{transform:rotate(135deg)}
+details.q .a{padding:0 20px 19px;font-size:15px;color:var(--muted);line-height:1.9}
+.faq-more{display:flex;justify-content:center;margin-top:20px}
+
+
+/* ── الدعوة الختامية ───────────────────────────────────────────────── */
+.final{border-radius:24px;padding:clamp(30px,4.5vw,52px);text-align:center}
+.final h2{font-size:clamp(24px,3.4vw,34px);font-weight:700;color:#fff;margin-bottom:12px}
+.final p{font-size:16px;color:var(--on-dark-soft);max-width:46em;margin:0 auto 24px;line-height:1.85}
+.final .cta-row{justify-content:center;margin-top:0}
+.final small{display:block;margin-top:16px;font-size:13px;color:var(--soft-dark)}
+
+/* ── التذييل ───────────────────────────────────────────────────────── */
+footer{background:var(--oud);color:var(--on-dark-soft);padding:44px 0 26px}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center;
+  padding-bottom:20px;border-bottom:1px solid rgba(229,160,119,.16)}
+.foot-brand{display:flex;align-items:center;gap:12px}
+.foot-brand .bn{font-family:'Cairo';font-weight:900;font-size:22px;color:#fff}
+.foot-brand p{font-size:13px;color:var(--on-dark-soft);margin-top:2px}
+.foot-links{display:flex;gap:4px;flex-wrap:wrap}
+.foot-links a{font-size:14.5px;color:var(--on-dark-soft);padding:11px 10px;min-height:44px;
+  display:inline-flex;align-items:center;border-radius:9px;transition:color .15s}
+.foot-links a:hover{color:var(--amber-on-dark)}
+.foot-contact{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;
+  margin-top:18px;padding-top:18px;border-top:1px solid rgba(229,160,119,.16)}
+.fc-title{font-family:'Cairo';font-weight:700;font-size:16.5px;color:var(--on-dark)}
+.fc-sub{font-size:14px;color:var(--on-dark-soft);margin-top:3px}
+.fc-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.fc-num{font-family:'Cairo';font-weight:700;font-size:16.5px;color:var(--amber-on-dark);
+  white-space:nowrap;padding:11px 4px;min-height:44px;display:inline-flex;align-items:center}
+.fc-num:hover{text-decoration:underline}
+.foot-legal{display:flex;justify-content:center;flex-wrap:wrap;gap:2px 6px;
+  margin-top:20px;padding-top:18px;border-top:1px solid rgba(229,160,119,.16)}
+.foot-legal a{font-size:13.5px;color:var(--on-dark-soft);padding:9px 10px;
+  min-height:40px;display:inline-flex;align-items:center;border-radius:9px;
+  transition:color .15s}
+.foot-legal a:hover{color:var(--amber-on-dark)}
+.copy{text-align:center;font-size:12.5px;color:var(--soft-dark);padding-top:16px;line-height:1.9}
+.copy .ent{display:block;opacity:.85}
+
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ── الاستجابة المشتركة ────────────────────────────────────────────── */
+@media(max-width:620px){
+  .cta-row .btn{flex:1 1 100%}
+  .foot-top{flex-direction:column;align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none;transition:none}
+  .btn:hover{transform:none}
+}
+
+/* ── شارة المنتج بجانب الشعار ──────────────────────────────────────────
+   علامةٌ واحدة «سُفرة»، وتحتها حلّان. الشارة تقول أيّهما تقرأ الآن —
+   «للمطاعم» أو «استلام» — فلا يضيع الزائر حين ينتقل بينهما. */
+.brand-tag{font-family:'Cairo';font-weight:700;font-size:12px;line-height:1;color:var(--brass);
+  background:#f3ede1;border:1px solid var(--line);padding:6px 10px;border-radius:100px;
+  white-space:nowrap;align-self:center;margin-top:2px}
+
+/* ── قائمة «حلول سُفرة» ───────────────────────────────────────────────
+   عنصر واحد في الترويسة يفتح بندين، لكل بند سطرٌ يقول لمن هو. وعلى الجوال
+   لا زرّ ولا انسدال: عنوانٌ صغير والبندان ظاهران داخل قائمة الجوال. */
+.sol{position:relative;display:flex;align-items:center}
+.sol-btn{font-family:'IBM Plex Sans Arabic';font-weight:500;font-size:14.5px;color:var(--muted);
+  background:transparent;border:0;cursor:pointer;padding:11px 10px;min-height:44px;border-radius:9px;
+  display:inline-flex;align-items:center;gap:5px;white-space:nowrap;transition:color .15s,background .15s}
+.sol-btn svg{width:15px;height:15px;transition:transform .2s}
+.sol-btn:hover,.sol.open .sol-btn{color:var(--brass);background:#f2ebdd}
+.sol.open .sol-btn svg{transform:rotate(180deg)}
+.sol-head{display:none}
+.sol-menu{display:none;position:absolute;top:calc(100% + 8px);inset-inline-start:0;z-index:70;
+  min-width:340px;background:var(--card);border:1px solid var(--line);border-radius:18px;
+  box-shadow:var(--shadow);padding:8px;gap:2px}
+.sol.open .sol-menu{display:grid}
+.nav-links .sol-item{display:flex;align-items:flex-start;gap:12px;padding:12px 12px;border-radius:12px;
+  white-space:normal;color:var(--ink);font-weight:500;min-height:0;line-height:1.5}
+.nav-links .sol-item:hover{background:#f2ebdd;color:var(--ink)}
+.sol-item .sol-ic{width:38px;height:38px;border-radius:11px;background:#f3ede1;color:var(--brass);
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:2px}
+.sol-item .sol-ic svg{width:20px;height:20px}
+.sol-item .sol-txt{display:flex;flex-direction:column;gap:2px;flex:1 1 auto}
+.sol-item b{font-family:'Cairo';font-weight:700;font-size:15.5px;color:var(--ink);display:flex;align-items:center;gap:8px}
+.sol-item small{font-size:13px;color:var(--muted);line-height:1.6}
+.sol-item .sol-now{font-family:'Cairo';font-weight:700;font-size:11px;color:var(--pist);
+  background:#e8f1eb;padding:3px 8px;border-radius:100px;white-space:nowrap}
+.sol-item[aria-current="page"] .sol-ic{background:linear-gradient(140deg,var(--amber-lt),var(--amber));color:#fff}
+
+@media(max-width:900px){
+  .sol{flex-direction:column;align-items:stretch;margin-top:6px;padding-top:10px;border-top:1px solid var(--line)}
+  .sol-btn{display:none}
+  .sol-head{display:block;font-family:'Cairo';font-weight:600;font-size:12.5px;letter-spacing:1.5px;
+    color:var(--brass);padding:4px 6px 6px}
+  .sol-menu{display:grid;position:static;min-width:0;background:transparent;border:0;
+    box-shadow:none;padding:0;gap:2px}
+  header.menu-open .nav-links .sol-item{padding:10px 6px;min-height:0;font-size:15px}
+  .sol + .nav-login{margin-top:6px;border-top:1px solid var(--line);padding-top:16px!important}
+}
+
+/* ── البيع المتقاطع بين الحلّين ───────────────────────────────────────
+   شريط هادئ قبل التذييل: يقول إن الحلّ الآخر موجود، بزرّ خطّي لا يزاحم
+   الدعوة الرئيسية للصفحة. */
+.xsell{padding:0 0 clamp(44px,6vw,72px)}
+.xsell-box{display:flex;align-items:center;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;
+  background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px}
+.xsell-box .xs-txt{flex:1 1 380px;display:flex;gap:14px;align-items:flex-start}
+.xsell-box .xs-ic{width:42px;height:42px;border-radius:12px;background:var(--card);border:1px solid var(--line);
+  color:var(--brass);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.xsell-box .xs-ic svg{width:21px;height:21px}
+.xsell-box h3{font-size:17.5px;font-weight:700;margin-bottom:3px}
+.xsell-box p{font-size:14.5px;color:var(--muted);line-height:1.75;max-width:46em}
+.xsell-box .btn{padding:11px 18px;min-height:44px;font-size:14.5px;flex:0 0 auto}
+@media(max-width:620px){.xsell-box .btn{flex:1 1 100%}}
+
+/* روابط الحلّين في التذييل — مفصولة بصريًا عن روابط أقسام الصفحة */
+.foot-links .fl-sep{width:1px;height:18px;background:rgba(229,160,119,.25);align-self:center;margin-inline:6px}
+@media(max-width:620px){.foot-links .fl-sep{display:none}}
+
+/* ── الهيرو (القاعدة المشتركة؛ لقطات المطاعم ونماذج الاستلام في صفحتيهما) ── */
+.hero{position:relative;overflow:hidden;padding:clamp(34px,5vw,60px) 0 clamp(44px,6vw,74px)}
+.hero-bg{position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(70% 55% at 78% 0%,rgba(207,124,80,.26),transparent 62%),
+  radial-gradient(50% 45% at 8% 88%,rgba(168,71,31,.09),transparent 60%),var(--paper)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(26px,4vw,52px);align-items:center}
+.hero h1{font-size:clamp(30px,4.9vw,52px);font-weight:700;letter-spacing:-1px;line-height:1.24;margin-bottom:18px}
+.hero h1 .hl{color:var(--brass)}
+.hero .lead{font-size:clamp(16px,1.9vw,18.5px);color:var(--muted);line-height:1.9;max-width:34em}
+
+/* ── المسار ────────────────────────────────────────────────────────── */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.st{background:rgba(255,255,255,.05);border:1px solid rgba(229,160,119,.20);border-radius:var(--r);
+  padding:22px 20px}
+.st b{font-family:'Cairo';font-weight:700;font-size:14px;color:#fff;background:var(--amber-lt);
+  width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.st h3{font-size:17.5px;font-weight:700;color:#fff;margin-bottom:7px}
+.st p{font-size:14.5px;color:var(--on-dark-soft);line-height:1.8}
+.flow-note{margin-top:26px;text-align:center;font-family:'Cairo';font-weight:700;
+  font-size:clamp(17px,2.3vw,22px);color:var(--amber-on-dark);line-height:1.7}
+
+/* ── ما تنظّمه سُفرة ───────────────────────────────────────────────── */
+.grp{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.g{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:24px 22px;box-shadow:var(--shadow-sm)}
+.g .ic{width:44px;height:44px;border-radius:12px;color:#fff;
+  background:linear-gradient(140deg,var(--amber-lt),var(--amber));
+  display:flex;align-items:center;justify-content:center;margin-bottom:13px}
+.g .ic svg{width:22px;height:22px}
+.g h3{font-size:19px;font-weight:700;margin-bottom:8px}
+.g > p{font-size:15px;color:var(--muted);line-height:1.8}
+.g details{margin-top:12px;border-top:1px solid var(--line);padding-top:6px}
+.g summary{list-style:none;cursor:pointer;font-family:'Cairo';font-weight:600;font-size:14px;
+  color:var(--brass);display:flex;align-items:center;gap:7px;min-height:44px}
+.g summary::-webkit-details-marker{display:none}
+.g summary .chev{width:16px;height:16px;transition:transform .2s}
+.g details[open] summary .chev{transform:rotate(180deg)}
+.g details ul{list-style:none;display:grid;gap:9px;padding-bottom:6px}
+.g details li{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;color:var(--muted);line-height:1.75}
+.g details li>svg{width:16px;height:16px;color:var(--pist);flex:0 0 auto;margin-top:5px}
+
+/* ── المرونة الفعلية ───────────────────────────────────────────────── */
+.tune{margin-top:22px;background:var(--paper-2);border:1px solid var(--line);
+  border-radius:var(--r);padding:24px 22px}
+.tune h3{font-size:18px;font-weight:700;margin-bottom:5px}
+.tune > p{font-size:14.5px;color:var(--muted);margin-bottom:14px}
+.tune ul{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 20px}
+.tune li{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;line-height:1.7}
+.tune li>svg{width:17px;height:17px;color:var(--pist);flex:0 0 auto;margin-top:4px}
+
+
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .grp{grid-template-columns:1fr}
+  .flow{grid-template-columns:repeat(2,1fr)}
+  .tune ul{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .flow{grid-template-columns:1fr}
+}
